@@ -3,7 +3,7 @@
 
 ---
 
-**<h1>CURSO BÁSICO DE LINGUAGEM R</H1>**
+**CURSO BÁSICO DE LINGUAGEM R**
 
 ---
 
@@ -93,9 +93,5 @@ Você poderá também fazer perguntas por meio do GitHub do curso. [Basta abrir 
 
 <h3>Vamos aos trabalhos?!</h3>
 
+[Conceitos básico](./sobreor.md)
 
-
-
-```R
-
-```

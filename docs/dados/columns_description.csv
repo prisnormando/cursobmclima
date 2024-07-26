@@ -1,0 +1,27 @@
+column_index,columns_pt-br,columns_en,abbreviation,description
+0,data,date,date,date (YYYY-MM-DD)
+1,hora,hour,hr,hour (HH:00)
+2,"precipitacao total,horario (mm)",total precipitation (mm),prcp,Amount of precipitation in millimetres (last hour)
+3,pressao atmosferica ao nivel da estacao (mb),atmospheric pressure at station height (mb),stp,Atmospheric pressure at station level (mb)
+4,pressao atmosferica max. na hora ant. (aut) (mb),atmospheric pressure max. in the previous hour (mb),smax,Maximum air pressure for the last hour in hPa to tenths
+5,pressao atmosferica min. na hora ant. (aut) (mb),atmospheric pressure min. in the previous hour (mb),smin,Minimum air pressure for the last hour in hPa to tenths
+6,radiation (kj/m2),radiation (kj/m2),gbrd,Solar radiation KJ/m2
+7,temperatura do ar - bulbo seco (°c),air temperature - dry bulb (°c),temp,Air temperature (instant) in celsius degrees
+8,temperatura do ponto de orvalho (°c),dew point temperature (°c),dewp,Dew point temperature (instant) in celsius degrees
+9,temperatura maxima na hora ant. (aut) (°c),max. temperature in the previous hour (°c),tmax,Maximum temperature for the last hour in celsius degrees
+10,temperatura minima na hora ant. (aut) (°c),min. temperature in the previous hour (°c),tmin,Minimum temperature for the last hour in celsius degrees
+11,temperatura orvalho max. na hora ant. (aut) (°c),dew temperature max. in the previous hour (°c),dmax,Maximum dew point temperature for the last hour in celsius degrees
+12,temperatura orvalho min. na hora ant. (aut) (°c),dew temperature min. in the previous hour (°c),dmin,Minimum dew point temperature for the last hour in celsius degrees
+13,umidade rel. max. na hora ant. (aut) (%),relative humidity max. in the previous hour (%),hmax,Maximum relative humid temperature for the last hour in %
+14,umidade rel. min. na hora ant. (aut) (%),relative humidity min. in the previous hour (%),hmin,Minimum relative humid temperature for the last hour in %
+15,"umidade relativa do ar, horaria (%)",air relative humidity (%),hmdy,Relative humid in % (instant)
+16,vento direcao horaria (gr) (° (gr)),wind direction (° (gr)),wdct,Wind direction in radius degrees (0-360)
+17,vento rajada maxima (m/s),wind rajada maxima (m/s),gust,Wind gust in metres per second
+18,vento velocidade horaria (m/s),wind speed (m/s),wdsp,Wind speed in metres per second
+19,region,region,,Brazilian geopolitical regions
+20,state,state,prov,State (Province)
+21,station,station,wsnm,Name station (usually city location or nickname)
+22,station_code,station_code,inme,Station number (INMET number) for the location
+23,latitude,latitude,lat,Latitude
+24,longitude,longitude,lon,Longitude
+25,height,height,elvt,Elevation
