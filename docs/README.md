@@ -1,17 +1,3 @@
----
-title: "Ebook - Curso Básico de R"
-author: "Priscilla Normando"
-date: "`r Sys.Date()`"
-site: bookdown::bookdown_site
-output: bookdown::gitbook
-documentclass: book
-bibliography: [book.bib, packages.bib]
-biblio-style: apalike
-link-citations: yes
-github-repo: /bmclima/cursoRBasico
-description: "Este é o livro do curso básico de R oferecido pelo projeto BMCllima da Fiocruz Brasília"
----
-
 ------------------------------------------------------------------------
 
 **CURSO BÁSICO DE LINGUAGEM R**
