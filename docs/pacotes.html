@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>17 Pacotes | Ebook - Curso Básico de R</title>
+  <meta name="description" content="Este é o livro do curso básico de R oferecido pelo projeto BMCllima da Fiocruz Brasília" />
+  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="17 Pacotes | Ebook - Curso Básico de R" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Este é o livro do curso básico de R oferecido pelo projeto BMCllima da Fiocruz Brasília" />
+  <meta name="github-repo" content="/bmclima/cursoRBasico" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="17 Pacotes | Ebook - Curso Básico de R" />
+  
+  <meta name="twitter:description" content="Este é o livro do curso básico de R oferecido pelo projeto BMCllima da Fiocruz Brasília" />
+  
+
+<meta name="author" content="Priscilla Normando" />
+
+
+<meta name="date" content="2024-07-29" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="funções.html"/>
+<link rel="next" href="materiais-e-referências-4.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="layout.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><center><a href="./index.html"><img src = "https://github.com/bmclima/scriptsprotocols/blob/assests/logotipo_Clima-Bronquiolite_FIOCRUZ_17.png?raw=true" width = 60%></a></center></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Boas-vindas!</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#o-que-você-vai-aprender"><i class="fa fa-check"></i><b>1.1</b> O que você vai aprender</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#conceitos-fundamentais"><i class="fa fa-check"></i><b>1.1.1</b> Conceitos fundamentais</a></li>
+<li class="chapter" data-level="1.1.2" data-path="index.html"><a href="index.html#seu-espaço-de-trabalho"><i class="fa fa-check"></i><b>1.1.2</b> Seu espaço de trabalho</a></li>
+<li class="chapter" data-level="1.1.3" data-path="index.html"><a href="index.html#fundamentos"><i class="fa fa-check"></i><b>1.1.3</b> Fundamentos</a></li>
+<li class="chapter" data-level="1.1.4" data-path="index.html"><a href="index.html#o-poder-do-r"><i class="fa fa-check"></i><b>1.1.4</b> O poder do R</a></li>
+<li class="chapter" data-level="1.1.5" data-path="index.html"><a href="index.html#construa-seus-próprios-projetos"><i class="fa fa-check"></i><b>1.1.5</b> Construa seus próprios projetos</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#como-você-vai-aprender"><i class="fa fa-check"></i><b>1.2</b> Como você vai aprender</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#materiais-e-referências"><i class="fa fa-check"></i><b>1.3</b> Materiais e referências</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Sobre o R</a></li>
+<li class="chapter" data-level="3" data-path="conceitos-fundamentais-1.html"><a href="conceitos-fundamentais-1.html"><i class="fa fa-check"></i><b>3</b> Conceitos Fundamentais</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="conceitos-fundamentais-1.html"><a href="conceitos-fundamentais-1.html#o-que-é-o-r"><i class="fa fa-check"></i><b>3.1</b> O que é o R?</a></li>
+<li class="chapter" data-level="3.2" data-path="conceitos-fundamentais-1.html"><a href="conceitos-fundamentais-1.html#o-que-podemos-fazer-utilizando-o-r"><i class="fa fa-check"></i><b>3.2</b> O que podemos fazer utilizando o R?</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="conceitos-fundamentais-1.html"><a href="conceitos-fundamentais-1.html#hora-de-começar-a-colocar-a-mão-na-massa"><i class="fa fa-check"></i><b>3.2.1</b> <strong><em>Hora de começar a colocar a mão na massa!</em></strong></a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="conceitos-fundamentais-1.html"><a href="conceitos-fundamentais-1.html#saiba-mais"><i class="fa fa-check"></i><b>3.3</b> Saiba mais!</a></li>
+<li class="chapter" data-level="3.4" data-path="conceitos-fundamentais-1.html"><a href="conceitos-fundamentais-1.html#materiais-e-referências-1"><i class="fa fa-check"></i><b>3.4</b> Materiais e referências</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="instalação-e-configuração.html"><a href="instalação-e-configuração.html"><i class="fa fa-check"></i><b>4</b> Instalação e Configuração</a></li>
+<li class="chapter" data-level="5" data-path="seu-espaço-de-trabalho-1.html"><a href="seu-espaço-de-trabalho-1.html"><i class="fa fa-check"></i><b>5</b> Seu espaço de trabalho</a></li>
+<li class="chapter" data-level="6" data-path="instalando-as-ferramentas.html"><a href="instalando-as-ferramentas.html"><i class="fa fa-check"></i><b>6</b> Instalando as ferramentas</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="instalando-as-ferramentas.html"><a href="instalando-as-ferramentas.html#instalando-o-r"><i class="fa fa-check"></i><b>6.1</b> 1. Instalando o R</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="instalando-as-ferramentas.html"><a href="instalando-as-ferramentas.html#passo-a-passo-no-windows"><i class="fa fa-check"></i><b>6.1.1</b> 1.1. Passo-a-passo no Windows</a></li>
+<li class="chapter" data-level="6.1.2" data-path="instalando-as-ferramentas.html"><a href="instalando-as-ferramentas.html#passo-a-passo-no-linux"><i class="fa fa-check"></i><b>6.1.2</b> 1.2. Passo-a-passo no Linux</a></li>
+<li class="chapter" data-level="6.1.3" data-path="instalando-as-ferramentas.html"><a href="instalando-as-ferramentas.html#passo-a-passo-no-macos"><i class="fa fa-check"></i><b>6.1.3</b> 1.3. Passo-a-passo no MacOS</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="instalando-as-ferramentas.html"><a href="instalando-as-ferramentas.html#instalando-o-rstudio"><i class="fa fa-check"></i><b>6.2</b> 2. Instalando o RStudio</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="instalando-as-ferramentas.html"><a href="instalando-as-ferramentas.html#passo-a-passo-no-windows-1"><i class="fa fa-check"></i><b>6.2.1</b> 2.1. Passo-a-passo no Windows</a></li>
+<li class="chapter" data-level="6.2.2" data-path="instalando-as-ferramentas.html"><a href="instalando-as-ferramentas.html#passo-a-passo-no-linux-1"><i class="fa fa-check"></i><b>6.2.2</b> 2.2. Passo-a-passo no Linux</a></li>
+<li class="chapter" data-level="6.2.3" data-path="instalando-as-ferramentas.html"><a href="instalando-as-ferramentas.html#passo-a-passo-no-macos-1"><i class="fa fa-check"></i><b>6.2.3</b> 2.3. Passo-a-passo no MacOS</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="instalando-as-ferramentas.html"><a href="instalando-as-ferramentas.html#instalando-o-git"><i class="fa fa-check"></i><b>6.3</b> 3. Instalando o Git</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="instalando-as-ferramentas.html"><a href="instalando-as-ferramentas.html#passo-a-passo-no-windows-2"><i class="fa fa-check"></i><b>6.3.1</b> 3.1. Passo-a-passo no Windows</a></li>
+<li class="chapter" data-level="6.3.2" data-path="instalando-as-ferramentas.html"><a href="instalando-as-ferramentas.html#passo-a-passo-no-linux-2"><i class="fa fa-check"></i><b>6.3.2</b> 3.2. Passo-a-passo no Linux</a></li>
+<li class="chapter" data-level="6.3.3" data-path="instalando-as-ferramentas.html"><a href="instalando-as-ferramentas.html#passo-a-passo-no-macos-2"><i class="fa fa-check"></i><b>6.3.3</b> 3.3. Passo-a-passo no MacOS</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="instalando-as-ferramentas.html"><a href="instalando-as-ferramentas.html#criando-uma-conta-no-github"><i class="fa fa-check"></i><b>6.4</b> 4. Criando uma conta no GitHub</a></li>
+<li class="chapter" data-level="6.5" data-path="instalando-as-ferramentas.html"><a href="instalando-as-ferramentas.html#criando-uma-conta-no-google-colab"><i class="fa fa-check"></i><b>6.5</b> 5. Criando uma conta no Google Colab</a></li>
+<li class="chapter" data-level="6.6" data-path="instalando-as-ferramentas.html"><a href="instalando-as-ferramentas.html#instalando-ferramentas-adicionais"><i class="fa fa-check"></i><b>6.6</b> 6. Instalando ferramentas adicionais</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="boas-práticas-de-organização-e-versionamento.html"><a href="boas-práticas-de-organização-e-versionamento.html"><i class="fa fa-check"></i><b>7</b> Boas práticas de organização e versionamento</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="boas-práticas-de-organização-e-versionamento.html"><a href="boas-práticas-de-organização-e-versionamento.html#a-interface-do-rstudio"><i class="fa fa-check"></i><b>7.1</b> A interface do RStudio</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="boas-práticas-de-organização-e-versionamento.html"><a href="boas-práticas-de-organização-e-versionamento.html#algumas-configurações-importantes"><i class="fa fa-check"></i><b>7.1.1</b> Algumas configurações importantes</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="usando-o-r.html"><a href="usando-o-r.html"><i class="fa fa-check"></i><b>8</b> Usando o R</a></li>
+<li class="chapter" data-level="9" data-path="escrevendo-o-seu-primeiro-script.html"><a href="escrevendo-o-seu-primeiro-script.html"><i class="fa fa-check"></i><b>9</b> Escrevendo o seu primeiro script</a></li>
+<li class="chapter" data-level="10" data-path="algumas-dicas-úteis.html"><a href="algumas-dicas-úteis.html"><i class="fa fa-check"></i><b>10</b> Algumas dicas úteis</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="algumas-dicas-úteis.html"><a href="algumas-dicas-úteis.html#atalhos-do-rstudio"><i class="fa fa-check"></i><b>10.1</b> Atalhos do RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="materiais-e-referências-2.html"><a href="materiais-e-referências-2.html"><i class="fa fa-check"></i><b>11</b> Materiais e referências</a></li>
+<li class="chapter" data-level="12" data-path="fundamentos-de-programação.html"><a href="fundamentos-de-programação.html"><i class="fa fa-check"></i><b>12</b> Fundamentos de programação</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="fundamentos-de-programação.html"><a href="fundamentos-de-programação.html#variáveis-e-constantes"><i class="fa fa-check"></i><b>12.1</b> Variáveis e constantes:</a></li>
+<li class="chapter" data-level="12.2" data-path="fundamentos-de-programação.html"><a href="fundamentos-de-programação.html#operadores"><i class="fa fa-check"></i><b>12.2</b> Operadores</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="fundamentos-de-programação.html"><a href="fundamentos-de-programação.html#operadores-aritméticos"><i class="fa fa-check"></i><b>12.2.1</b> Operadores aritméticos</a></li>
+<li class="chapter" data-level="12.2.2" data-path="fundamentos-de-programação.html"><a href="fundamentos-de-programação.html#operadores-relacionais"><i class="fa fa-check"></i><b>12.2.2</b> Operadores relacionais:</a></li>
+<li class="chapter" data-level="12.2.3" data-path="fundamentos-de-programação.html"><a href="fundamentos-de-programação.html#operadores-lógicos"><i class="fa fa-check"></i><b>12.2.3</b> Operadores lógicos</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="fundamentos-de-programação.html"><a href="fundamentos-de-programação.html#tipos-e-estruturas-de-dados"><i class="fa fa-check"></i><b>12.3</b> Tipos e estruturas de dados</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="algumas-dicas-úteis-1.html"><a href="algumas-dicas-úteis-1.html"><i class="fa fa-check"></i><b>13</b> Algumas dicas úteis</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="algumas-dicas-úteis-1.html"><a href="algumas-dicas-úteis-1.html#lista-de-constantes-nativas-do-r"><i class="fa fa-check"></i><b>13.1</b> Lista de Constantes Nativas do R</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="materiais-e-referências-3.html"><a href="materiais-e-referências-3.html"><i class="fa fa-check"></i><b>14</b> Materiais e referências</a></li>
+<li class="chapter" data-level="15" data-path="fundamentos-de-programação-1.html"><a href="fundamentos-de-programação-1.html"><i class="fa fa-check"></i><b>15</b> Fundamentos de programação</a></li>
+<li class="chapter" data-level="16" data-path="funções.html"><a href="funções.html"><i class="fa fa-check"></i><b>16</b> <strong>Funções</strong></a>
+<ul>
+<li class="chapter" data-level="16.0.1" data-path="funções.html"><a href="funções.html#entendendo-melhor-os-objetos-no-r"><i class="fa fa-check"></i><b>16.0.1</b> Entendendo melhor os objetos no R</a></li>
+<li class="chapter" data-level="16.0.2" data-path="funções.html"><a href="funções.html#funções-nativas-ou-embutidas"><i class="fa fa-check"></i><b>16.0.2</b> <strong>Funções nativas ou embutidas</strong></a></li>
+<li class="chapter" data-level="16.0.3" data-path="funções.html"><a href="funções.html#funções-construídas-ou-próprias"><i class="fa fa-check"></i><b>16.0.3</b> <strong>Funções construídas ou próprias</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="pacotes.html"><a href="pacotes.html"><i class="fa fa-check"></i><b>17</b> <strong>Pacotes</strong></a>
+<ul>
+<li class="chapter" data-level="17.0.1" data-path="pacotes.html"><a href="pacotes.html#exercícios"><i class="fa fa-check"></i><b>17.0.1</b> <strong>EXERCÍCIOS</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="materiais-e-referências-4.html"><a href="materiais-e-referências-4.html"><i class="fa fa-check"></i><b>18</b> Materiais e referências</a></li>
+<li class="chapter" data-level="19" data-path="fundamentos-de-programação-2.html"><a href="fundamentos-de-programação-2.html"><i class="fa fa-check"></i><b>19</b> <strong>Fundamentos de programação</strong></a></li>
+<li class="chapter" data-level="20" data-path="funções-e-operadores-no-r---parte-2.html"><a href="funções-e-operadores-no-r---parte-2.html"><i class="fa fa-check"></i><b>20</b> <strong>Funções e operadores no R - parte 2</strong></a>
+<ul>
+<li class="chapter" data-level="20.1" data-path="funções-e-operadores-no-r---parte-2.html"><a href="funções-e-operadores-no-r---parte-2.html#o-operador-pipe"><i class="fa fa-check"></i><b>20.1</b> O operador pipe</a></li>
+<li class="chapter" data-level="20.2" data-path="funções-e-operadores-no-r---parte-2.html"><a href="funções-e-operadores-no-r---parte-2.html#manipulação-de-strings"><i class="fa fa-check"></i><b>20.2</b> Manipulação de strings</a></li>
+</ul></li>
+<li class="chapter" data-level="21" data-path="estruturas-de-decisão.html"><a href="estruturas-de-decisão.html"><i class="fa fa-check"></i><b>21</b> <strong>Estruturas de Decisão</strong></a></li>
+<li class="chapter" data-level="22" data-path="estruturas-de-controle-loop.html"><a href="estruturas-de-controle-loop.html"><i class="fa fa-check"></i><b>22</b> Estruturas de Controle (Loop)</a>
+<ul>
+<li class="chapter" data-level="22.0.1" data-path="estruturas-de-controle-loop.html"><a href="estruturas-de-controle-loop.html#exercícios-1"><i class="fa fa-check"></i><b>22.0.1</b> <strong>EXERCÍCIOS</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="23" data-path="materiais-e-referências-5.html"><a href="materiais-e-referências-5.html"><i class="fa fa-check"></i><b>23</b> Materiais e referências</a></li>
+<li class="chapter" data-level="24" data-path="pipeline-de-dados-e-projeto-final.html"><a href="pipeline-de-dados-e-projeto-final.html"><i class="fa fa-check"></i><b>24</b> <strong>Pipeline de Dados e Projeto Final</strong></a></li>
+<li class="chapter" data-level="25" data-path="pipeline-de-dados.html"><a href="pipeline-de-dados.html"><i class="fa fa-check"></i><b>25</b> <strong>Pipeline de Dados</strong></a></li>
+<li class="chapter" data-level="26" data-path="script-comentado.html"><a href="script-comentado.html"><i class="fa fa-check"></i><b>26</b> <strong>Script comentado</strong></a>
+<ul>
+<li class="chapter" data-level="26.1" data-path="script-comentado.html"><a href="script-comentado.html#coleta-de-dados"><i class="fa fa-check"></i><b>26.1</b> 1. Coleta de Dados</a></li>
+<li class="chapter" data-level="26.2" data-path="script-comentado.html"><a href="script-comentado.html#limpeza-e-transformação-dos-dados"><i class="fa fa-check"></i><b>26.2</b> 2. Limpeza e Transformação dos Dados</a></li>
+<li class="chapter" data-level="26.3" data-path="script-comentado.html"><a href="script-comentado.html#análise-dos-dados"><i class="fa fa-check"></i><b>26.3</b> 3. Análise dos Dados</a></li>
+<li class="chapter" data-level="26.4" data-path="script-comentado.html"><a href="script-comentado.html#visualização-dos-dados"><i class="fa fa-check"></i><b>26.4</b> 4. Visualização dos Dados</a></li>
+<li class="chapter" data-level="26.5" data-path="script-comentado.html"><a href="script-comentado.html#armazenamento-dos-dados-opcional"><i class="fa fa-check"></i><b>26.5</b> 5. Armazenamento dos Dados (Opcional)</a></li>
+<li class="chapter" data-level="26.6" data-path="script-comentado.html"><a href="script-comentado.html#script-completo"><i class="fa fa-check"></i><b>26.6</b> Script completo</a></li>
+</ul></li>
+<li class="chapter" data-level="27" data-path="projeto-final.html"><a href="projeto-final.html"><i class="fa fa-check"></i><b>27</b> <strong>Projeto Final</strong></a></li>
+<li class="chapter" data-level="28" data-path="materiais-e-referências-6.html"><a href="materiais-e-referências-6.html"><i class="fa fa-check"></i><b>28</b> Materiais e referências</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Ebook - Curso Básico de R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="pacotes" class="section level1 hasAnchor" number="17">
+<h1><span class="header-section-number">17</span> <strong>Pacotes</strong><a href="pacotes.html#pacotes" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Um pacote é um conjunto de funções que podem ser instaladas no R com o objetivo de estender suas capacidades.</p>
+<p>Lembra que falamos que toda a base do desenvolvimento da linguagem R está na comunidade. Se as funções são uma mão-na-roda, facilitando nosso trabalho e permitindo que consigamos descrever uma base de dados inteira com 5 ou 6 linhas de código, os pacotes existem para acrescentar funções que o R não traz embutidas.</p>
+<p>Exitem pacotes para resolver praticamente todo tipo de problema estatístico. É difícil listar pacotes úteis sem saber exatamente para qual área estamos trabalhando. Porém, há pacotes que são abrangentes, como o conjunto de pacotes conhecido como <a href="https://www.tidyverse.org/">Tidyverse</a>. Com ele já é possível fazer toda a pipeline de ciência de dados sem necessitarmos de ferramentas adicionais. Mas se você precisa usar dados do Datasus poderá usar o pacote <em>microdatasus</em> e realizar as tarefas de extração (aquisição de dados) por meio dele.</p>
+<p>Para instalar um pacote basta utilizar os seguintes comandos:</p>
+<pre><code>install.package(&quot;[nome_do_pacote]&quot;)</code></pre>
+<p>O R se encarregará de fazer a instalação para você. Depois de instalado é só incluir no seu script a seguinte função:</p>
+<pre><code>library(&quot;[nome_do_pacote]&quot;)</code></pre>
+<p>Sempre que precisar de um pacote específico para realizar seu trabalho, lembre-se de verificar se ele está instalado antes de tentar fazer uma nova instalação ou tentar carregar suas funções. Para isso uso o seguinte comando:</p>
+<pre><code>installed.packages()
+</code></pre>
+<p>Esse comando retornará a lista de pacotes instalados no seu sistema.</p>
+<p>Caso você necessite atualizar os pacotes já instalados, basta utilizar o comando update.packages(checkBuilt=TRUE, ask=FALSE).</p>
+<p><em>OBS:</em> Se você estiver usando o RStudio poderá utilizar o gerenciador disponível no canto inferior direito da tela. Nele é possível instalar e carregar pacotes utilizando uma interface gráfica.</p>
+<div id="exercícios" class="section level3 hasAnchor" number="17.0.1">
+<h3><span class="header-section-number">17.0.1</span> <strong>EXERCÍCIOS</strong><a href="pacotes.html#exercícios" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong><em>1.</em></strong></p>
+<p>Objetivo:</p>
+<p>Este exercício visa familiarizar os alunos com as funções embutidas do R para manipulação e análise de dados numéricos, além de introduzir conceitos básicos de estatística descritiva. Ao praticar com dados reais, os alunos poderão aplicar seus conhecimentos de forma prática e relevante.</p>
+<p>Cenário:</p>
+<p>Você é um professor que precisa analisar as notas de seus alunos em uma prova. As notas estão armazenadas em um vetor chamado notas. Utilize as funções embutidas do R para realizar as seguintes tarefas:</p>
+<pre><code>Organização:
+    Ordene as notas em ordem crescente.
+    Inverta a ordem das notas, mostrando-as da maior para a menor.
+
+Estatísticas Descritivas:
+    Calcule a média das notas.
+    Encontre a mediana das notas.
+    Determine a nota mais alta e a nota mais baixa.
+    Calcule o desvio padrão das notas.
+
+Frequência:
+    Crie uma tabela de frequências para mostrar quantas vezes cada nota aparece.</code></pre>
+<p>Dados:
+Fragmento do código</p>
+<p>notas &lt;- c(8.5, 7.0, 9.2, 6.8, 8.0, 7.5, 9.0, 5.5, 8.8, 7.2)</p>
+<p>Use o código com cuidado.</p>
+<p>Dicas:</p>
+<pre><code>Use as funções sort(), rev(), mean(), median(), min(), max(), sd() e table().
+Explore a função summary() para obter um resumo estatístico completo das notas.</code></pre>
+<p>Desafio Extra:</p>
+<pre><code>Crie um novo vetor chamado notas_arredondadas que contenha as notas arredondadas para uma casa decimal.
+Calcule a média das notas arredondadas e compare com a média das notas originais.</code></pre>
+<p><strong><em>2.</em></strong></p>
+<p>Neste exercício, você irá utilizar algumas das funções embutidas do R para realizar uma análise básica de um conjunto de dados.
+Dados</p>
+<p>Vamos utilizar o conjunto de dados mtcars, que está disponível no R por padrão. Esse conjunto de dados contém informações sobre 32 modelos de carros, incluindo características como consumo de combustível, número de cilindros, potência do motor, entre outras.
+Tarefas</p>
+<pre><code>Carregar o conjunto de dados:
+    Utilize a função data() para carregar o conjunto de dados mtcars em seu ambiente de trabalho.
+
+Explorar a estrutura dos dados:
+    Utilize a função str() para exibir a estrutura do data frame mtcars.
+    Observe quantas linhas (observações) e colunas (variáveis) o data frame possui.
+
+Obter informações básicas sobre as variáveis:
+    Utilize a função summary() para obter um resumo estatístico das variáveis no data frame.
+    Identifique quais são as variáveis numéricas e quais são as variáveis categóricas.
+
+Calcular estatísticas descritivas:
+    Selecione uma variável numérica, por exemplo, mpg (milhas por galão).
+    Utilize as funções mean(), median(), sd(), min() e max() para calcular a média, mediana, desvio padrão, valor mínimo e valor máximo dessa variável.
+
+Ordenar os dados:
+    Selecione uma variável numérica, por exemplo, hp (potência do motor).
+    Utilize a função sort() para ordenar os valores dessa variável em ordem crescente.
+    Utilize a função rev() para inverter a ordem dos valores.
+
+Criar uma sequência de números:
+    Utilize a função seq() para criar uma sequência de números de 1 a 10, com incrementos de 2.
+    Crie outra sequência de números de 5 a 15, com incrementos de 3.
+
+Repetir elementos:
+    Utilize a função rep() para criar um vetor com o número 7 repetido 4 vezes.
+    Crie outro vetor com a letra &#39;a&#39; repetida 10 vezes.
+
+Converter entre maiúsculas e minúsculas:
+    Selecione uma variável de texto, por exemplo, cyl (número de cilindros).
+    Utilize as funções toupper() e tolower() para converter os valores dessa variável para maiúsculas e minúsculas, respectivamente.</code></pre>
+<p>Após concluir todas as tarefas, você terá praticado o uso de diversas funções embutidas do R, como data(), str(), summary(), mean(), median(), sd(), min(), max(), sort(), rev(), seq(), rep(), toupper() e tolower(). Essas funções são fundamentais para a manipulação e análise básica de dados em R.</p>
+<p>###<strong>EXEMPLO DE SCRIPT PARA O PROJETO FINAL DO CURSO</strong></p>
+<p>Agora que você já exercitou o uso de funções e pacotes no R por meio de exemplos genéricos vamos abordar um pouco o uso dessas mesmas ferramentas para os dados de clima e saúde no Brasil. Trata-se de um script inicial que será aprimorado e desenvolvido ao longo do curso. Por isso, apenas copie e cole o código em seu RStudio ou Google Colab e ir acompanhando as explicações abaixo conforme roda o sript.</p>
+<p>Todo início de script R, costuma seguir a sequência de instalação e chamada da função dos pacotes que serão utilizados.</p>
+<p>Programar fica divertido quando a gente experimenta. Fique à vontade para copiar e fazer as alterações e testes que desejar. Procure por soluções similares nos repositórios, sites e livros indicados nas referências do curso.</p>
+<p><strong><em>Lembre-se</em></strong>, nas primeiras vezes que rodamos um script precisamos fazer a tarefa linha a linha. Especialmente, as instalações e “chamadas” dos pacotes com os quais vamos trabalhar.</p>
+<p>Os dados estão disponíveis neste link -&gt; <a href="https://github.com/bmclima/cursoRBasico/blob/main/docs/dados/" class="uri">https://github.com/bmclima/cursoRBasico/blob/main/docs/dados/</a></p>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="pacotes.html#cb98-1" tabindex="-1"></a><span class="co">#Instala e configura o remotes</span></span>
+<span id="cb98-2"><a href="pacotes.html#cb98-2" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&#39;remotes&#39;</span>)</span>
+<span id="cb98-3"><a href="pacotes.html#cb98-3" tabindex="-1"></a><span class="fu">library</span>(remotes)</span>
+<span id="cb98-4"><a href="pacotes.html#cb98-4" tabindex="-1"></a></span>
+<span id="cb98-5"><a href="pacotes.html#cb98-5" tabindex="-1"></a><span class="co">#Instala os pacotes de leitura de arquivo e ciência de dados</span></span>
+<span id="cb98-6"><a href="pacotes.html#cb98-6" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;rfsaldanha/microdatasus&quot;</span>)</span>
+<span id="cb98-7"><a href="pacotes.html#cb98-7" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&#39;tidyverse&#39;</span>)</span>
+<span id="cb98-8"><a href="pacotes.html#cb98-8" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&#39;readr&#39;</span>)</span>
+<span id="cb98-9"><a href="pacotes.html#cb98-9" tabindex="-1"></a></span>
+<span id="cb98-10"><a href="pacotes.html#cb98-10" tabindex="-1"></a><span class="co">#Chama as bibliotecas</span></span>
+<span id="cb98-11"><a href="pacotes.html#cb98-11" tabindex="-1"></a><span class="fu">library</span>(microdatasus)</span>
+<span id="cb98-12"><a href="pacotes.html#cb98-12" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb98-13"><a href="pacotes.html#cb98-13" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb98-14"><a href="pacotes.html#cb98-14" tabindex="-1"></a></span>
+<span id="cb98-15"><a href="pacotes.html#cb98-15" tabindex="-1"></a><span class="co">#Configura as pastas de trabalho</span></span>
+<span id="cb98-16"><a href="pacotes.html#cb98-16" tabindex="-1"></a><span class="fu">getwd</span>()</span>
+<span id="cb98-17"><a href="pacotes.html#cb98-17" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&#39;[caminho da pasta de trabalho onde desejamos trabalhar]&#39;</span>)</span>
+<span id="cb98-18"><a href="pacotes.html#cb98-18" tabindex="-1"></a></span>
+<span id="cb98-19"><a href="pacotes.html#cb98-19" tabindex="-1"></a><span class="co">#Baixa os arquivos com os dados</span></span>
+<span id="cb98-20"><a href="pacotes.html#cb98-20" tabindex="-1"></a><span class="co">#dados das estações</span></span>
+<span id="cb98-21"><a href="pacotes.html#cb98-21" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">&quot;https://github.com/bmclima/cursoRBasico/blob/main/docs/dados/stations.csv&quot;</span></span>
+<span id="cb98-22"><a href="pacotes.html#cb98-22" tabindex="-1"></a>estacoes <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(url)</span>
+<span id="cb98-23"><a href="pacotes.html#cb98-23" tabindex="-1"></a><span class="co">#dados do SIM</span></span>
+<span id="cb98-24"><a href="pacotes.html#cb98-24" tabindex="-1"></a>sim <span class="ot">&lt;-</span> <span class="fu">fetch_datasus</span>(<span class="at">year_start =</span> <span class="dv">2010</span>,</span>
+<span id="cb98-25"><a href="pacotes.html#cb98-25" tabindex="-1"></a><span class="at">year_end =</span> <span class="dv">2010</span>,</span>
+<span id="cb98-26"><a href="pacotes.html#cb98-26" tabindex="-1"></a><span class="at">uf =</span> <span class="st">&quot;DF&quot;</span>,</span>
+<span id="cb98-27"><a href="pacotes.html#cb98-27" tabindex="-1"></a><span class="at">information_system =</span> <span class="st">&quot;SIM-DO&quot;</span>)</span>
+<span id="cb98-28"><a href="pacotes.html#cb98-28" tabindex="-1"></a></span>
+<span id="cb98-29"><a href="pacotes.html#cb98-29" tabindex="-1"></a><span class="co">#Função do pacote microdatasus para pré-processar os dados coletados</span></span>
+<span id="cb98-30"><a href="pacotes.html#cb98-30" tabindex="-1"></a>sim_df <span class="ot">&lt;-</span> <span class="fu">process_sim</span>(sim)</span>
+<span id="cb98-31"><a href="pacotes.html#cb98-31" tabindex="-1"></a></span>
+<span id="cb98-32"><a href="pacotes.html#cb98-32" tabindex="-1"></a><span class="co">#Lê o cabeçalho dos bancos de dados</span></span>
+<span id="cb98-33"><a href="pacotes.html#cb98-33" tabindex="-1"></a><span class="fu">head</span>(estacoes)</span>
+<span id="cb98-34"><a href="pacotes.html#cb98-34" tabindex="-1"></a><span class="fu">head</span>(sim)</span>
+<span id="cb98-35"><a href="pacotes.html#cb98-35" tabindex="-1"></a></span>
+<span id="cb98-36"><a href="pacotes.html#cb98-36" tabindex="-1"></a><span class="co">#Sumariza o conjunto de dados</span></span>
+<span id="cb98-37"><a href="pacotes.html#cb98-37" tabindex="-1"></a><span class="fu">summary</span>(estacoes)</span>
+<span id="cb98-38"><a href="pacotes.html#cb98-38" tabindex="-1"></a><span class="fu">summary</span>(sim_df)</span>
+<span id="cb98-39"><a href="pacotes.html#cb98-39" tabindex="-1"></a></span>
+<span id="cb98-40"><a href="pacotes.html#cb98-40" tabindex="-1"></a><span class="co">#Verifica a estrutura dos dados</span></span>
+<span id="cb98-41"><a href="pacotes.html#cb98-41" tabindex="-1"></a><span class="fu">str</span>(estacoes)</span>
+<span id="cb98-42"><a href="pacotes.html#cb98-42" tabindex="-1"></a><span class="fu">str</span>(sim_df)</span></code></pre></div>
+<div id="explicando-o-código" class="section level4 hasAnchor" number="17.0.1.1">
+<h4><span class="header-section-number">17.0.1.1</span> Explicando o código<a href="pacotes.html#explicando-o-código" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><strong>Comentários</strong></p>
+<p>Comentar o código que estamos escrevendo é uma boa prática, pois permite que lembremos o que estávamos querendo fazer. Acredite daqui a um mês, provavelmente você não vai lembrar o que estava pensando na hora que escreveu seus scripts. Por isso, comente. Seja breve e tente deixar o mais claro possível o que aquele trecho específico faz.</p>
+<p>Você pode fazer comentários no R, usando o caracter cerquilha (#). Basta colocar uma # antes de cada linha que será usada como comentário. Há outras formas de fazer comentários longos que não serão abordadas aqui, mas que estão disponíveis nos materiais do curso no GitHub.</p>
+<p>Então cada linha iniciada com uma # é apenas para indicar o que aquele trecho de código faz.</p>
+<p><strong>Instalação do pacote ‘remotes’</strong></p>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="pacotes.html#cb99-1" tabindex="-1"></a></span>
+<span id="cb99-2"><a href="pacotes.html#cb99-2" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&#39;remotes&#39;</span>)</span>
+<span id="cb99-3"><a href="pacotes.html#cb99-3" tabindex="-1"></a><span class="fu">library</span>(remotes)</span></code></pre></div>
+<p>Esse pacote permite a instalação de pacotes que não estão incluídos no repositório oficial do R. O pacote microdatasus é mantido via GitHub, então para instalá-lo precisamos do remotes. Chamamos ele antes de instalar os outros pacotes porque caso façamos após a tentativa de instalação do microdatasus o script não funcionaria.</p>
+<p><strong>Instalação dos outros pacotes</strong></p>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="pacotes.html#cb100-1" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;rfsaldanha/microdatasus&quot;</span>)</span>
+<span id="cb100-2"><a href="pacotes.html#cb100-2" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&#39;tidyverse&#39;</span>)</span>
+<span id="cb100-3"><a href="pacotes.html#cb100-3" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&#39;readr&#39;</span>)</span></code></pre></div>
+<p>Note qua a primeira linha de código chama o remotes e a função install_github para realizar a intalação do microdatasus. Os outros dois pacotes estão no repositório oficial do R então apenas utilizamos o install.packages().</p>
+<p><strong>Chamada dos pacotes para usar no script</strong></p>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="pacotes.html#cb101-1" tabindex="-1"></a><span class="fu">library</span>(microdatasus)</span>
+<span id="cb101-2"><a href="pacotes.html#cb101-2" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb101-3"><a href="pacotes.html#cb101-3" tabindex="-1"></a><span class="fu">library</span>(readr)</span></code></pre></div>
+<p>Usando a função library() indicamos ao R quais ferramentas não embutidas vammos utilizar em nosso script. Neste caso indicamos o microdatasus, o tidyverse e o readr. Os dois primeiros já explicamos, o terceiro realiza a leitura de datasets em diversos formatos, tais como csv, xlsx, txt.</p>
+<p><strong>Configuração da pasta de trabalho</strong></p>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="pacotes.html#cb102-1" tabindex="-1"></a><span class="fu">getwd</span>()</span>
+<span id="cb102-2"><a href="pacotes.html#cb102-2" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&#39;[caminho da pasta de trabalho onde desejamos trabalhar]&#39;</span>)</span></code></pre></div>
+<p>Quando falamos sobre instalação e configuração do ambiente de trabalho, ressaltamos o quanto organizar nossos arquivos em pastas de projeto é importante. Nessa parte do script verificamos em que pasta estamos trabalhando e apontados (setamos) o nosso script para onde estarão nossos arquivos.</p>
+<p><strong>Baixar os dados</strong></p>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="pacotes.html#cb103-1" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">&quot;https://github.com/bmclima/cursoRBasico/blob/main/docs/dados/stations.csv&quot;</span></span>
+<span id="cb103-2"><a href="pacotes.html#cb103-2" tabindex="-1"></a>estacoes <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(url)</span>
+<span id="cb103-3"><a href="pacotes.html#cb103-3" tabindex="-1"></a><span class="co">#dados do SIM</span></span>
+<span id="cb103-4"><a href="pacotes.html#cb103-4" tabindex="-1"></a>sim <span class="ot">&lt;-</span> <span class="fu">fetch_datasus</span>(<span class="at">year_start =</span> <span class="dv">2010</span>,</span>
+<span id="cb103-5"><a href="pacotes.html#cb103-5" tabindex="-1"></a><span class="at">year_end =</span> <span class="dv">2010</span>,</span>
+<span id="cb103-6"><a href="pacotes.html#cb103-6" tabindex="-1"></a><span class="at">uf =</span> <span class="st">&quot;DF&quot;</span>,</span>
+<span id="cb103-7"><a href="pacotes.html#cb103-7" tabindex="-1"></a><span class="at">information_system =</span> <span class="st">&quot;SIM-DO&quot;</span>)</span></code></pre></div>
+<p>Aqui informamos um link onde o R pode baixar os dados que vamos usar diretamente e depois usamos usamos a variável ‘estacoes’ para armazenar o arquivo. Uma outra opção é ir diretamente até o link, baixar o arquivo manualmente e importar o dataset como dataframe no RStudio.</p>
+<p>Em seguida baixamos os dados do SIM utilizando a função ‘fetch_datasus’ do pacote ‘microdatasus’. Ela possui quatro parâmetros básicos, ano de início dos dados, ano final, uf e o sistema de informação que queremos acessar. Neste caso indicamos que queremos baixar os dados do SIM relativos ao ano de 2010 para o DF. Para maiores detalhes sobre o função você pode consultar a documentação do pacote no seguinte link <a href="https://github.com/rfsaldanha/microdatasus" class="uri">https://github.com/rfsaldanha/microdatasus</a>.</p>
+<p><strong>Pré-processando os dados do SIM</strong></p>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="pacotes.html#cb104-1" tabindex="-1"></a>sim_df <span class="ot">&lt;-</span> <span class="fu">process_sim</span>(sim)</span></code></pre></div>
+<p>Uma vez que baixamos os dados do SIM e guardamos na variável ‘sim’, precisamos realizar o pré-processamento para que possamos trabalhar com eles. O pacote microdatasus possui uma outra função chamada process_sim() que já entrega os dados tabulados e limpos para serem usados.</p>
+<p>Note que atribuímos o processo de baixar os dados a uma variável e depois atribuímos o pré-processamento a outra. Isso é uma boa prática, pois evita que utilizemos um objeto para mais de uma tarefa dentro do script. Essa boa prática é chamada de especialização. Cada objeto serve para um único propósito dentro da nossa área de trabalho.</p>
+<p><strong>Verificando se as bases estão no formato e com as variáveis que queremos</strong></p>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="pacotes.html#cb105-1" tabindex="-1"></a><span class="fu">head</span>(estacoes)</span>
+<span id="cb105-2"><a href="pacotes.html#cb105-2" tabindex="-1"></a><span class="fu">head</span>(sim_df)</span></code></pre></div>
+<p>Utilizamos a função head() para verificar o cabeçalho dos datasets. Por padrão os cinco primeiros registros dos dataframes carregados no ambiente serão mostrados. É momento de você fazer uma verificação e saber se tudo está ok. Se os dados realmente estão lá, se o nome das colunas corresponde com o dicionário de dados, etc. Chamamos esse trabalho de inspeção visual.</p>
+<p><strong>Verificando as dimensões das bases de dados</strong></p>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="pacotes.html#cb106-1" tabindex="-1"></a><span class="fu">summary</span>(estacoes)</span>
+<span id="cb106-2"><a href="pacotes.html#cb106-2" tabindex="-1"></a><span class="fu">summary</span>(sim_df)</span></code></pre></div>
+<p>Após realizar a inspeção visual, vamos resumir os dados do dataframe para saber as dimensões dele. A função summary faz uma descrição estatística básica do seu dataframe.</p>
+<p><strong>Verificando a estrutura dos dados</strong></p>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="pacotes.html#cb107-1" tabindex="-1"></a><span class="fu">str</span>(estacoes)</span>
+<span id="cb107-2"><a href="pacotes.html#cb107-2" tabindex="-1"></a><span class="fu">str</span>(sim_df)</span></code></pre></div>
+<p>Com a função str() verificamos quais os tipos dos dados presentes no dataframe. Se são caracteres, numéricos, datas, etc. Isso é importante para sabermos se precisaremos realizar algum ajuste nos dados antes de rodarmos nossos modelos.</p>
+<p>No caso de nossas dados, veremos que os dados presentes no dataframe ‘estacoes’ estão todos normalizados, mas que no ‘sim_df’ todos os dados foram armazenados como caracteres. Logo, precisaremos realizar ajustes nos dados presentes em ‘sim_df’.</p>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="funções.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="materiais-e-referências-4.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": true,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": true,
+"all": ["github", "weibo", "instapaper", "vk"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/bmclima/cursoRBasico/edit/master/04-funcoesPacotes.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["ebookRbasico.pdf", "ebookRbasico.epub", "ebookRbasico.mobi"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

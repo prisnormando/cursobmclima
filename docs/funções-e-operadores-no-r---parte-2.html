@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>20 Funções e operadores no R - parte 2 | Ebook - Curso Básico de R</title>
+  <meta name="description" content="Este é o livro do curso básico de R oferecido pelo projeto BMCllima da Fiocruz Brasília" />
+  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="20 Funções e operadores no R - parte 2 | Ebook - Curso Básico de R" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Este é o livro do curso básico de R oferecido pelo projeto BMCllima da Fiocruz Brasília" />
+  <meta name="github-repo" content="/bmclima/cursoRBasico" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="20 Funções e operadores no R - parte 2 | Ebook - Curso Básico de R" />
+  
+  <meta name="twitter:description" content="Este é o livro do curso básico de R oferecido pelo projeto BMCllima da Fiocruz Brasília" />
+  
+
+<meta name="author" content="Priscilla Normando" />
+
+
+<meta name="date" content="2024-07-29" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="fundamentos-de-programação-2.html"/>
+<link rel="next" href="estruturas-de-decisão.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="layout.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><center><a href="./index.html"><img src = "https://github.com/bmclima/scriptsprotocols/blob/assests/logotipo_Clima-Bronquiolite_FIOCRUZ_17.png?raw=true" width = 60%></a></center></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Boas-vindas!</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#o-que-você-vai-aprender"><i class="fa fa-check"></i><b>1.1</b> O que você vai aprender</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#conceitos-fundamentais"><i class="fa fa-check"></i><b>1.1.1</b> Conceitos fundamentais</a></li>
+<li class="chapter" data-level="1.1.2" data-path="index.html"><a href="index.html#seu-espaço-de-trabalho"><i class="fa fa-check"></i><b>1.1.2</b> Seu espaço de trabalho</a></li>
+<li class="chapter" data-level="1.1.3" data-path="index.html"><a href="index.html#fundamentos"><i class="fa fa-check"></i><b>1.1.3</b> Fundamentos</a></li>
+<li class="chapter" data-level="1.1.4" data-path="index.html"><a href="index.html#o-poder-do-r"><i class="fa fa-check"></i><b>1.1.4</b> O poder do R</a></li>
+<li class="chapter" data-level="1.1.5" data-path="index.html"><a href="index.html#construa-seus-próprios-projetos"><i class="fa fa-check"></i><b>1.1.5</b> Construa seus próprios projetos</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#como-você-vai-aprender"><i class="fa fa-check"></i><b>1.2</b> Como você vai aprender</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#materiais-e-referências"><i class="fa fa-check"></i><b>1.3</b> Materiais e referências</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Sobre o R</a></li>
+<li class="chapter" data-level="3" data-path="conceitos-fundamentais-1.html"><a href="conceitos-fundamentais-1.html"><i class="fa fa-check"></i><b>3</b> Conceitos Fundamentais</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="conceitos-fundamentais-1.html"><a href="conceitos-fundamentais-1.html#o-que-é-o-r"><i class="fa fa-check"></i><b>3.1</b> O que é o R?</a></li>
+<li class="chapter" data-level="3.2" data-path="conceitos-fundamentais-1.html"><a href="conceitos-fundamentais-1.html#o-que-podemos-fazer-utilizando-o-r"><i class="fa fa-check"></i><b>3.2</b> O que podemos fazer utilizando o R?</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="conceitos-fundamentais-1.html"><a href="conceitos-fundamentais-1.html#hora-de-começar-a-colocar-a-mão-na-massa"><i class="fa fa-check"></i><b>3.2.1</b> <strong><em>Hora de começar a colocar a mão na massa!</em></strong></a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="conceitos-fundamentais-1.html"><a href="conceitos-fundamentais-1.html#saiba-mais"><i class="fa fa-check"></i><b>3.3</b> Saiba mais!</a></li>
+<li class="chapter" data-level="3.4" data-path="conceitos-fundamentais-1.html"><a href="conceitos-fundamentais-1.html#materiais-e-referências-1"><i class="fa fa-check"></i><b>3.4</b> Materiais e referências</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="instalação-e-configuração.html"><a href="instalação-e-configuração.html"><i class="fa fa-check"></i><b>4</b> Instalação e Configuração</a></li>
+<li class="chapter" data-level="5" data-path="seu-espaço-de-trabalho-1.html"><a href="seu-espaço-de-trabalho-1.html"><i class="fa fa-check"></i><b>5</b> Seu espaço de trabalho</a></li>
+<li class="chapter" data-level="6" data-path="instalando-as-ferramentas.html"><a href="instalando-as-ferramentas.html"><i class="fa fa-check"></i><b>6</b> Instalando as ferramentas</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="instalando-as-ferramentas.html"><a href="instalando-as-ferramentas.html#instalando-o-r"><i class="fa fa-check"></i><b>6.1</b> 1. Instalando o R</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="instalando-as-ferramentas.html"><a href="instalando-as-ferramentas.html#passo-a-passo-no-windows"><i class="fa fa-check"></i><b>6.1.1</b> 1.1. Passo-a-passo no Windows</a></li>
+<li class="chapter" data-level="6.1.2" data-path="instalando-as-ferramentas.html"><a href="instalando-as-ferramentas.html#passo-a-passo-no-linux"><i class="fa fa-check"></i><b>6.1.2</b> 1.2. Passo-a-passo no Linux</a></li>
+<li class="chapter" data-level="6.1.3" data-path="instalando-as-ferramentas.html"><a href="instalando-as-ferramentas.html#passo-a-passo-no-macos"><i class="fa fa-check"></i><b>6.1.3</b> 1.3. Passo-a-passo no MacOS</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="instalando-as-ferramentas.html"><a href="instalando-as-ferramentas.html#instalando-o-rstudio"><i class="fa fa-check"></i><b>6.2</b> 2. Instalando o RStudio</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="instalando-as-ferramentas.html"><a href="instalando-as-ferramentas.html#passo-a-passo-no-windows-1"><i class="fa fa-check"></i><b>6.2.1</b> 2.1. Passo-a-passo no Windows</a></li>
+<li class="chapter" data-level="6.2.2" data-path="instalando-as-ferramentas.html"><a href="instalando-as-ferramentas.html#passo-a-passo-no-linux-1"><i class="fa fa-check"></i><b>6.2.2</b> 2.2. Passo-a-passo no Linux</a></li>
+<li class="chapter" data-level="6.2.3" data-path="instalando-as-ferramentas.html"><a href="instalando-as-ferramentas.html#passo-a-passo-no-macos-1"><i class="fa fa-check"></i><b>6.2.3</b> 2.3. Passo-a-passo no MacOS</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="instalando-as-ferramentas.html"><a href="instalando-as-ferramentas.html#instalando-o-git"><i class="fa fa-check"></i><b>6.3</b> 3. Instalando o Git</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="instalando-as-ferramentas.html"><a href="instalando-as-ferramentas.html#passo-a-passo-no-windows-2"><i class="fa fa-check"></i><b>6.3.1</b> 3.1. Passo-a-passo no Windows</a></li>
+<li class="chapter" data-level="6.3.2" data-path="instalando-as-ferramentas.html"><a href="instalando-as-ferramentas.html#passo-a-passo-no-linux-2"><i class="fa fa-check"></i><b>6.3.2</b> 3.2. Passo-a-passo no Linux</a></li>
+<li class="chapter" data-level="6.3.3" data-path="instalando-as-ferramentas.html"><a href="instalando-as-ferramentas.html#passo-a-passo-no-macos-2"><i class="fa fa-check"></i><b>6.3.3</b> 3.3. Passo-a-passo no MacOS</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="instalando-as-ferramentas.html"><a href="instalando-as-ferramentas.html#criando-uma-conta-no-github"><i class="fa fa-check"></i><b>6.4</b> 4. Criando uma conta no GitHub</a></li>
+<li class="chapter" data-level="6.5" data-path="instalando-as-ferramentas.html"><a href="instalando-as-ferramentas.html#criando-uma-conta-no-google-colab"><i class="fa fa-check"></i><b>6.5</b> 5. Criando uma conta no Google Colab</a></li>
+<li class="chapter" data-level="6.6" data-path="instalando-as-ferramentas.html"><a href="instalando-as-ferramentas.html#instalando-ferramentas-adicionais"><i class="fa fa-check"></i><b>6.6</b> 6. Instalando ferramentas adicionais</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="boas-práticas-de-organização-e-versionamento.html"><a href="boas-práticas-de-organização-e-versionamento.html"><i class="fa fa-check"></i><b>7</b> Boas práticas de organização e versionamento</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="boas-práticas-de-organização-e-versionamento.html"><a href="boas-práticas-de-organização-e-versionamento.html#a-interface-do-rstudio"><i class="fa fa-check"></i><b>7.1</b> A interface do RStudio</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="boas-práticas-de-organização-e-versionamento.html"><a href="boas-práticas-de-organização-e-versionamento.html#algumas-configurações-importantes"><i class="fa fa-check"></i><b>7.1.1</b> Algumas configurações importantes</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="usando-o-r.html"><a href="usando-o-r.html"><i class="fa fa-check"></i><b>8</b> Usando o R</a></li>
+<li class="chapter" data-level="9" data-path="escrevendo-o-seu-primeiro-script.html"><a href="escrevendo-o-seu-primeiro-script.html"><i class="fa fa-check"></i><b>9</b> Escrevendo o seu primeiro script</a></li>
+<li class="chapter" data-level="10" data-path="algumas-dicas-úteis.html"><a href="algumas-dicas-úteis.html"><i class="fa fa-check"></i><b>10</b> Algumas dicas úteis</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="algumas-dicas-úteis.html"><a href="algumas-dicas-úteis.html#atalhos-do-rstudio"><i class="fa fa-check"></i><b>10.1</b> Atalhos do RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="materiais-e-referências-2.html"><a href="materiais-e-referências-2.html"><i class="fa fa-check"></i><b>11</b> Materiais e referências</a></li>
+<li class="chapter" data-level="12" data-path="fundamentos-de-programação.html"><a href="fundamentos-de-programação.html"><i class="fa fa-check"></i><b>12</b> Fundamentos de programação</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="fundamentos-de-programação.html"><a href="fundamentos-de-programação.html#variáveis-e-constantes"><i class="fa fa-check"></i><b>12.1</b> Variáveis e constantes:</a></li>
+<li class="chapter" data-level="12.2" data-path="fundamentos-de-programação.html"><a href="fundamentos-de-programação.html#operadores"><i class="fa fa-check"></i><b>12.2</b> Operadores</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="fundamentos-de-programação.html"><a href="fundamentos-de-programação.html#operadores-aritméticos"><i class="fa fa-check"></i><b>12.2.1</b> Operadores aritméticos</a></li>
+<li class="chapter" data-level="12.2.2" data-path="fundamentos-de-programação.html"><a href="fundamentos-de-programação.html#operadores-relacionais"><i class="fa fa-check"></i><b>12.2.2</b> Operadores relacionais:</a></li>
+<li class="chapter" data-level="12.2.3" data-path="fundamentos-de-programação.html"><a href="fundamentos-de-programação.html#operadores-lógicos"><i class="fa fa-check"></i><b>12.2.3</b> Operadores lógicos</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="fundamentos-de-programação.html"><a href="fundamentos-de-programação.html#tipos-e-estruturas-de-dados"><i class="fa fa-check"></i><b>12.3</b> Tipos e estruturas de dados</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="algumas-dicas-úteis-1.html"><a href="algumas-dicas-úteis-1.html"><i class="fa fa-check"></i><b>13</b> Algumas dicas úteis</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="algumas-dicas-úteis-1.html"><a href="algumas-dicas-úteis-1.html#lista-de-constantes-nativas-do-r"><i class="fa fa-check"></i><b>13.1</b> Lista de Constantes Nativas do R</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="materiais-e-referências-3.html"><a href="materiais-e-referências-3.html"><i class="fa fa-check"></i><b>14</b> Materiais e referências</a></li>
+<li class="chapter" data-level="15" data-path="fundamentos-de-programação-1.html"><a href="fundamentos-de-programação-1.html"><i class="fa fa-check"></i><b>15</b> Fundamentos de programação</a></li>
+<li class="chapter" data-level="16" data-path="funções.html"><a href="funções.html"><i class="fa fa-check"></i><b>16</b> <strong>Funções</strong></a>
+<ul>
+<li class="chapter" data-level="16.0.1" data-path="funções.html"><a href="funções.html#entendendo-melhor-os-objetos-no-r"><i class="fa fa-check"></i><b>16.0.1</b> Entendendo melhor os objetos no R</a></li>
+<li class="chapter" data-level="16.0.2" data-path="funções.html"><a href="funções.html#funções-nativas-ou-embutidas"><i class="fa fa-check"></i><b>16.0.2</b> <strong>Funções nativas ou embutidas</strong></a></li>
+<li class="chapter" data-level="16.0.3" data-path="funções.html"><a href="funções.html#funções-construídas-ou-próprias"><i class="fa fa-check"></i><b>16.0.3</b> <strong>Funções construídas ou próprias</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="pacotes.html"><a href="pacotes.html"><i class="fa fa-check"></i><b>17</b> <strong>Pacotes</strong></a>
+<ul>
+<li class="chapter" data-level="17.0.1" data-path="pacotes.html"><a href="pacotes.html#exercícios"><i class="fa fa-check"></i><b>17.0.1</b> <strong>EXERCÍCIOS</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="materiais-e-referências-4.html"><a href="materiais-e-referências-4.html"><i class="fa fa-check"></i><b>18</b> Materiais e referências</a></li>
+<li class="chapter" data-level="19" data-path="fundamentos-de-programação-2.html"><a href="fundamentos-de-programação-2.html"><i class="fa fa-check"></i><b>19</b> <strong>Fundamentos de programação</strong></a></li>
+<li class="chapter" data-level="20" data-path="funções-e-operadores-no-r---parte-2.html"><a href="funções-e-operadores-no-r---parte-2.html"><i class="fa fa-check"></i><b>20</b> <strong>Funções e operadores no R - parte 2</strong></a>
+<ul>
+<li class="chapter" data-level="20.1" data-path="funções-e-operadores-no-r---parte-2.html"><a href="funções-e-operadores-no-r---parte-2.html#o-operador-pipe"><i class="fa fa-check"></i><b>20.1</b> O operador pipe</a></li>
+<li class="chapter" data-level="20.2" data-path="funções-e-operadores-no-r---parte-2.html"><a href="funções-e-operadores-no-r---parte-2.html#manipulação-de-strings"><i class="fa fa-check"></i><b>20.2</b> Manipulação de strings</a></li>
+</ul></li>
+<li class="chapter" data-level="21" data-path="estruturas-de-decisão.html"><a href="estruturas-de-decisão.html"><i class="fa fa-check"></i><b>21</b> <strong>Estruturas de Decisão</strong></a></li>
+<li class="chapter" data-level="22" data-path="estruturas-de-controle-loop.html"><a href="estruturas-de-controle-loop.html"><i class="fa fa-check"></i><b>22</b> Estruturas de Controle (Loop)</a>
+<ul>
+<li class="chapter" data-level="22.0.1" data-path="estruturas-de-controle-loop.html"><a href="estruturas-de-controle-loop.html#exercícios-1"><i class="fa fa-check"></i><b>22.0.1</b> <strong>EXERCÍCIOS</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="23" data-path="materiais-e-referências-5.html"><a href="materiais-e-referências-5.html"><i class="fa fa-check"></i><b>23</b> Materiais e referências</a></li>
+<li class="chapter" data-level="24" data-path="pipeline-de-dados-e-projeto-final.html"><a href="pipeline-de-dados-e-projeto-final.html"><i class="fa fa-check"></i><b>24</b> <strong>Pipeline de Dados e Projeto Final</strong></a></li>
+<li class="chapter" data-level="25" data-path="pipeline-de-dados.html"><a href="pipeline-de-dados.html"><i class="fa fa-check"></i><b>25</b> <strong>Pipeline de Dados</strong></a></li>
+<li class="chapter" data-level="26" data-path="script-comentado.html"><a href="script-comentado.html"><i class="fa fa-check"></i><b>26</b> <strong>Script comentado</strong></a>
+<ul>
+<li class="chapter" data-level="26.1" data-path="script-comentado.html"><a href="script-comentado.html#coleta-de-dados"><i class="fa fa-check"></i><b>26.1</b> 1. Coleta de Dados</a></li>
+<li class="chapter" data-level="26.2" data-path="script-comentado.html"><a href="script-comentado.html#limpeza-e-transformação-dos-dados"><i class="fa fa-check"></i><b>26.2</b> 2. Limpeza e Transformação dos Dados</a></li>
+<li class="chapter" data-level="26.3" data-path="script-comentado.html"><a href="script-comentado.html#análise-dos-dados"><i class="fa fa-check"></i><b>26.3</b> 3. Análise dos Dados</a></li>
+<li class="chapter" data-level="26.4" data-path="script-comentado.html"><a href="script-comentado.html#visualização-dos-dados"><i class="fa fa-check"></i><b>26.4</b> 4. Visualização dos Dados</a></li>
+<li class="chapter" data-level="26.5" data-path="script-comentado.html"><a href="script-comentado.html#armazenamento-dos-dados-opcional"><i class="fa fa-check"></i><b>26.5</b> 5. Armazenamento dos Dados (Opcional)</a></li>
+<li class="chapter" data-level="26.6" data-path="script-comentado.html"><a href="script-comentado.html#script-completo"><i class="fa fa-check"></i><b>26.6</b> Script completo</a></li>
+</ul></li>
+<li class="chapter" data-level="27" data-path="projeto-final.html"><a href="projeto-final.html"><i class="fa fa-check"></i><b>27</b> <strong>Projeto Final</strong></a></li>
+<li class="chapter" data-level="28" data-path="materiais-e-referências-6.html"><a href="materiais-e-referências-6.html"><i class="fa fa-check"></i><b>28</b> Materiais e referências</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Ebook - Curso Básico de R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="funções-e-operadores-no-r---parte-2" class="section level1 hasAnchor" number="20">
+<h1><span class="header-section-number">20</span> <strong>Funções e operadores no R - parte 2</strong><a href="funções-e-operadores-no-r---parte-2.html#funções-e-operadores-no-r---parte-2" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="o-operador-pipe" class="section level2 hasAnchor" number="20.1">
+<h2><span class="header-section-number">20.1</span> O operador pipe<a href="funções-e-operadores-no-r---parte-2.html#o-operador-pipe" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Em alguns momentos de nosso curso usamos o termo “pipeline de dados” para nos referir ao conjunto de processos que nos permitem tratar, analisar e visualizar um conjunto de dados.</p>
+<p>O operador pipe nos permite colocar nossas funções em linha para serem aplicadas em um mesmo objeto. É representado pelo símbolo %&gt;%. Com ele evitamos escrever uma linha de código separada para cada tarefa que desejamos que o script execute.</p>
+<p>Observe o código abaixo:</p>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="funções-e-operadores-no-r---parte-2.html#cb108-1" tabindex="-1"></a>dado_original <span class="sc">%&gt;%</span></span>
+<span id="cb108-2"><a href="funções-e-operadores-no-r---parte-2.html#cb108-2" tabindex="-1"></a>  <span class="fu">funcao1</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb108-3"><a href="funções-e-operadores-no-r---parte-2.html#cb108-3" tabindex="-1"></a>  <span class="fu">funcao2</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb108-4"><a href="funções-e-operadores-no-r---parte-2.html#cb108-4" tabindex="-1"></a>  <span class="fu">funcao3</span>()</span></code></pre></div>
+<p>Note que primeiro declaramos o objeto, depois aplicamos as funções uma seguida da outra. Você deve lembrar que o R aplicará cada função na ordem em que está escrita. Portanto, se você precisa baixar e processar um conjunto de dados, deve primeiro colocar a função de baixar e depois a de processar.</p>
+<p>Lembra do nosso script para tratar dados do Datasus. Pode reescrevê=lo da seguinte forma:</p>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="funções-e-operadores-no-r---parte-2.html#cb109-1" tabindex="-1"></a>sim_df <span class="ot">&lt;-</span> <span class="fu">fetch_datasus</span>(<span class="at">year_start =</span> <span class="dv">2010</span>,</span>
+<span id="cb109-2"><a href="funções-e-operadores-no-r---parte-2.html#cb109-2" tabindex="-1"></a>                        <span class="at">year_end =</span> <span class="dv">2010</span>,</span>
+<span id="cb109-3"><a href="funções-e-operadores-no-r---parte-2.html#cb109-3" tabindex="-1"></a>                        <span class="at">uf =</span> <span class="st">&quot;DF&quot;</span>,</span>
+<span id="cb109-4"><a href="funções-e-operadores-no-r---parte-2.html#cb109-4" tabindex="-1"></a>                        <span class="at">information_system =</span> <span class="st">&quot;SIM-DO&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb109-5"><a href="funções-e-operadores-no-r---parte-2.html#cb109-5" tabindex="-1"></a>          <span class="fu">process_sim</span>()</span></code></pre></div>
+<p>Aqui ao invés declararmos dois objetos, declarmos apenas um e realizamos todas as tarefas por meio do pipe. As vantagens são muitas, mas as principais são o tempo de processamento, quantidade de linhas código, clareza e a diminuição do uso de memória durante o trabalho com os dados.</p>
+<p><em>OBS:</em></p>
+<ul>
+<li><p>Em alguns sistemas pode ser que o operador pipe não esteja instalado ou funcionando corretamente. Caso isso ocorra com você use os seguintes comandos:</p>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="funções-e-operadores-no-r---parte-2.html#cb110-1" tabindex="-1"></a></span>
+<span id="cb110-2"><a href="funções-e-operadores-no-r---parte-2.html#cb110-2" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;magrittr&quot;</span>)</span>
+<span id="cb110-3"><a href="funções-e-operadores-no-r---parte-2.html#cb110-3" tabindex="-1"></a><span class="fu">library</span>(magrittr)</span></code></pre></div></li>
+<li><p>Há outros operadores com o mesmo objetivo do pipe, permitir que escrevamos códigos mais suscintos. Não vamos abordá-los aqui, mas se você quiser estudá-los, recomendamos utilizar o livro do Grupo Adar referênciado ao final desta seção.</p></li>
+</ul>
+<p>##Entradas e saídas (input/output)</p>
+<p>A entrada e saída de dados é uma parte fundamental da programação em R, por isso vamos reforçar as funções disponíveis para realizar essas tarefas. Isso é importante pois dependendo dos objetos que estamos querendo alcançar, da fonte dos dados ou do ambiente de análise precisaremos de funções suplementares para baixar, ler, manipular e escrever arquivos. O R possui um conjunto de funções embutidas que nos permitem realizar essas tarefas e mais um conjunto extenso de pacotes auxiliares.</p>
+<p>Abaixo separamos essas funções em quatro categorias:</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>Entrada de dados</strong>:</p>
+<ul>
+<li><strong>Teclado</strong>: Usar a função <code>readline()</code> para solicitar a entrada de dados do usuário.
+<ul>
+<li>Exemplo: <code>nome &lt;- readline(prompt = "Digite seu nome: ")</code></li>
+</ul></li>
+<li><strong>Arquivos</strong>: Usar a função <code>read.table()</code> ou <code>read.csv()</code> para ler dados de arquivos.
+<ul>
+<li>Exemplo: <code>dados &lt;- read.csv("dados.csv")</code></li>
+</ul></li>
+<li><strong>Banco de dados</strong>: Usar pacotes como <code>DBI</code> e <code>RMySQL</code> para se conectar e ler dados de bancos de dados.
+<ul>
+<li>Exemplo: <code>library(DBI)   con &lt;- dbConnect(MySQL(), user="usuario", password="senha", dbname="banco_de_dados")   dados &lt;- dbGetQuery(con, "SELECT * FROM tabela")</code></li>
+</ul></li>
+</ul>
+<p>Destacamos as funções readline() e os pacotes para leitura de dados diretamente de um banco de dados.</p>
+<ul>
+<li>Em alguns projetos vamos fazer interfaces que coletam dados diretamente dos usuários de nossos sistemas e análise. A readline() é a funções que nos permite fazer perguntas aos usuários. Por exemplo, você pode precisar que seu usuário escolha um determinado período de tempo ou UF para gerar uma visualização de dados.</li>
+<li>Grande parte dos dados disponíveis para uso está armazenado em bancos de dados com pacotes como DBI ou RMySQL é possível baixar os dados diretamente dessas fontes sem precisar que eles sejam exportados para formatos como csv ou txt. Neste curso não abordaremos esse tipo de operação em detalhes mas vale a pena estudar esse tópico por conta própria.</li>
+<li>A função read.csv() pode ser substituída pelas funções do pacote {readr}. As vantagens é que a sintaxe é exatamente a mesma, mas é possível passar parâmetros mais detalhados na hora de importar os dados, evitando realizar processamentos desnecessários. Os parâmetros disponíveis para o read.csv() são:
+<ul>
+<li>col_names=: indica se a primeira linha da base contém ou não o nome das colunas. Também pode ser utilizado para (re)nomear colunas.</li>
+<li>col_types=: caso alguma coluna seja importada com a classe errada (uma coluna de números foi importada como texto, por exemplo), você pode usar esse argumento para especificar a classe das colunas.</li>
+<li>locale=: útil para tratar problema de encoding.</li>
+<li>skip=: pula linhas no começo do arquivo antes de iniciar a importação. Útil para quando o arquivo a ser importado vem com metadados ou qualquer tipo de texto nas primeiras linhas, antes da base.</li>
+<li>na=: indica quais strings deverão ser considaras NA na hora da importação.</li>
+</ul></li>
+<li>O pacote {readr} também fornece outras funções de leitura de arquivo muito úteis a qualquer analista de dados. Recomendamos utilizar a função help do R e explorar a documentação da ferramenta.</li>
+</ul></li>
+<li><p><strong>Saída de dados</strong>:</p>
+<ul>
+<li><strong>Console</strong>: Usar a função <code>print()</code> ou <code>cat()</code> para exibir dados no console.
+<ul>
+<li>Exemplo: <code>print(nome)</code> ou <code>cat("Olá,", nome, "!")</code></li>
+</ul></li>
+<li><strong>Arquivos</strong>: Usar a função <code>write.table()</code> ou <code>write.csv()</code> para salvar dados em arquivos.
+<ul>
+<li>Exemplo: <code>write.csv(dados, "dados.csv", row.names = FALSE)</code></li>
+</ul></li>
+<li><strong>Gráficos</strong>: Usar funções de plotagem, como <code>plot()</code> e <code>ggplot()</code>, para gerar gráficos.
+<ul>
+<li>Exemplo: <code>plot(x, y)</code></li>
+</ul></li>
+</ul>
+<p>Neste tópico não há destaques específicos. Os três tipos de saída apresentados são fundamentais.</p>
+<ul>
+<li>O primeiro nos permite ser visualizar o resultado dos nossos scripts enquanto estamos trabalhando e fazer impressões simples em tela.</li>
+<li>As funções write.table() e write.csv() permitem que salvemos os dados transformados no HD do computador ou em nuvem. Lembre-se sempre que cada objeto carregado está apenas na memória RAM do computador. Quando a sessão finalizar seu trabalho poderá ser perdido se não for salvo em um arquivo permanente. Isso também vale para seus dados.</li>
+<li>As visualizações gráficas são de longe a parte mais esperada ao longo da pipeline. As funções plot() e ggplot() nos permitem plotar gráficos dos mais simples aos mais complexos.</li>
+</ul></li>
+<li><p><strong>Manipulação de diretórios</strong>:</p>
+<ul>
+<li><strong>Configuração</strong>: <code>setwd()</code> para definir o diretório de trabalho.</li>
+<li>Exemplo: <code>setwd('C:\dir_projeto')</code>. O R entenderá que naquela sessão o diretório dir_projeto é o diretório de trabalho.</li>
+<li><strong>Listagem de arquivos</strong>: <code>list.files()</code> para listar os arquivos em um diretório.
+<ul>
+<li>Exemplo: <code>list.files('C:\dir_projeto')</code>. Todos os arquivos disponíveis em dir_projeto serão listados em tela.</li>
+</ul></li>
+<li><strong>Manipulação de arquivos:</strong> <code>file.create()</code>, <code>file.remove()</code> e <code>file.rename()</code> para criar, remover e renomear arquivos.
+<ul>
+<li>Exemplo: <code>file.create('meus_scripts.R')</code>. Criará um arquivo vazio no diretório de trabalho atual.</li>
+</ul></li>
+</ul>
+<p>Já vimos o setwd() na seção anterior, inclusive sugerimos que o script final do curso conte com ele como função. Como ele podemos dizer ao R onde queremos que nosso trabalho seja executado e onde, por padrão, os arquivos e dados serão salvos. Porém, é possível usar o R para realizar qualquer tarefa relacionada à listagem, criação, renomeação e remoção de arquivos do HD.</p></li>
+<li><p><strong>Pacotes adicionais</strong>:</p>
+<ul>
+<li>Existem diversos pacotes no R que fornecem funcionalidades adicionais para entrada e saída de dados, como <code>readxl</code> (leitura de arquivos Excel), <code>jsonlite</code> (leitura e escrita de arquivos JSON) e <code>httr</code> (interação com APIs).</li>
+</ul>
+<p>Algumas fontes de dados estão em formatos especiais que são específicos para que outros sistemas e computadores interajam com elas. Quando precisamos baixar e pré-processar esses dados necessitamos instalar pacotes que façam a leitura do formato desejado. Os dois exemplos mais comuns são o formato JSON e a interação com APIs. Outro uso desses formatos são as famosas raspagens de dados em sites e painéis disponíveis na web. Como se trata de uma tópico avançado, não abordaremos neste curso.</p></li>
+</ol>
+<p>Abaixo segue um exemplo de script que utiliza algumas das funções de entrada e saída de dados.</p>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="funções-e-operadores-no-r---parte-2.html#cb111-1" tabindex="-1"></a><span class="co"># Entrada de dados</span></span>
+<span id="cb111-2"><a href="funções-e-operadores-no-r---parte-2.html#cb111-2" tabindex="-1"></a><span class="co"># Solicitar o nome do usuário</span></span>
+<span id="cb111-3"><a href="funções-e-operadores-no-r---parte-2.html#cb111-3" tabindex="-1"></a>nome <span class="ot">&lt;-</span> <span class="fu">readline</span>(<span class="at">prompt =</span> <span class="st">&quot;Digite seu nome: &quot;</span>)</span>
+<span id="cb111-4"><a href="funções-e-operadores-no-r---parte-2.html#cb111-4" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Olá,&quot;</span>, nome, <span class="st">&quot;!</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb111-5"><a href="funções-e-operadores-no-r---parte-2.html#cb111-5" tabindex="-1"></a></span>
+<span id="cb111-6"><a href="funções-e-operadores-no-r---parte-2.html#cb111-6" tabindex="-1"></a><span class="co"># Ler dados de um arquivo CSV</span></span>
+<span id="cb111-7"><a href="funções-e-operadores-no-r---parte-2.html#cb111-7" tabindex="-1"></a>dados <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;temperatura_df.csv&quot;</span>)</span>
+<span id="cb111-8"><a href="funções-e-operadores-no-r---parte-2.html#cb111-8" tabindex="-1"></a></span>
+<span id="cb111-9"><a href="funções-e-operadores-no-r---parte-2.html#cb111-9" tabindex="-1"></a><span class="co"># Manipulação de diretórios</span></span>
+<span id="cb111-10"><a href="funções-e-operadores-no-r---parte-2.html#cb111-10" tabindex="-1"></a><span class="co"># Definir o diretório de trabalho</span></span>
+<span id="cb111-11"><a href="funções-e-operadores-no-r---parte-2.html#cb111-11" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;C:/dir_projeto&quot;</span>)</span>
+<span id="cb111-12"><a href="funções-e-operadores-no-r---parte-2.html#cb111-12" tabindex="-1"></a></span>
+<span id="cb111-13"><a href="funções-e-operadores-no-r---parte-2.html#cb111-13" tabindex="-1"></a><span class="co"># Listar os arquivos no diretório</span></span>
+<span id="cb111-14"><a href="funções-e-operadores-no-r---parte-2.html#cb111-14" tabindex="-1"></a>arquivos <span class="ot">&lt;-</span> <span class="fu">list.files</span>()</span>
+<span id="cb111-15"><a href="funções-e-operadores-no-r---parte-2.html#cb111-15" tabindex="-1"></a><span class="fu">print</span>(arquivos)</span>
+<span id="cb111-16"><a href="funções-e-operadores-no-r---parte-2.html#cb111-16" tabindex="-1"></a></span>
+<span id="cb111-17"><a href="funções-e-operadores-no-r---parte-2.html#cb111-17" tabindex="-1"></a><span class="co"># Criar um novo arquivo</span></span>
+<span id="cb111-18"><a href="funções-e-operadores-no-r---parte-2.html#cb111-18" tabindex="-1"></a><span class="fu">file.create</span>(<span class="st">&quot;meus_scripts.R&quot;</span>)</span>
+<span id="cb111-19"><a href="funções-e-operadores-no-r---parte-2.html#cb111-19" tabindex="-1"></a></span>
+<span id="cb111-20"><a href="funções-e-operadores-no-r---parte-2.html#cb111-20" tabindex="-1"></a><span class="co"># Saída de dados</span></span>
+<span id="cb111-21"><a href="funções-e-operadores-no-r---parte-2.html#cb111-21" tabindex="-1"></a><span class="co"># Exibir os primeiros 6 registros dos dados</span></span>
+<span id="cb111-22"><a href="funções-e-operadores-no-r---parte-2.html#cb111-22" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">head</span>(dados))</span>
+<span id="cb111-23"><a href="funções-e-operadores-no-r---parte-2.html#cb111-23" tabindex="-1"></a></span>
+<span id="cb111-24"><a href="funções-e-operadores-no-r---parte-2.html#cb111-24" tabindex="-1"></a><span class="co"># Salvar os dados em um novo arquivo CSV</span></span>
+<span id="cb111-25"><a href="funções-e-operadores-no-r---parte-2.html#cb111-25" tabindex="-1"></a><span class="fu">write.csv</span>(dados, <span class="st">&quot;temperatura_df_processado.csv&quot;</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb111-26"><a href="funções-e-operadores-no-r---parte-2.html#cb111-26" tabindex="-1"></a></span>
+<span id="cb111-27"><a href="funções-e-operadores-no-r---parte-2.html#cb111-27" tabindex="-1"></a><span class="co"># Gerar um gráfico simples</span></span>
+<span id="cb111-28"><a href="funções-e-operadores-no-r---parte-2.html#cb111-28" tabindex="-1"></a><span class="fu">plot</span>(dados<span class="sc">$</span>temperatura, <span class="at">main =</span> <span class="st">&quot;Temperatura no DF&quot;</span>)</span></code></pre></div>
+</div>
+<div id="manipulação-de-strings" class="section level2 hasAnchor" number="20.2">
+<h2><span class="header-section-number">20.2</span> Manipulação de strings<a href="funções-e-operadores-no-r---parte-2.html#manipulação-de-strings" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A manipulação de strings (caracteres) é uma tarefa comum em análise de dados, saber realizá é fundamental a construção de modelos e painéis. Abaixo seguem as técnicas de manipulação mais comuns em R.</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>Concatenação de strings</strong>:</p>
+<ul>
+<li>Usar o operador <code>+</code> ou a função <code>paste()</code> para concatenar strings.</li>
+<li>Exemplo: <code>nome &lt;- "João" + " " + "Silva"</code></li>
+</ul>
+<p>O operador + em R pode ser usado para concatenar strings.
+Neste exemplo, “João” + ” ” + “Silva” irá concatenar as três strings, resultando em “João Silva”.
+É importante notar que o operador + só pode ser usado para concatenar strings se todas as partes envolvidas forem strings. Caso contrário, o R tentará realizar uma operação matemática.</p></li>
+<li><p><strong>Extração de substrings</strong>:</p>
+<ul>
+<li>Usar a função <code>substr()</code> para extrair uma substring de uma string.</li>
+<li>Exemplo: <code>sobrenome &lt;- substr(nome, 6, 11)</code></li>
+</ul>
+<p>Essa função é útil quando você precisa extrair uma parte específica de uma string, como o sobrenome de uma pessoa a partir do nome completo. No exemplo acima supondo que a variável nome contenha a string “João Silva”.
+A função substr() é aplicada a essa string, extraindo os caracteres da posição 6 até a posição 11. O resultado dessa extração é armazenado na variável sobrenome. Portanto, o valor de sobrenome será “Silva”.</p></li>
+<li><p><strong>Substituição de substrings</strong>:</p>
+<ul>
+<li>Usar a função <code>gsub()</code> para substituir padrões em uma string.</li>
+<li>Exemplo: <code>nome_corrigido &lt;- gsub("João", "João", nome)</code></li>
+</ul>
+<p>A função gsub() é muito poderosa e permite o uso de expressões regulares para definir padrões mais complexos de substituição. As expressões regulares são padrões de conjunto de caracteres que indicamos ao computador de forma que o script possa buscar e encontrar esse padrão ao longo de um objeto. Essa função nos permite realizar essa tarefa sem a necessidade de programar as expressões regulares manualmente.
+No exemplo acima se nome tiver a atribuição de “João da Silva”, A função gsub() é aplicada a essa string, substituindo todas as ocorrências do padrão “João” pela string “João”. O resultado dessa substituição é armazenado na variável nome_corrigido. Portanto, o valor de nome_corrigido será “João Silva”.</p></li>
+<li><p><strong>Conversão de maiúsculas e minúsculas</strong>:</p>
+<ul>
+<li>Usar as funções <code>toupper()</code> e <code>tolower()</code> para converter strings em maiúsculas ou minúsculas.</li>
+<li>Exemplo: <code>nome_maiusculo &lt;- toupper(nome)</code></li>
+</ul>
+<p>Anteriormente abordamos o uso dessas funções, caso tenha dúvidas, pedimos que retorne para o capítulo 2 do curso e revise o que foi estudado.</p></li>
+<li><p><strong>Remoção de espaços em branco</strong>:</p>
+<ul>
+<li>Usar a função <code>trim()</code> do pacote <code>stringr</code> para remover espaços em branco no início e no final da string.</li>
+<li>Exemplo: <code>nome_sem_espacos &lt;- stringr::trim(nome)</code></li>
+</ul>
+<p>A remoção de espaços em branco é uma das tarefas mais comuns no préprocessamento de uma base de dados. A função trim() remove esses espaços a partir de um objeto atribuído. No exemplo qualquer espaço antes ou depois dos caracteres seria retirado e o novo valor atribuído à variável nome_sem_espacos. Abaixo colocamos um exemplo mais completo:</p>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="funções-e-operadores-no-r---parte-2.html#cb112-1" tabindex="-1"></a>nome <span class="ot">&lt;-</span> <span class="st">&quot;   João Silva   &quot;</span></span>
+<span id="cb112-2"><a href="funções-e-operadores-no-r---parte-2.html#cb112-2" tabindex="-1"></a>nome_sem_espacos <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">trim</span>(nome)</span>
+<span id="cb112-3"><a href="funções-e-operadores-no-r---parte-2.html#cb112-3" tabindex="-1"></a><span class="fu">print</span>(nome_sem_espacos)  <span class="co"># Saída: &quot;João Silva&quot;</span></span></code></pre></div></li>
+<li><p><strong>Divisão de strings</strong>:</p>
+<ul>
+<li>Usar a função <code>strsplit()</code> para dividir uma string em um vetor de substrings.</li>
+<li>Exemplo: <code>partes_nome &lt;- strsplit(nome, " ")</code></li>
+</ul>
+<p>Essa função é útil quando você precisa separar uma string em suas partes constituintes, como palavras em uma frase ou campos em uma string delimitada. Costuma ser muito útil para realizar a extração, a limpeza e a manutenção de bases de dados. Além de ser vastamente utilizada na contrução de datasets para treinamento e validação de modelos de aprendizagem de máquina.</p></li>
+<li><p><strong>Verificação de padrões</strong>:</p>
+<ul>
+<li>Usar a função <code>grepl()</code> para verificar se uma string contém um determinado padrão.</li>
+<li>Exemplo: <code>tem_silva &lt;- grepl("Silva", nome)</code></li>
+</ul>
+<p>Assim como na divisão de strings, utilizamos a verificação de padrões para inspecionar bases de dados, processar bases e validar modelos. Essa função aceita dois parâmetros, primeiro colocarmos o padrão que queremos verificar e depois o objeto a que o conjunto de dados está atribuído. A função passará pelos dados e retornará quantas vezes e onde o padrão está presente.</p></li>
+<li><p><strong>Formatação de strings</strong>:</p>
+<ul>
+<li>Usar a função <code>sprintf()</code> para formatar strings com valores numéricos.</li>
+<li>Exemplo: <code>mensagem &lt;- sprintf("O paciente %s tem %d anos.", nome, idade)</code></li>
+</ul>
+<p>A formatação de strings é muito útil para criar saídas para relatórios utilizando os registros presentes no dataframe como preenchimento de campos dinâmicos. No exemplo acima %s e %d são preenchidos com os registros de nome e idade dos pacientes registrados no dataset.</p></li>
+</ol>
+<p>A biblioteca <code>stringr</code> também fornece uma interface mais intuitiva e consistente para muitas das tarefas listadas acima. Encorajamos o estudo desta biblioteca como tópico de aprofundamento no uso do R.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="fundamentos-de-programação-2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="estruturas-de-decisão.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": true,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": true,
+"all": ["github", "weibo", "instapaper", "vk"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/bmclima/cursoRBasico/edit/master/05-estruturasDecisao.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["ebookRbasico.pdf", "ebookRbasico.epub", "ebookRbasico.mobi"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>12 Fundamentos de programação | Ebook - Curso Básico de R</title>
+  <meta name="description" content="Este é o livro do curso básico de R oferecido pelo projeto BMCllima da Fiocruz Brasília" />
+  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="12 Fundamentos de programação | Ebook - Curso Básico de R" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Este é o livro do curso básico de R oferecido pelo projeto BMCllima da Fiocruz Brasília" />
+  <meta name="github-repo" content="/bmclima/cursoRBasico" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="12 Fundamentos de programação | Ebook - Curso Básico de R" />
+  
+  <meta name="twitter:description" content="Este é o livro do curso básico de R oferecido pelo projeto BMCllima da Fiocruz Brasília" />
+  
+
+<meta name="author" content="Priscilla Normando" />
+
+
+<meta name="date" content="2024-07-29" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="materiais-e-referências-2.html"/>
+<link rel="next" href="algumas-dicas-úteis-1.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="layout.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><center><a href="./index.html"><img src = "https://github.com/bmclima/scriptsprotocols/blob/assests/logotipo_Clima-Bronquiolite_FIOCRUZ_17.png?raw=true" width = 60%></a></center></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Boas-vindas!</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#o-que-você-vai-aprender"><i class="fa fa-check"></i><b>1.1</b> O que você vai aprender</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#conceitos-fundamentais"><i class="fa fa-check"></i><b>1.1.1</b> Conceitos fundamentais</a></li>
+<li class="chapter" data-level="1.1.2" data-path="index.html"><a href="index.html#seu-espaço-de-trabalho"><i class="fa fa-check"></i><b>1.1.2</b> Seu espaço de trabalho</a></li>
+<li class="chapter" data-level="1.1.3" data-path="index.html"><a href="index.html#fundamentos"><i class="fa fa-check"></i><b>1.1.3</b> Fundamentos</a></li>
+<li class="chapter" data-level="1.1.4" data-path="index.html"><a href="index.html#o-poder-do-r"><i class="fa fa-check"></i><b>1.1.4</b> O poder do R</a></li>
+<li class="chapter" data-level="1.1.5" data-path="index.html"><a href="index.html#construa-seus-próprios-projetos"><i class="fa fa-check"></i><b>1.1.5</b> Construa seus próprios projetos</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#como-você-vai-aprender"><i class="fa fa-check"></i><b>1.2</b> Como você vai aprender</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#materiais-e-referências"><i class="fa fa-check"></i><b>1.3</b> Materiais e referências</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Sobre o R</a></li>
+<li class="chapter" data-level="3" data-path="conceitos-fundamentais-1.html"><a href="conceitos-fundamentais-1.html"><i class="fa fa-check"></i><b>3</b> Conceitos Fundamentais</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="conceitos-fundamentais-1.html"><a href="conceitos-fundamentais-1.html#o-que-é-o-r"><i class="fa fa-check"></i><b>3.1</b> O que é o R?</a></li>
+<li class="chapter" data-level="3.2" data-path="conceitos-fundamentais-1.html"><a href="conceitos-fundamentais-1.html#o-que-podemos-fazer-utilizando-o-r"><i class="fa fa-check"></i><b>3.2</b> O que podemos fazer utilizando o R?</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="conceitos-fundamentais-1.html"><a href="conceitos-fundamentais-1.html#hora-de-começar-a-colocar-a-mão-na-massa"><i class="fa fa-check"></i><b>3.2.1</b> <strong><em>Hora de começar a colocar a mão na massa!</em></strong></a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="conceitos-fundamentais-1.html"><a href="conceitos-fundamentais-1.html#saiba-mais"><i class="fa fa-check"></i><b>3.3</b> Saiba mais!</a></li>
+<li class="chapter" data-level="3.4" data-path="conceitos-fundamentais-1.html"><a href="conceitos-fundamentais-1.html#materiais-e-referências-1"><i class="fa fa-check"></i><b>3.4</b> Materiais e referências</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="instalação-e-configuração.html"><a href="instalação-e-configuração.html"><i class="fa fa-check"></i><b>4</b> Instalação e Configuração</a></li>
+<li class="chapter" data-level="5" data-path="seu-espaço-de-trabalho-1.html"><a href="seu-espaço-de-trabalho-1.html"><i class="fa fa-check"></i><b>5</b> Seu espaço de trabalho</a></li>
+<li class="chapter" data-level="6" data-path="instalando-as-ferramentas.html"><a href="instalando-as-ferramentas.html"><i class="fa fa-check"></i><b>6</b> Instalando as ferramentas</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="instalando-as-ferramentas.html"><a href="instalando-as-ferramentas.html#instalando-o-r"><i class="fa fa-check"></i><b>6.1</b> 1. Instalando o R</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="instalando-as-ferramentas.html"><a href="instalando-as-ferramentas.html#passo-a-passo-no-windows"><i class="fa fa-check"></i><b>6.1.1</b> 1.1. Passo-a-passo no Windows</a></li>
+<li class="chapter" data-level="6.1.2" data-path="instalando-as-ferramentas.html"><a href="instalando-as-ferramentas.html#passo-a-passo-no-linux"><i class="fa fa-check"></i><b>6.1.2</b> 1.2. Passo-a-passo no Linux</a></li>
+<li class="chapter" data-level="6.1.3" data-path="instalando-as-ferramentas.html"><a href="instalando-as-ferramentas.html#passo-a-passo-no-macos"><i class="fa fa-check"></i><b>6.1.3</b> 1.3. Passo-a-passo no MacOS</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="instalando-as-ferramentas.html"><a href="instalando-as-ferramentas.html#instalando-o-rstudio"><i class="fa fa-check"></i><b>6.2</b> 2. Instalando o RStudio</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="instalando-as-ferramentas.html"><a href="instalando-as-ferramentas.html#passo-a-passo-no-windows-1"><i class="fa fa-check"></i><b>6.2.1</b> 2.1. Passo-a-passo no Windows</a></li>
+<li class="chapter" data-level="6.2.2" data-path="instalando-as-ferramentas.html"><a href="instalando-as-ferramentas.html#passo-a-passo-no-linux-1"><i class="fa fa-check"></i><b>6.2.2</b> 2.2. Passo-a-passo no Linux</a></li>
+<li class="chapter" data-level="6.2.3" data-path="instalando-as-ferramentas.html"><a href="instalando-as-ferramentas.html#passo-a-passo-no-macos-1"><i class="fa fa-check"></i><b>6.2.3</b> 2.3. Passo-a-passo no MacOS</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="instalando-as-ferramentas.html"><a href="instalando-as-ferramentas.html#instalando-o-git"><i class="fa fa-check"></i><b>6.3</b> 3. Instalando o Git</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="instalando-as-ferramentas.html"><a href="instalando-as-ferramentas.html#passo-a-passo-no-windows-2"><i class="fa fa-check"></i><b>6.3.1</b> 3.1. Passo-a-passo no Windows</a></li>
+<li class="chapter" data-level="6.3.2" data-path="instalando-as-ferramentas.html"><a href="instalando-as-ferramentas.html#passo-a-passo-no-linux-2"><i class="fa fa-check"></i><b>6.3.2</b> 3.2. Passo-a-passo no Linux</a></li>
+<li class="chapter" data-level="6.3.3" data-path="instalando-as-ferramentas.html"><a href="instalando-as-ferramentas.html#passo-a-passo-no-macos-2"><i class="fa fa-check"></i><b>6.3.3</b> 3.3. Passo-a-passo no MacOS</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="instalando-as-ferramentas.html"><a href="instalando-as-ferramentas.html#criando-uma-conta-no-github"><i class="fa fa-check"></i><b>6.4</b> 4. Criando uma conta no GitHub</a></li>
+<li class="chapter" data-level="6.5" data-path="instalando-as-ferramentas.html"><a href="instalando-as-ferramentas.html#criando-uma-conta-no-google-colab"><i class="fa fa-check"></i><b>6.5</b> 5. Criando uma conta no Google Colab</a></li>
+<li class="chapter" data-level="6.6" data-path="instalando-as-ferramentas.html"><a href="instalando-as-ferramentas.html#instalando-ferramentas-adicionais"><i class="fa fa-check"></i><b>6.6</b> 6. Instalando ferramentas adicionais</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="boas-práticas-de-organização-e-versionamento.html"><a href="boas-práticas-de-organização-e-versionamento.html"><i class="fa fa-check"></i><b>7</b> Boas práticas de organização e versionamento</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="boas-práticas-de-organização-e-versionamento.html"><a href="boas-práticas-de-organização-e-versionamento.html#a-interface-do-rstudio"><i class="fa fa-check"></i><b>7.1</b> A interface do RStudio</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="boas-práticas-de-organização-e-versionamento.html"><a href="boas-práticas-de-organização-e-versionamento.html#algumas-configurações-importantes"><i class="fa fa-check"></i><b>7.1.1</b> Algumas configurações importantes</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="usando-o-r.html"><a href="usando-o-r.html"><i class="fa fa-check"></i><b>8</b> Usando o R</a></li>
+<li class="chapter" data-level="9" data-path="escrevendo-o-seu-primeiro-script.html"><a href="escrevendo-o-seu-primeiro-script.html"><i class="fa fa-check"></i><b>9</b> Escrevendo o seu primeiro script</a></li>
+<li class="chapter" data-level="10" data-path="algumas-dicas-úteis.html"><a href="algumas-dicas-úteis.html"><i class="fa fa-check"></i><b>10</b> Algumas dicas úteis</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="algumas-dicas-úteis.html"><a href="algumas-dicas-úteis.html#atalhos-do-rstudio"><i class="fa fa-check"></i><b>10.1</b> Atalhos do RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="materiais-e-referências-2.html"><a href="materiais-e-referências-2.html"><i class="fa fa-check"></i><b>11</b> Materiais e referências</a></li>
+<li class="chapter" data-level="12" data-path="fundamentos-de-programação.html"><a href="fundamentos-de-programação.html"><i class="fa fa-check"></i><b>12</b> Fundamentos de programação</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="fundamentos-de-programação.html"><a href="fundamentos-de-programação.html#variáveis-e-constantes"><i class="fa fa-check"></i><b>12.1</b> Variáveis e constantes:</a></li>
+<li class="chapter" data-level="12.2" data-path="fundamentos-de-programação.html"><a href="fundamentos-de-programação.html#operadores"><i class="fa fa-check"></i><b>12.2</b> Operadores</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="fundamentos-de-programação.html"><a href="fundamentos-de-programação.html#operadores-aritméticos"><i class="fa fa-check"></i><b>12.2.1</b> Operadores aritméticos</a></li>
+<li class="chapter" data-level="12.2.2" data-path="fundamentos-de-programação.html"><a href="fundamentos-de-programação.html#operadores-relacionais"><i class="fa fa-check"></i><b>12.2.2</b> Operadores relacionais:</a></li>
+<li class="chapter" data-level="12.2.3" data-path="fundamentos-de-programação.html"><a href="fundamentos-de-programação.html#operadores-lógicos"><i class="fa fa-check"></i><b>12.2.3</b> Operadores lógicos</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="fundamentos-de-programação.html"><a href="fundamentos-de-programação.html#tipos-e-estruturas-de-dados"><i class="fa fa-check"></i><b>12.3</b> Tipos e estruturas de dados</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="algumas-dicas-úteis-1.html"><a href="algumas-dicas-úteis-1.html"><i class="fa fa-check"></i><b>13</b> Algumas dicas úteis</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="algumas-dicas-úteis-1.html"><a href="algumas-dicas-úteis-1.html#lista-de-constantes-nativas-do-r"><i class="fa fa-check"></i><b>13.1</b> Lista de Constantes Nativas do R</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="materiais-e-referências-3.html"><a href="materiais-e-referências-3.html"><i class="fa fa-check"></i><b>14</b> Materiais e referências</a></li>
+<li class="chapter" data-level="15" data-path="fundamentos-de-programação-1.html"><a href="fundamentos-de-programação-1.html"><i class="fa fa-check"></i><b>15</b> Fundamentos de programação</a></li>
+<li class="chapter" data-level="16" data-path="funções.html"><a href="funções.html"><i class="fa fa-check"></i><b>16</b> <strong>Funções</strong></a>
+<ul>
+<li class="chapter" data-level="16.0.1" data-path="funções.html"><a href="funções.html#entendendo-melhor-os-objetos-no-r"><i class="fa fa-check"></i><b>16.0.1</b> Entendendo melhor os objetos no R</a></li>
+<li class="chapter" data-level="16.0.2" data-path="funções.html"><a href="funções.html#funções-nativas-ou-embutidas"><i class="fa fa-check"></i><b>16.0.2</b> <strong>Funções nativas ou embutidas</strong></a></li>
+<li class="chapter" data-level="16.0.3" data-path="funções.html"><a href="funções.html#funções-construídas-ou-próprias"><i class="fa fa-check"></i><b>16.0.3</b> <strong>Funções construídas ou próprias</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="pacotes.html"><a href="pacotes.html"><i class="fa fa-check"></i><b>17</b> <strong>Pacotes</strong></a>
+<ul>
+<li class="chapter" data-level="17.0.1" data-path="pacotes.html"><a href="pacotes.html#exercícios"><i class="fa fa-check"></i><b>17.0.1</b> <strong>EXERCÍCIOS</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="materiais-e-referências-4.html"><a href="materiais-e-referências-4.html"><i class="fa fa-check"></i><b>18</b> Materiais e referências</a></li>
+<li class="chapter" data-level="19" data-path="fundamentos-de-programação-2.html"><a href="fundamentos-de-programação-2.html"><i class="fa fa-check"></i><b>19</b> <strong>Fundamentos de programação</strong></a></li>
+<li class="chapter" data-level="20" data-path="funções-e-operadores-no-r---parte-2.html"><a href="funções-e-operadores-no-r---parte-2.html"><i class="fa fa-check"></i><b>20</b> <strong>Funções e operadores no R - parte 2</strong></a>
+<ul>
+<li class="chapter" data-level="20.1" data-path="funções-e-operadores-no-r---parte-2.html"><a href="funções-e-operadores-no-r---parte-2.html#o-operador-pipe"><i class="fa fa-check"></i><b>20.1</b> O operador pipe</a></li>
+<li class="chapter" data-level="20.2" data-path="funções-e-operadores-no-r---parte-2.html"><a href="funções-e-operadores-no-r---parte-2.html#manipulação-de-strings"><i class="fa fa-check"></i><b>20.2</b> Manipulação de strings</a></li>
+</ul></li>
+<li class="chapter" data-level="21" data-path="estruturas-de-decisão.html"><a href="estruturas-de-decisão.html"><i class="fa fa-check"></i><b>21</b> <strong>Estruturas de Decisão</strong></a></li>
+<li class="chapter" data-level="22" data-path="estruturas-de-controle-loop.html"><a href="estruturas-de-controle-loop.html"><i class="fa fa-check"></i><b>22</b> Estruturas de Controle (Loop)</a>
+<ul>
+<li class="chapter" data-level="22.0.1" data-path="estruturas-de-controle-loop.html"><a href="estruturas-de-controle-loop.html#exercícios-1"><i class="fa fa-check"></i><b>22.0.1</b> <strong>EXERCÍCIOS</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="23" data-path="materiais-e-referências-5.html"><a href="materiais-e-referências-5.html"><i class="fa fa-check"></i><b>23</b> Materiais e referências</a></li>
+<li class="chapter" data-level="24" data-path="pipeline-de-dados-e-projeto-final.html"><a href="pipeline-de-dados-e-projeto-final.html"><i class="fa fa-check"></i><b>24</b> <strong>Pipeline de Dados e Projeto Final</strong></a></li>
+<li class="chapter" data-level="25" data-path="pipeline-de-dados.html"><a href="pipeline-de-dados.html"><i class="fa fa-check"></i><b>25</b> <strong>Pipeline de Dados</strong></a></li>
+<li class="chapter" data-level="26" data-path="script-comentado.html"><a href="script-comentado.html"><i class="fa fa-check"></i><b>26</b> <strong>Script comentado</strong></a>
+<ul>
+<li class="chapter" data-level="26.1" data-path="script-comentado.html"><a href="script-comentado.html#coleta-de-dados"><i class="fa fa-check"></i><b>26.1</b> 1. Coleta de Dados</a></li>
+<li class="chapter" data-level="26.2" data-path="script-comentado.html"><a href="script-comentado.html#limpeza-e-transformação-dos-dados"><i class="fa fa-check"></i><b>26.2</b> 2. Limpeza e Transformação dos Dados</a></li>
+<li class="chapter" data-level="26.3" data-path="script-comentado.html"><a href="script-comentado.html#análise-dos-dados"><i class="fa fa-check"></i><b>26.3</b> 3. Análise dos Dados</a></li>
+<li class="chapter" data-level="26.4" data-path="script-comentado.html"><a href="script-comentado.html#visualização-dos-dados"><i class="fa fa-check"></i><b>26.4</b> 4. Visualização dos Dados</a></li>
+<li class="chapter" data-level="26.5" data-path="script-comentado.html"><a href="script-comentado.html#armazenamento-dos-dados-opcional"><i class="fa fa-check"></i><b>26.5</b> 5. Armazenamento dos Dados (Opcional)</a></li>
+<li class="chapter" data-level="26.6" data-path="script-comentado.html"><a href="script-comentado.html#script-completo"><i class="fa fa-check"></i><b>26.6</b> Script completo</a></li>
+</ul></li>
+<li class="chapter" data-level="27" data-path="projeto-final.html"><a href="projeto-final.html"><i class="fa fa-check"></i><b>27</b> <strong>Projeto Final</strong></a></li>
+<li class="chapter" data-level="28" data-path="materiais-e-referências-6.html"><a href="materiais-e-referências-6.html"><i class="fa fa-check"></i><b>28</b> Materiais e referências</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Ebook - Curso Básico de R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="fundamentos-de-programação" class="section level1 hasAnchor" number="12">
+<h1><span class="header-section-number">12</span> Fundamentos de programação<a href="fundamentos-de-programação.html#fundamentos-de-programação" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Neste capítulo do curso, vamos abordar os fundamentos da programação aplicados ao R.</p>
+<p>Programar um computador significa dizer a ele por meio de um conjunto de textos especiais (códigos) o que desejamos que seja feito. Ao escrever um código (script) precisamos ter em mente que o computador só fará aquilo que mandamos. E, como uma máquina, suas capacidades de compreensão são bem limitadas. Por isso, usamos algumas técnicas para que possamos nos fazer “entender” pelo computador.</p>
+<p>A melhor parte é que quando aprendemos a “dizer” para o computador o que queremos, somos capazes de automatizar tarefas repetitivas, processar grandes quantidades de dados e realizar cálculos longos.</p>
+<p>Mantenha em mente que o que queremos é entrar com os dados, que o computador processe conforme solicitamos e nos devolva a saída de dados ou informações de acordo com o desejado.</p>
+<p><em>ENTRADA -&gt; PROCESSAMENTO -&gt; SAÍDA</em></p>
+<p>No R utilizamos essas mesmas técnicas. Nas próximas sessões daremos as orientações e exemplos aplicados no próprio R para que você possa entender e praticar.</p>
+<div id="variáveis-e-constantes" class="section level2 hasAnchor" number="12.1">
+<h2><span class="header-section-number">12.1</span> Variáveis e constantes:<a href="fundamentos-de-programação.html#variáveis-e-constantes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Para que um programa de computador funcione, é precisa entrar com os dados que desejamos. Isso pode ser feito duas maneiras:</p>
+<ol style="list-style-type: decimal">
+<li>Inserir manualmente cada campo.</li>
+<li>Carregar um conjunto de dados.</li>
+</ol>
+<p>Um exemplo de inserção manual são as calculadoras, onde colocamos um número, depois inseridos a operação que queremos e depois outro número e assim por diante.</p>
+<p>Um exemplo de carga de dados é seu extrato bancário. Já notou que o extrato é um relatório de todas as transações registradas em certo período de tempo?</p>
+<p>Da mesma maneira, os dados coletados durante atendimentos em uma UBS, notificados e depois disponibilizados via DataSUS também são exemplos de registros que podem se tornar relatórios.</p>
+<p>É aí que entra a segunda parte, o processamento. Quando você coloca o seu login e senha no aplicativo do banco e solicita o extrato, o computador processa a sua solicitação e imprime os valores na tela ou gera um PDF. Da mesma maneira, com o R podemos construir scripts que nos respondam à perguntas que possuímos sobre os registros disponíveis nas bases de dados de clima e de saúde.</p>
+<p>Então, é possível solicitar ao computador que realize as operações necessárias com os dados carregados? Sim. Cada vez que executamos (rodamos) um script, acontece um processamento.</p>
+<p>O relatório é a saída do processamento. O seu extrato bancário possui operações consideradas simples, pois trata-se de uma consulta com adição e subtração das operações. Compreender as relações entre a temperatura do ar e morbimortalidade nos exigirá um pouco mais de esforço, mas o fundamento é sempre o mesmo.</p>
+<p>Rode (execute) o script abaixo e veja a diferença no valor de x, a cada vez que você atribui um novo valor. (Você pode usar o RStudio ou o Google Colab.)</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="fundamentos-de-programação.html#cb5-1" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="dv">5</span></span>
+<span id="cb5-2"><a href="fundamentos-de-programação.html#cb5-2" tabindex="-1"></a><span class="fu">print</span>(x)</span></code></pre></div>
+<pre><code>[1] 5</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="fundamentos-de-programação.html#cb7-1" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="dv">10</span></span>
+<span id="cb7-2"><a href="fundamentos-de-programação.html#cb7-2" tabindex="-1"></a><span class="fu">print</span>(x)</span></code></pre></div>
+<pre><code>[1] 10</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="fundamentos-de-programação.html#cb9-1" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="dv">4500</span></span>
+<span id="cb9-2"><a href="fundamentos-de-programação.html#cb9-2" tabindex="-1"></a><span class="fu">print</span>(x)</span></code></pre></div>
+<pre><code>[1] 4500</code></pre>
+<p>Notou que cada vez que você muda o valor à sua direita, o valor em tela também muda? Por isso chamamos o x, ou qualquer outra letra ou nome à sua esquerda de variável.</p>
+<p>Seja qual for a operação que você está fazendo no computador (entrada, processamento ou saída), será necessário “guardar” temporariamente os valores utilizados no cálculo ou consulta. Para isso dizemos ao computador que queremos “declarar uma variável”.</p>
+<p>Uma variável é uma unidade representada por letra ou números que pode ter seu valor modificado ao longo do processamento. Para isso usamos algo que você certamente conhece, equações.</p>
+<p>Vamos a um exemplo:</p>
+<p><em>x = 3</em></p>
+<p>Se você ler a expressão acima em voz alta, deverá dizer que <em>xis é igual a três</em>. Não é mesmo?</p>
+<p>No R, fazemos algo muito parecido, apenas precisamos deixar diferente a igualdade porque na verdade estamos atribuindo um valor para x que poderá ser modificado. Por isso no R utilizamos o símbolo <em>&lt;-</em> para dizer que naquele momento <em>xis é igual a três</em>. Segue o exemplo:</p>
+<p><em>x&lt;-3</em></p>
+<p>Pronto, você disse ao R que <em>a xis está atribuido o número inteiro três</em>, mas que isso pode mudar. Foi exatamente isso que acabamos de fazer nos exemplos acima. Utilizamos números, mas podemos atribuir qualquer caractere ou conjunto de dados a uma variável. Veremos isso com detalhes mais à frente.</p>
+<p>E quando precisamos que um valor atribuído não seja modificado durante o processamento? Utilizamos as constantes. Como o próprio nome diz, ao contrário da variável ela não poderá ter seu valor atualizado.</p>
+<p>As constantes são importantes pela clareza, facilidade de manutenção, prevenção de erros, segurança e melhoria no desempenho dos nossos scripts.</p>
+<p>No R é comum utilizarmos funções para declarar constantes como o PI e E (constante de euler) ou valores vazios e nulos. No final dessa seção você vai encontrar uma lista com os tipos de contantes mais utilizadas pela linguagem.</p>
+<p>Esses valores, por convenção, não serão modificados então os declaramos da seguinte forma:</p>
+<pre><code>PI &lt;- 3.14159
+E &lt;- 2.71828</code></pre>
+<p>Por boas práticas, as variáveis sempre são declaradas com letras minúsculas e as constantes com letras maiúsculas.</p>
+<p>Rode os exemplos abaixo e veja como se comportam as constantes.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="fundamentos-de-programação.html#cb12-1" tabindex="-1"></a>PI <span class="ot">&lt;-</span> <span class="fl">3.14159</span></span>
+<span id="cb12-2"><a href="fundamentos-de-programação.html#cb12-2" tabindex="-1"></a>E <span class="ot">&lt;-</span> <span class="fl">2.71828</span></span>
+<span id="cb12-3"><a href="fundamentos-de-programação.html#cb12-3" tabindex="-1"></a><span class="fu">print</span>(PI)</span>
+<span id="cb12-4"><a href="fundamentos-de-programação.html#cb12-4" tabindex="-1"></a><span class="fu">print</span>(E)</span></code></pre></div>
+<pre><code>[1] 3.14159
+[1] 2.71828</code></pre>
+</div>
+<div id="operadores" class="section level2 hasAnchor" number="12.2">
+<h2><span class="header-section-number">12.2</span> Operadores<a href="fundamentos-de-programação.html#operadores" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Agora que já sabemos o que são variávis e constantes, assim como declará-las utilizando o R, vamos ver como fazer operações.</p>
+<p>Algumas pessoas costumam dizer que o R pode ser usado como uma calculadora, mas podemos fazer muito mais que isso. O primeiro passo é entender os tipos de operação disponíveis na linguagem.</p>
+<p>Basicamente, podemos realizar qualquer operação com dados utilizando o R e armazená-las em uma ou mais variáveis. Podemos utilizar os seguintes tipos de operadores:</p>
+<p>Operadores aritméticos:</p>
+<pre><code>Soma (+), subtração (-), multiplicação (*), divisão (/), módulo (%%), exponenciação (^).</code></pre>
+<p>Operadores relacionais:</p>
+<pre><code>Igual a (==), diferente de (!=), maior que (&gt;), menor que (&lt;), maior ou igual a (&gt;=), menor ou igual a (&lt;=).</code></pre>
+<p>Operadores lógicos:</p>
+<pre><code>E (&amp;&amp;), OU (||), NOT (!).</code></pre>
+<div id="operadores-aritméticos" class="section level3 hasAnchor" number="12.2.1">
+<h3><span class="header-section-number">12.2.1</span> Operadores aritméticos<a href="fundamentos-de-programação.html#operadores-aritméticos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Os operadores aritméticos são:</p>
+<ul>
+<li><p>Soma (+)</p></li>
+<li><p>Subtração (-)</p></li>
+<li><p>Multiplicação (*)</p></li>
+<li><p>Divisão (/)</p></li>
+<li><p>Módulo (%%)</p></li>
+<li><p>Exponenciação (^)</p></li>
+</ul>
+<p>Para fazer operações aritméticas, basta utilizar o símbolo correpondente diretamente com os números ou declarar variáveis. Abaixo seguem alguns exemplos.</p>
+<p><em>OBS</em>: Note que para imprimir os resultados precisamos utilizar o ‘print()’. Em breve você conhecerá a fundo como esse tipo de comando funciona. Por enquanto, é só clicar em RUN.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="fundamentos-de-programação.html#cb17-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">50</span></span>
+<span id="cb17-2"><a href="fundamentos-de-programação.html#cb17-2" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">17</span></span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="fundamentos-de-programação.html#cb18-1" tabindex="-1"></a><span class="fu">print</span>(x <span class="sc">+</span> y)</span></code></pre></div>
+<pre><code>[1] 67</code></pre>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="fundamentos-de-programação.html#cb20-1" tabindex="-1"></a><span class="fu">print</span>(x <span class="sc">-</span> y)</span></code></pre></div>
+<pre><code>[1] 33</code></pre>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="fundamentos-de-programação.html#cb22-1" tabindex="-1"></a><span class="fu">print</span>(x <span class="sc">*</span> y)</span></code></pre></div>
+<pre><code>[1] 850</code></pre>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="fundamentos-de-programação.html#cb24-1" tabindex="-1"></a><span class="fu">print</span>(x <span class="sc">/</span> y)</span></code></pre></div>
+<pre><code>[1] 2.941176</code></pre>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="fundamentos-de-programação.html#cb26-1" tabindex="-1"></a><span class="fu">print</span>(x <span class="sc">%%</span> y)</span></code></pre></div>
+<pre><code>[1] 16</code></pre>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="fundamentos-de-programação.html#cb28-1" tabindex="-1"></a><span class="fu">print</span>(x <span class="sc">^</span> y)</span></code></pre></div>
+<pre><code>[1] 7.629395e+28</code></pre>
+<p><strong>Exercício</strong>: Experimente trocar algumas vezes o valor de <strong>x</strong> e de <strong>y</strong> e rodar os comandos novamente.</p>
+<p><em>Aqui precisamos que você note que para trocar o valor da variável você necessita atribuí-la novamente clicando em RUN.</em></p>
+</div>
+<div id="operadores-relacionais" class="section level3 hasAnchor" number="12.2.2">
+<h3><span class="header-section-number">12.2.2</span> Operadores relacionais:<a href="fundamentos-de-programação.html#operadores-relacionais" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Os operadores relacionais fazem comparações entre as variáveis ou dados que estão carregados no sistema. São eles:</p>
+<ul>
+<li>Igual a (==)</li>
+<li>Diferente de (!=)</li>
+<li>Maior que (&gt;)</li>
+<li>Menor que (&lt;)</li>
+<li>Maior ou igual a (&gt;=)</li>
+<li>Menor ou igual a (&lt;=).</li>
+</ul>
+<p>Para exemplificar vamos utilizar as mesmas variáveis carregadas acima. Note que diferente dos valores impressos nos exemplos anteriores, aqui o R vai apenas dizer se a comparação é verdadeira (TRUE) ou falsa (FALSE). É o que chamamos de operação booleana.</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="fundamentos-de-programação.html#cb30-1" tabindex="-1"></a><span class="fu">print</span>(x <span class="sc">==</span> y)</span></code></pre></div>
+<pre><code>[1] FALSE</code></pre>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="fundamentos-de-programação.html#cb32-1" tabindex="-1"></a><span class="fu">print</span>(x <span class="sc">!=</span> y)</span></code></pre></div>
+<pre><code>[1] TRUE</code></pre>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="fundamentos-de-programação.html#cb34-1" tabindex="-1"></a><span class="fu">print</span>(x <span class="sc">&gt;</span> y)</span></code></pre></div>
+<pre><code>[1] TRUE</code></pre>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="fundamentos-de-programação.html#cb36-1" tabindex="-1"></a><span class="fu">print</span>(x <span class="sc">&lt;</span> y)</span></code></pre></div>
+<pre><code>[1] FALSE</code></pre>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="fundamentos-de-programação.html#cb38-1" tabindex="-1"></a><span class="fu">print</span>(x <span class="sc">&gt;=</span> y)</span></code></pre></div>
+<pre><code>[1] TRUE</code></pre>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="fundamentos-de-programação.html#cb40-1" tabindex="-1"></a><span class="fu">print</span>(x <span class="sc">&lt;=</span> y)</span></code></pre></div>
+<pre><code>[1] FALSE</code></pre>
+<p><strong>Exercício</strong>: Experimente atribuir o valor de <strong>x</strong> e de <strong>y</strong> antes das operações relacionais e rodar os comandos novamente.</p>
+<p><em>Aqui precisamos que você note que é possível declarar novamente o valor de uma variável ao longo do mesmo script.</em> Isso é importante porque o R lê as linhas de código na sequência em que estão escritas e isso pode mudar os resultados obtidos em scripts e operações mais complexas.</p>
+</div>
+<div id="operadores-lógicos" class="section level3 hasAnchor" number="12.2.3">
+<h3><span class="header-section-number">12.2.3</span> Operadores lógicos<a href="fundamentos-de-programação.html#operadores-lógicos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Assim como os operadores relacionais, os operadores lógicos retornam apenas valores booleanos. São eles:</p>
+<ul>
+<li>E (&amp;)</li>
+<li>OU (|)</li>
+<li>NOT (!)</li>
+</ul>
+<p>Se estamos trabalhando com conjuntos, o R também possui operadores específicos para fazermos testes lógicos.</p>
+<p><em>x pertence a y</em>
+* x %in% y</p>
+<p><em>x ou y são verdadeiros (apenas um deles)</em>
+* xor(x, y)</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="fundamentos-de-programação.html#cb42-1" tabindex="-1"></a><span class="fu">print</span>(x <span class="sc">&amp;</span> y)</span></code></pre></div>
+<pre><code>[1] TRUE</code></pre>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="fundamentos-de-programação.html#cb44-1" tabindex="-1"></a><span class="fu">print</span>(x <span class="sc">|</span> y)</span></code></pre></div>
+<pre><code>[1] TRUE</code></pre>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="fundamentos-de-programação.html#cb46-1" tabindex="-1"></a><span class="fu">print</span>(<span class="sc">!</span>y)</span></code></pre></div>
+<pre><code>[1] FALSE</code></pre>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="fundamentos-de-programação.html#cb48-1" tabindex="-1"></a><span class="co"># Atribuindo um conjunto de dado a uma variável chamada &#39;z&#39;</span></span>
+<span id="cb48-2"><a href="fundamentos-de-programação.html#cb48-2" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">12</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">9</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="fundamentos-de-programação.html#cb49-1" tabindex="-1"></a>x <span class="sc">%in%</span> z</span>
+<span id="cb49-2"><a href="fundamentos-de-programação.html#cb49-2" tabindex="-1"></a>y <span class="sc">%in%</span> z</span></code></pre></div>
+<p>FALSE</p>
+<p>FALSE</p>
+</div>
+</div>
+<div id="tipos-e-estruturas-de-dados" class="section level2 hasAnchor" number="12.3">
+<h2><span class="header-section-number">12.3</span> Tipos e estruturas de dados<a href="fundamentos-de-programação.html#tipos-e-estruturas-de-dados" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>O R possui uma variedade de tipos de dados que podem ser utilizados. Até agora vimos apenas os tipos numéricos, mas basicamente qualquer representação que conseguirmos fazer com um caracter é possível ser tratada e abordada. Abaixo segue uma lista com os principais tipos que utilizamos no dia-a-dia:</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>Numéricos</strong>:</p>
+<ul>
+<li>Inteiros (<code>integer</code>): Números inteiros, como 1, 2, -3, 0.</li>
+<li>Reais (<code>numeric</code> ou <code>double</code>): Números reais, como 3.14, -2.5, 0.0.</li>
+</ul>
+<p>Os números reais devem ser representados utilizando ‘.’ e não ‘,’ para marcar as casas decimais. Por exemplo, x &lt;- 2.5 e não x &lt;- 2,5.</p>
+<pre><code>x &lt;- 25,98372652 (errado)
+x &lt;- 25.98372652 (correto)
+</code></pre>
+<p>Para declarar números inteiros é necessário colocar um L logo depois do número.
+```
+num_parti &lt;- 25 (errado)
+num_parti &lt;- 25L (correto)</p>
+<p>```</p></li>
+<li><p><strong>Caracteres</strong> (<code>character</code>):</p>
+<ul>
+<li>Strings de texto, como “Olá, mundo!”, ‘R é incrível’.</li>
+</ul>
+<p>Os caracteres sevem para que possamos trabalhar com textos. Eles devem sempre ser colocar entre aspas.</p>
+<pre><code>x &lt;- Olá, mundo! (errado)
+x &lt;- &#39;Olá, mundo!&#39; (correto)
+x &lt;- &#39;123&#39; (Aqui o 123 será tratado como texto.)
+</code></pre></li>
+<li><p><strong>Lógicos</strong> (<code>logical</code>):</p>
+<ul>
+<li>Valores booleanos, como <code>TRUE</code> e <code>FALSE</code>.</li>
+</ul>
+<p>Como vimos na seção anterior, os tipos lógicos servem para fazermos comparações entre valores ou mesmo atribuir esse valor a um campo ou unidade de conjunto.</p>
+<pre><code>exame_realizado &lt;- TRUE
+exame_realizado &lt;- FALSE
+</code></pre></li>
+<li><p><strong>Fatores</strong> (<code>factor</code>):</p>
+<ul>
+<li>Variáveis categóricas, como “masculino”, “feminino”, “alto”, “baixo”.</li>
+</ul>
+<p>Utilizamos fatores quando vamos trabalhar categorização de colunas em uma dataframe. Por exemplo, queremos atribuir um nome a determinada escala de valor.</p>
+<pre><code>genero &lt;- factor(c(&quot;Masculino&quot;, &quot;Feminino&quot;, &quot;Masculino&quot;))
+</code></pre></li>
+<li><p><strong>Datas e Horas</strong>:</p>
+<ul>
+<li><code>Date</code>: Datas, como “2023-04-18”.</li>
+<li><code>POSIXct</code> e <code>POSIXlt</code>: Datas e horas, como “2023-04-18 14:30:00”.</li>
+</ul>
+<p>As datas são variáveis importantes em qualquer estudo em que precisamos estabelecer um período de tempo. Por exemplo, quando queremos descobrir qual foi a precipitação ou a temperatura em determinado mês ou ano. Por isso precisam ser cuidadosamente tratadas antes que realizemos qualquer cálculo.
+O R possui três funções básicas (nativas) para tratamento de datas. <code>date</code> nos permite tratar apenas as datas sem hora ou registro de sistema (timestamp). POSIXct e POSIXlt nos permitem utilizar aqueles registros das bases que veem compostos com hora, dia e outras informações de sistema. Muitas vezes precisamos saber quando um determinado evento ocorreu ou foi registrado, em geral, esse registro vem com essas informações suplementares, também conhecidas como <code>timestamp</code>.
+Ao longo do curso você terá contato com vários exemplos que incluem datas e timestamps.</p>
+<pre><code>data_nascimento &lt;- as.Date(&quot;2022-03-15&quot;)
+
+reg_atendimento &lt;- as.POSIXct(&quot;2023-10-27 15:30:00&quot;)
+</code></pre>
+<p>A diferença entre <strong><em>POSIXct</em></strong> e <strong><em>POSIXlt</em></strong> está na forma como eles representam datas e horas no R.</p>
+<p><em>POSIXct</em>:
+POSIXct é um tipo de dado numérico que armazena datas e horas como o número de segundos desde 1º de janeiro de 1970, 00:00:00 UTC (Tempo Universal Coordenado).
+Esse formato é amplamente utilizado em sistemas computacionais, pois é fácil de manipular e calcular diferenças entre datas.
+POSIXct é o formato recomendado para a maioria das aplicações, pois é mais eficiente em termos de memória e processamento.</p>
+<p><em>POSIXlt</em>:
+POSIXlt é um tipo de dado de lista que armazena datas e horas de uma forma mais detalhada, com campos separados para ano, mês, dia, hora, minuto, segundo, etc.
+Esse formato é útil quando você precisa acessar ou manipular componentes individuais da data e hora, como extrair o dia da semana ou o mês.
+POSIXlt é mais flexível, mas também consome mais memória e é menos eficiente em termos de processamento do que POSIXct.</p>
+<pre><code> Veja os exemplos de uso abaixo:</code></pre>
+<pre><code># Criando uma data e hora usando POSIXct
+data_hora_ct &lt;- as.POSIXct(&quot;2023-04-18 14:30:00&quot;)
+class(data_hora_ct)
+# [1] &quot;POSIXct&quot; &quot;POSIXt&quot;
+# Criando uma data e hora usando POSIXlt
+data_hora_lt &lt;- as.POSIXlt(&quot;2023-04-18 14:30:00&quot;)
+class(data_hora_lt)
+# [1] &quot;POSIXlt&quot; &quot;POSIXt&quot;
+
+# Acessando componentes individuais
+data_hora_lt$year
+# [1] 123
+data_hora_lt$mon
+# [1] 3
+data_hora_lt$mday
+# [1] 18</code></pre>
+<p>Note que aqui você terá possibilidades diferentes com os dados. No POSIXct é possível fazer a localização do dado por meio do registro no sistema, enquanto no POSIXlt você poderá extrair de forma eficiente dia, mês e ano sempre precisar criar colunas extra em seu conjunto de dados.</p></li>
+<li><p><strong>Vetores</strong> (<code>vector</code>):</p>
+<ul>
+<li>São coleções de valores do mesmo tipo de dado. Utilizamos a seguinte marcação (função) para declará-los.</li>
+</ul>
+<pre><code> numeros &lt;- c(1, 2, 3, 4, 5)
+ letras &lt;- c(&#39;a&#39;, &#39;b&#39;, &#39;c&#39;)
+</code></pre></li>
+</ol>
+<p><strong>ESTRUTURAS DE DADOS</strong></p>
+<ol start="7" style="list-style-type: decimal">
+<li><p><strong>Matrizes</strong> (<code>matrix</code>):</p>
+<ul>
+<li>São estruturas bidimensionais de dados do mesmo tipo. Se pensarmos em outros programas de computador, podemos dizer que são como tabelas, possuem um número específico de linhas e colunas.</li>
+</ul>
+<p>Observe o exemplo abaixo:</p>
+<pre><code> matriz &lt;- matrix(c(1, 2, 3, 4, 5, 6), nrow = 2, ncol = 3)
+</code></pre></li>
+</ol>
+<p>Ao executar esse script, o R criará uma variável chamada matriz que contém os números de 1 a 6 armazenados em uma tabela com 2 linhas (nrow) e três colunas (ncol). Ficando da seguinte forma:</p>
+<pre><code>     [,1] [,2] [,3]
+ [1,] 1    3    5
+ [2,] 2    4    6
+</code></pre>
+<p><em>OBS:</em> Até aqui, você só precisa compreender que essa é função disponível no R, ao longo do curso e com o uso da ferramenta vamos aprofundando nos usos das matrizes e outras estruturas de dados.</p>
+<ol start="8" style="list-style-type: decimal">
+<li><p><strong>Listas</strong> (<code>list</code>):</p>
+<ul>
+<li>São coleções de objetos de diferentes tipos de dados. Enquanto as matrizes só atribuição dos mesmos tipos de dados, as listas nos permitem realizar a mesma tarefa “mesclando” tipos diferentes de dados. Observe o exemplo abaixo:</li>
+</ul>
+<pre><code>programas_saude &lt;- list(&quot;Programa de Vacinação&quot; = list(objetivo = &quot;Aumentar a cobertura vacinal&quot;, publico_alvo = &quot;Crianças e idosos&quot;, numero_de_participantes = 40L, orcamento = 35.5), &quot;Programa de Prevenção ao Tabagismo&quot; = list(objetivo = &quot;Reduzir o número de fumantes&quot;, publico_alvo = &quot;Adolescentes e adultos&quot;, numero_de_participantes = 60L, orcamento = 50.75), &quot;Programa de Saúde Mental&quot; = list(objetivo = &quot;Melhorar o acesso a serviços de saúde mental&quot;, publico_alvo = &quot;População em geral&quot; numero_de_participantes = 50L, orcamento = 25.5))
+</code></pre>
+<p>Note que agora é possível colocar diferentes categorias atribuídas a uma mesma variável, incluindo qualquer tipo de dado. Em outras linguagens de programação, como o Python, isso também é chamado de dicionário de dados. Com eles podemos interagir com diversas categorias, nomear elementos dentro de um dataset e outras funcionalidade muito úteis para preparação e manipulação de dados.</p>
+<p>Se você imprimir a variável <code>programas_saude</code> imprimir no console utilizando print() verá a seguinte saída.</p>
+<pre><code>$`Programa de Vacinação`
+$`Programa de Vacinação`$objetivo
+[1] &quot;Aumentar a cobertura vacinal&quot;
+
+$`Programa de Vacinação`$publico_alvo
+[1] &quot;Crianças e idosos&quot;
+
+$`Programa de Prevenção ao Tabagismo`
+$`Programa de Prevenção ao Tabagismo`$objetivo
+[1] &quot;Reduzir o número de fumantes&quot;
+
+$`Programa de Prevenção ao Tabagismo`$publico_alvo
+[1] &quot;Adolescentes e adultos&quot;
+
+$`Programa de Saúde Mental`
+$`Programa de Saúde Mental`$objetivo
+[1] &quot;Melhorar o acesso a serviços de saúde mental&quot;
+
+$`Programa de Saúde Mental`$publico_alvo
+[1] &quot;População em geral&quot;</code></pre></li>
+<li><p><strong>Dataframes</strong> (<code>data.frame</code>):</p>
+<ul>
+<li>Enquanto as listas e matrizes se assemelham às tabelas, os dataframes são semelhantes às planilhas. A diferença entre uma lista e um dataframe é de que cada categoria vai corresponder a uma coluna e não a uma linha de dados. Dessa maneira, é possível armazenar uma quantidade maior de dados, homegeneizá-los e transformá-los. Observe o exemplo abaixo:</li>
+</ul>
+<pre><code>pacientes &lt;- data.frame(
+  nome = c(&quot;João Silva&quot;, &quot;Maria Oliveira&quot;, &quot;Pedro Souza&quot;, &quot;Ana Pereira&quot;),
+  idade = c(45, 32, 58, 27),
+  diagnostico = c(&quot;Diabetes&quot;, &quot;Hipertensão&quot;, &quot;Asma&quot;, &quot;Gripe&quot;),
+  tratamento = c(&quot;Medicação&quot;, &quot;Medicação&quot;, &quot;Medicação&quot;, &quot;Repouso&quot;),
+  data_admissao = as.Date(c(&quot;2023-04-01&quot;, &quot;2023-03-15&quot;, &quot;2023-02-20&quot;, &quot;2023-04-05&quot;)))
+</code></pre>
+<p>Note que agora todos os nomes estão agrupados na categoria nome, assim como as idades, diagnósticos e assim por diante. Quando declaramos uma lista fazermos o caminho contrário, todas as características do objeto que estamos descrevendo ficam agrupadas junto a ele.</p>
+<p>Se você imprimir a variável <code>pacientes</code> imprimir no console utilizando print() verá a seguinte saída.</p>
+<pre><code>            nome idade diagnostico tratamento data_admissao
+1     João Silva    45    Diabetes  Medicação    2023-04-01
+2 Maria Oliveira    32 Hipertensão  Medicação    2023-03-15
+3    Pedro Souza    58        Asma  Medicação    2023-02-20
+4    Ana Pereira    27       Gripe    Repouso    2023-04-05</code></pre>
+<p>Agora é possível ver os dados tabulados e organizados em formato de linhas e colunas.</p></li>
+</ol>
+<p><strong>EXPRESSÕES E FUNÇÕES</strong></p>
+<ol start="10" style="list-style-type: decimal">
+<li><strong>Expressões</strong> (<code>expression</code>):
+<ul>
+<li>O R nos permite escrever a representação de expressões matemáticas de forma nativa. Basta usar a função expression.</li>
+</ul></li>
+<li><strong>Fórmulas</strong> (<code>formula</code>):
+<ul>
+<li>Representação de modelos estatísticos também é realizada com facilidade, por meio da expressão formula.</li>
+</ul></li>
+<li><strong>Funções</strong> (<code>function</code>):
+<ul>
+<li>Enquanto linguagem de programação é possível criar conjuntos de scripts que podem ser chamados em conjunto apenas com um comando. Sabe o print(), o c(), o list(), o vector() e o data.frame() são todos funções que já vem instaladas com o R. A parte mais interessante é que você pode criar as suas próprias funções, de acordo com as suas necessidades. Mais adiante vamos nos aprofundar nisso.</li>
+</ul></li>
+</ol>
+<p><strong>Exercício</strong>:</p>
+<ol style="list-style-type: decimal">
+<li><p>Imagine que você está realizando a gestão de três programas de saúde em uma secretaria estadual. Utilizando o RStudio, escreva um script que realize as seguintes tarefas:</p>
+<p>Dados de entrada (variáveis):</p>
+<ul>
+<li>Nome dos programas</li>
+<li>Objetivos dos programas</li>
+<li>Público-alvo dos programas</li>
+<li>Orçamento anual de cada programa</li>
+<li>Datas de início e fim de cada programa</li>
+</ul>
+<p>Tarefas:</p>
+<ul>
+<li>Criar uma lista com as informações de cada programa</li>
+<li>Calcular o orçamento total destinado a todos os programas</li>
+<li>Identificar o programa com o maior orçamento</li>
+<li>Listar os programas que estão em andamento atualmente</li>
+</ul></li>
+</ol>
+<p>Desafio:
+- Exibir o programa com a data de início mais recente</p>
+<p><em>Orientações:</em></p>
+<pre><code>- O primeiro objetivo desta atividade é treinar a atribuição de tipos de dados às variáveis e contantes. Então, declare uma variável separada para cada dado de entrada solicitada, utilizando um tipo de dados adequado ao que deseja atribuir ou representar. Exemplo, se a variável é orçamento o tipo de dados deverá ser numérico.
+- O segundo objetivo é exercitar o uso de operadores. Então, busque testar os operadores que melhor se adequam às tarefas de processamento solicitadas. Por exemplo, a quantidade total de orçamento normalmente é a soma do valor de todos os programas.
+- Procure fazer os exercícios antes de procurar por soluções prontas. Lembre-se que não estamos realizando uma &quot;prova&quot; mas um treinamento. Aqui o processo de aprendizado é mais importante que o resultado pronto.</code></pre>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="materiais-e-referências-2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="algumas-dicas-úteis-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": true,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": true,
+"all": ["github", "weibo", "instapaper", "vk"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/bmclima/cursoRBasico/edit/master/03-fundamentos.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["ebookRbasico.pdf", "ebookRbasico.epub", "ebookRbasico.mobi"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>22 Estruturas de Controle (Loop) | Ebook - Curso Básico de R</title>
+  <meta name="description" content="Este é o livro do curso básico de R oferecido pelo projeto BMCllima da Fiocruz Brasília" />
+  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="22 Estruturas de Controle (Loop) | Ebook - Curso Básico de R" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Este é o livro do curso básico de R oferecido pelo projeto BMCllima da Fiocruz Brasília" />
+  <meta name="github-repo" content="/bmclima/cursoRBasico" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="22 Estruturas de Controle (Loop) | Ebook - Curso Básico de R" />
+  
+  <meta name="twitter:description" content="Este é o livro do curso básico de R oferecido pelo projeto BMCllima da Fiocruz Brasília" />
+  
+
+<meta name="author" content="Priscilla Normando" />
+
+
+<meta name="date" content="2024-07-29" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="estruturas-de-decisão.html"/>
+<link rel="next" href="materiais-e-referências-5.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="layout.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><center><a href="./index.html"><img src = "https://github.com/bmclima/scriptsprotocols/blob/assests/logotipo_Clima-Bronquiolite_FIOCRUZ_17.png?raw=true" width = 60%></a></center></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Boas-vindas!</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#o-que-você-vai-aprender"><i class="fa fa-check"></i><b>1.1</b> O que você vai aprender</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#conceitos-fundamentais"><i class="fa fa-check"></i><b>1.1.1</b> Conceitos fundamentais</a></li>
+<li class="chapter" data-level="1.1.2" data-path="index.html"><a href="index.html#seu-espaço-de-trabalho"><i class="fa fa-check"></i><b>1.1.2</b> Seu espaço de trabalho</a></li>
+<li class="chapter" data-level="1.1.3" data-path="index.html"><a href="index.html#fundamentos"><i class="fa fa-check"></i><b>1.1.3</b> Fundamentos</a></li>
+<li class="chapter" data-level="1.1.4" data-path="index.html"><a href="index.html#o-poder-do-r"><i class="fa fa-check"></i><b>1.1.4</b> O poder do R</a></li>
+<li class="chapter" data-level="1.1.5" data-path="index.html"><a href="index.html#construa-seus-próprios-projetos"><i class="fa fa-check"></i><b>1.1.5</b> Construa seus próprios projetos</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#como-você-vai-aprender"><i class="fa fa-check"></i><b>1.2</b> Como você vai aprender</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#materiais-e-referências"><i class="fa fa-check"></i><b>1.3</b> Materiais e referências</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Sobre o R</a></li>
+<li class="chapter" data-level="3" data-path="conceitos-fundamentais-1.html"><a href="conceitos-fundamentais-1.html"><i class="fa fa-check"></i><b>3</b> Conceitos Fundamentais</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="conceitos-fundamentais-1.html"><a href="conceitos-fundamentais-1.html#o-que-é-o-r"><i class="fa fa-check"></i><b>3.1</b> O que é o R?</a></li>
+<li class="chapter" data-level="3.2" data-path="conceitos-fundamentais-1.html"><a href="conceitos-fundamentais-1.html#o-que-podemos-fazer-utilizando-o-r"><i class="fa fa-check"></i><b>3.2</b> O que podemos fazer utilizando o R?</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="conceitos-fundamentais-1.html"><a href="conceitos-fundamentais-1.html#hora-de-começar-a-colocar-a-mão-na-massa"><i class="fa fa-check"></i><b>3.2.1</b> <strong><em>Hora de começar a colocar a mão na massa!</em></strong></a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="conceitos-fundamentais-1.html"><a href="conceitos-fundamentais-1.html#saiba-mais"><i class="fa fa-check"></i><b>3.3</b> Saiba mais!</a></li>
+<li class="chapter" data-level="3.4" data-path="conceitos-fundamentais-1.html"><a href="conceitos-fundamentais-1.html#materiais-e-referências-1"><i class="fa fa-check"></i><b>3.4</b> Materiais e referências</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="instalação-e-configuração.html"><a href="instalação-e-configuração.html"><i class="fa fa-check"></i><b>4</b> Instalação e Configuração</a></li>
+<li class="chapter" data-level="5" data-path="seu-espaço-de-trabalho-1.html"><a href="seu-espaço-de-trabalho-1.html"><i class="fa fa-check"></i><b>5</b> Seu espaço de trabalho</a></li>
+<li class="chapter" data-level="6" data-path="instalando-as-ferramentas.html"><a href="instalando-as-ferramentas.html"><i class="fa fa-check"></i><b>6</b> Instalando as ferramentas</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="instalando-as-ferramentas.html"><a href="instalando-as-ferramentas.html#instalando-o-r"><i class="fa fa-check"></i><b>6.1</b> 1. Instalando o R</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="instalando-as-ferramentas.html"><a href="instalando-as-ferramentas.html#passo-a-passo-no-windows"><i class="fa fa-check"></i><b>6.1.1</b> 1.1. Passo-a-passo no Windows</a></li>
+<li class="chapter" data-level="6.1.2" data-path="instalando-as-ferramentas.html"><a href="instalando-as-ferramentas.html#passo-a-passo-no-linux"><i class="fa fa-check"></i><b>6.1.2</b> 1.2. Passo-a-passo no Linux</a></li>
+<li class="chapter" data-level="6.1.3" data-path="instalando-as-ferramentas.html"><a href="instalando-as-ferramentas.html#passo-a-passo-no-macos"><i class="fa fa-check"></i><b>6.1.3</b> 1.3. Passo-a-passo no MacOS</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="instalando-as-ferramentas.html"><a href="instalando-as-ferramentas.html#instalando-o-rstudio"><i class="fa fa-check"></i><b>6.2</b> 2. Instalando o RStudio</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="instalando-as-ferramentas.html"><a href="instalando-as-ferramentas.html#passo-a-passo-no-windows-1"><i class="fa fa-check"></i><b>6.2.1</b> 2.1. Passo-a-passo no Windows</a></li>
+<li class="chapter" data-level="6.2.2" data-path="instalando-as-ferramentas.html"><a href="instalando-as-ferramentas.html#passo-a-passo-no-linux-1"><i class="fa fa-check"></i><b>6.2.2</b> 2.2. Passo-a-passo no Linux</a></li>
+<li class="chapter" data-level="6.2.3" data-path="instalando-as-ferramentas.html"><a href="instalando-as-ferramentas.html#passo-a-passo-no-macos-1"><i class="fa fa-check"></i><b>6.2.3</b> 2.3. Passo-a-passo no MacOS</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="instalando-as-ferramentas.html"><a href="instalando-as-ferramentas.html#instalando-o-git"><i class="fa fa-check"></i><b>6.3</b> 3. Instalando o Git</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="instalando-as-ferramentas.html"><a href="instalando-as-ferramentas.html#passo-a-passo-no-windows-2"><i class="fa fa-check"></i><b>6.3.1</b> 3.1. Passo-a-passo no Windows</a></li>
+<li class="chapter" data-level="6.3.2" data-path="instalando-as-ferramentas.html"><a href="instalando-as-ferramentas.html#passo-a-passo-no-linux-2"><i class="fa fa-check"></i><b>6.3.2</b> 3.2. Passo-a-passo no Linux</a></li>
+<li class="chapter" data-level="6.3.3" data-path="instalando-as-ferramentas.html"><a href="instalando-as-ferramentas.html#passo-a-passo-no-macos-2"><i class="fa fa-check"></i><b>6.3.3</b> 3.3. Passo-a-passo no MacOS</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="instalando-as-ferramentas.html"><a href="instalando-as-ferramentas.html#criando-uma-conta-no-github"><i class="fa fa-check"></i><b>6.4</b> 4. Criando uma conta no GitHub</a></li>
+<li class="chapter" data-level="6.5" data-path="instalando-as-ferramentas.html"><a href="instalando-as-ferramentas.html#criando-uma-conta-no-google-colab"><i class="fa fa-check"></i><b>6.5</b> 5. Criando uma conta no Google Colab</a></li>
+<li class="chapter" data-level="6.6" data-path="instalando-as-ferramentas.html"><a href="instalando-as-ferramentas.html#instalando-ferramentas-adicionais"><i class="fa fa-check"></i><b>6.6</b> 6. Instalando ferramentas adicionais</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="boas-práticas-de-organização-e-versionamento.html"><a href="boas-práticas-de-organização-e-versionamento.html"><i class="fa fa-check"></i><b>7</b> Boas práticas de organização e versionamento</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="boas-práticas-de-organização-e-versionamento.html"><a href="boas-práticas-de-organização-e-versionamento.html#a-interface-do-rstudio"><i class="fa fa-check"></i><b>7.1</b> A interface do RStudio</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="boas-práticas-de-organização-e-versionamento.html"><a href="boas-práticas-de-organização-e-versionamento.html#algumas-configurações-importantes"><i class="fa fa-check"></i><b>7.1.1</b> Algumas configurações importantes</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="usando-o-r.html"><a href="usando-o-r.html"><i class="fa fa-check"></i><b>8</b> Usando o R</a></li>
+<li class="chapter" data-level="9" data-path="escrevendo-o-seu-primeiro-script.html"><a href="escrevendo-o-seu-primeiro-script.html"><i class="fa fa-check"></i><b>9</b> Escrevendo o seu primeiro script</a></li>
+<li class="chapter" data-level="10" data-path="algumas-dicas-úteis.html"><a href="algumas-dicas-úteis.html"><i class="fa fa-check"></i><b>10</b> Algumas dicas úteis</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="algumas-dicas-úteis.html"><a href="algumas-dicas-úteis.html#atalhos-do-rstudio"><i class="fa fa-check"></i><b>10.1</b> Atalhos do RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="materiais-e-referências-2.html"><a href="materiais-e-referências-2.html"><i class="fa fa-check"></i><b>11</b> Materiais e referências</a></li>
+<li class="chapter" data-level="12" data-path="fundamentos-de-programação.html"><a href="fundamentos-de-programação.html"><i class="fa fa-check"></i><b>12</b> Fundamentos de programação</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="fundamentos-de-programação.html"><a href="fundamentos-de-programação.html#variáveis-e-constantes"><i class="fa fa-check"></i><b>12.1</b> Variáveis e constantes:</a></li>
+<li class="chapter" data-level="12.2" data-path="fundamentos-de-programação.html"><a href="fundamentos-de-programação.html#operadores"><i class="fa fa-check"></i><b>12.2</b> Operadores</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="fundamentos-de-programação.html"><a href="fundamentos-de-programação.html#operadores-aritméticos"><i class="fa fa-check"></i><b>12.2.1</b> Operadores aritméticos</a></li>
+<li class="chapter" data-level="12.2.2" data-path="fundamentos-de-programação.html"><a href="fundamentos-de-programação.html#operadores-relacionais"><i class="fa fa-check"></i><b>12.2.2</b> Operadores relacionais:</a></li>
+<li class="chapter" data-level="12.2.3" data-path="fundamentos-de-programação.html"><a href="fundamentos-de-programação.html#operadores-lógicos"><i class="fa fa-check"></i><b>12.2.3</b> Operadores lógicos</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="fundamentos-de-programação.html"><a href="fundamentos-de-programação.html#tipos-e-estruturas-de-dados"><i class="fa fa-check"></i><b>12.3</b> Tipos e estruturas de dados</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="algumas-dicas-úteis-1.html"><a href="algumas-dicas-úteis-1.html"><i class="fa fa-check"></i><b>13</b> Algumas dicas úteis</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="algumas-dicas-úteis-1.html"><a href="algumas-dicas-úteis-1.html#lista-de-constantes-nativas-do-r"><i class="fa fa-check"></i><b>13.1</b> Lista de Constantes Nativas do R</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="materiais-e-referências-3.html"><a href="materiais-e-referências-3.html"><i class="fa fa-check"></i><b>14</b> Materiais e referências</a></li>
+<li class="chapter" data-level="15" data-path="fundamentos-de-programação-1.html"><a href="fundamentos-de-programação-1.html"><i class="fa fa-check"></i><b>15</b> Fundamentos de programação</a></li>
+<li class="chapter" data-level="16" data-path="funções.html"><a href="funções.html"><i class="fa fa-check"></i><b>16</b> <strong>Funções</strong></a>
+<ul>
+<li class="chapter" data-level="16.0.1" data-path="funções.html"><a href="funções.html#entendendo-melhor-os-objetos-no-r"><i class="fa fa-check"></i><b>16.0.1</b> Entendendo melhor os objetos no R</a></li>
+<li class="chapter" data-level="16.0.2" data-path="funções.html"><a href="funções.html#funções-nativas-ou-embutidas"><i class="fa fa-check"></i><b>16.0.2</b> <strong>Funções nativas ou embutidas</strong></a></li>
+<li class="chapter" data-level="16.0.3" data-path="funções.html"><a href="funções.html#funções-construídas-ou-próprias"><i class="fa fa-check"></i><b>16.0.3</b> <strong>Funções construídas ou próprias</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="pacotes.html"><a href="pacotes.html"><i class="fa fa-check"></i><b>17</b> <strong>Pacotes</strong></a>
+<ul>
+<li class="chapter" data-level="17.0.1" data-path="pacotes.html"><a href="pacotes.html#exercícios"><i class="fa fa-check"></i><b>17.0.1</b> <strong>EXERCÍCIOS</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="materiais-e-referências-4.html"><a href="materiais-e-referências-4.html"><i class="fa fa-check"></i><b>18</b> Materiais e referências</a></li>
+<li class="chapter" data-level="19" data-path="fundamentos-de-programação-2.html"><a href="fundamentos-de-programação-2.html"><i class="fa fa-check"></i><b>19</b> <strong>Fundamentos de programação</strong></a></li>
+<li class="chapter" data-level="20" data-path="funções-e-operadores-no-r---parte-2.html"><a href="funções-e-operadores-no-r---parte-2.html"><i class="fa fa-check"></i><b>20</b> <strong>Funções e operadores no R - parte 2</strong></a>
+<ul>
+<li class="chapter" data-level="20.1" data-path="funções-e-operadores-no-r---parte-2.html"><a href="funções-e-operadores-no-r---parte-2.html#o-operador-pipe"><i class="fa fa-check"></i><b>20.1</b> O operador pipe</a></li>
+<li class="chapter" data-level="20.2" data-path="funções-e-operadores-no-r---parte-2.html"><a href="funções-e-operadores-no-r---parte-2.html#manipulação-de-strings"><i class="fa fa-check"></i><b>20.2</b> Manipulação de strings</a></li>
+</ul></li>
+<li class="chapter" data-level="21" data-path="estruturas-de-decisão.html"><a href="estruturas-de-decisão.html"><i class="fa fa-check"></i><b>21</b> <strong>Estruturas de Decisão</strong></a></li>
+<li class="chapter" data-level="22" data-path="estruturas-de-controle-loop.html"><a href="estruturas-de-controle-loop.html"><i class="fa fa-check"></i><b>22</b> Estruturas de Controle (Loop)</a>
+<ul>
+<li class="chapter" data-level="22.0.1" data-path="estruturas-de-controle-loop.html"><a href="estruturas-de-controle-loop.html#exercícios-1"><i class="fa fa-check"></i><b>22.0.1</b> <strong>EXERCÍCIOS</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="23" data-path="materiais-e-referências-5.html"><a href="materiais-e-referências-5.html"><i class="fa fa-check"></i><b>23</b> Materiais e referências</a></li>
+<li class="chapter" data-level="24" data-path="pipeline-de-dados-e-projeto-final.html"><a href="pipeline-de-dados-e-projeto-final.html"><i class="fa fa-check"></i><b>24</b> <strong>Pipeline de Dados e Projeto Final</strong></a></li>
+<li class="chapter" data-level="25" data-path="pipeline-de-dados.html"><a href="pipeline-de-dados.html"><i class="fa fa-check"></i><b>25</b> <strong>Pipeline de Dados</strong></a></li>
+<li class="chapter" data-level="26" data-path="script-comentado.html"><a href="script-comentado.html"><i class="fa fa-check"></i><b>26</b> <strong>Script comentado</strong></a>
+<ul>
+<li class="chapter" data-level="26.1" data-path="script-comentado.html"><a href="script-comentado.html#coleta-de-dados"><i class="fa fa-check"></i><b>26.1</b> 1. Coleta de Dados</a></li>
+<li class="chapter" data-level="26.2" data-path="script-comentado.html"><a href="script-comentado.html#limpeza-e-transformação-dos-dados"><i class="fa fa-check"></i><b>26.2</b> 2. Limpeza e Transformação dos Dados</a></li>
+<li class="chapter" data-level="26.3" data-path="script-comentado.html"><a href="script-comentado.html#análise-dos-dados"><i class="fa fa-check"></i><b>26.3</b> 3. Análise dos Dados</a></li>
+<li class="chapter" data-level="26.4" data-path="script-comentado.html"><a href="script-comentado.html#visualização-dos-dados"><i class="fa fa-check"></i><b>26.4</b> 4. Visualização dos Dados</a></li>
+<li class="chapter" data-level="26.5" data-path="script-comentado.html"><a href="script-comentado.html#armazenamento-dos-dados-opcional"><i class="fa fa-check"></i><b>26.5</b> 5. Armazenamento dos Dados (Opcional)</a></li>
+<li class="chapter" data-level="26.6" data-path="script-comentado.html"><a href="script-comentado.html#script-completo"><i class="fa fa-check"></i><b>26.6</b> Script completo</a></li>
+</ul></li>
+<li class="chapter" data-level="27" data-path="projeto-final.html"><a href="projeto-final.html"><i class="fa fa-check"></i><b>27</b> <strong>Projeto Final</strong></a></li>
+<li class="chapter" data-level="28" data-path="materiais-e-referências-6.html"><a href="materiais-e-referências-6.html"><i class="fa fa-check"></i><b>28</b> Materiais e referências</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Ebook - Curso Básico de R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="estruturas-de-controle-loop" class="section level1 hasAnchor" number="22">
+<h1><span class="header-section-number">22</span> Estruturas de Controle (Loop)<a href="estruturas-de-controle-loop.html#estruturas-de-controle-loop" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Loops em R são estruturas de controle que permitem a execução repetida de um bloco de código. Existem diferentes tipos de loops disponíveis em R, cada um com suas próprias características e usos específicos. Vamos explorar as principais opções:</p>
+<ol style="list-style-type: decimal">
+<li><strong>for loop</strong>:
+<ul>
+<li><p>Sintaxe: <code>for (variável in vetor) { código }</code></p></li>
+<li><p>Executa o bloco de código uma vez para cada elemento do vetor atribuído à variável.</p></li>
+<li><p>Útil quando você sabe antecipadamente o número de iterações necessárias.</p></li>
+<li><p>Exemplo:</p>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="estruturas-de-controle-loop.html#cb114-1" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) {</span>
+<span id="cb114-2"><a href="estruturas-de-controle-loop.html#cb114-2" tabindex="-1"></a>  <span class="fu">print</span>(i)</span>
+<span id="cb114-3"><a href="estruturas-de-controle-loop.html#cb114-3" tabindex="-1"></a>}</span></code></pre></div></li>
+</ul></li>
+<li><strong>while loop</strong>:
+<ul>
+<li><p>Sintaxe: <code>while (condição) { código }</code></p></li>
+<li><p>Executa o bloco de código repetidamente enquanto a condição for verdadeira.</p></li>
+<li><p>Útil quando você não sabe antecipadamente o número de iterações necessárias.</p></li>
+<li><p>Exemplo:</p>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="estruturas-de-controle-loop.html#cb115-1" tabindex="-1"></a>i <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb115-2"><a href="estruturas-de-controle-loop.html#cb115-2" tabindex="-1"></a><span class="cf">while</span> (i <span class="sc">&lt;=</span> <span class="dv">5</span>) {</span>
+<span id="cb115-3"><a href="estruturas-de-controle-loop.html#cb115-3" tabindex="-1"></a>  <span class="fu">print</span>(i)</span>
+<span id="cb115-4"><a href="estruturas-de-controle-loop.html#cb115-4" tabindex="-1"></a>  i <span class="ot">&lt;-</span> i <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb115-5"><a href="estruturas-de-controle-loop.html#cb115-5" tabindex="-1"></a>}</span></code></pre></div></li>
+</ul></li>
+<li><strong>repeat loop</strong>:
+<ul>
+<li><p>Sintaxe: <code>repeat { código }</code></p></li>
+<li><p>Executa o bloco de código repetidamente até que uma instrução <code>break</code> seja encontrada.</p></li>
+<li><p>Útil quando você não sabe antecipadamente o número de iterações necessárias, mas tem uma condição de parada clara.</p></li>
+<li><p>Exemplo:</p>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="estruturas-de-controle-loop.html#cb116-1" tabindex="-1"></a>i <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb116-2"><a href="estruturas-de-controle-loop.html#cb116-2" tabindex="-1"></a><span class="cf">repeat</span> {</span>
+<span id="cb116-3"><a href="estruturas-de-controle-loop.html#cb116-3" tabindex="-1"></a>  <span class="fu">print</span>(i)</span>
+<span id="cb116-4"><a href="estruturas-de-controle-loop.html#cb116-4" tabindex="-1"></a>  i <span class="ot">&lt;-</span> i <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb116-5"><a href="estruturas-de-controle-loop.html#cb116-5" tabindex="-1"></a>  <span class="cf">if</span> (i <span class="sc">&gt;</span> <span class="dv">5</span>) {</span>
+<span id="cb116-6"><a href="estruturas-de-controle-loop.html#cb116-6" tabindex="-1"></a>    <span class="cf">break</span></span>
+<span id="cb116-7"><a href="estruturas-de-controle-loop.html#cb116-7" tabindex="-1"></a>  }</span>
+<span id="cb116-8"><a href="estruturas-de-controle-loop.html#cb116-8" tabindex="-1"></a>}</span></code></pre></div></li>
+</ul></li>
+<li><strong>lapply() e sapply()</strong>:
+<ul>
+<li><p>Funções de ordem superior que aplicam uma função a cada elemento de um vetor ou lista.</p></li>
+<li><p><code>lapply()</code> retorna uma lista, enquanto <code>sapply()</code> tenta retornar um vetor.</p></li>
+<li><p>Úteis para aplicar a mesma operação a múltiplos elementos de forma concisa.</p></li>
+<li><p>Exemplo:</p>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="estruturas-de-controle-loop.html#cb117-1" tabindex="-1"></a>numbers <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
+<span id="cb117-2"><a href="estruturas-de-controle-loop.html#cb117-2" tabindex="-1"></a>squared <span class="ot">&lt;-</span> <span class="fu">sapply</span>(numbers, <span class="cf">function</span>(x) x<span class="sc">^</span><span class="dv">2</span>)</span></code></pre></div></li>
+</ul></li>
+<li><strong>apply(), tapply() e mapply()</strong>:
+<ul>
+<li><p>Funções de ordem superior que aplicam uma função a arrays, matrizes ou listas multidimensionais.</p></li>
+<li><p><code>apply()</code> aplica uma função a linhas ou colunas de uma matriz.</p></li>
+<li><p><code>tapply()</code> aplica uma função a subconjuntos de um vetor.</p></li>
+<li><p><code>mapply()</code> aplica uma função a elementos correspondentes de múltiplos vetores.</p></li>
+<li><p>Úteis para operações em estruturas de dados multidimensionais.</p></li>
+<li><p>Exemplo:</p>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="estruturas-de-controle-loop.html#cb118-1" tabindex="-1"></a>matrix <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="at">nrow =</span> <span class="dv">2</span>)</span>
+<span id="cb118-2"><a href="estruturas-de-controle-loop.html#cb118-2" tabindex="-1"></a>row_sums <span class="ot">&lt;-</span> <span class="fu">apply</span>(matrix, <span class="dv">1</span>, sum)</span></code></pre></div>
+<p>Abaixo colocamos um script que ilustra o uso das estruturas de controle para baixar e préprocessar dados do SUS.</p></li>
+</ul></li>
+</ol>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="estruturas-de-controle-loop.html#cb119-1" tabindex="-1"></a><span class="co"># Criar um dataframe para armazenar as taxas de mortalidade</span></span>
+<span id="cb119-2"><a href="estruturas-de-controle-loop.html#cb119-2" tabindex="-1"></a>taxas_mortalidade <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb119-3"><a href="estruturas-de-controle-loop.html#cb119-3" tabindex="-1"></a>  <span class="at">faixa_etaria =</span> <span class="fu">c</span>(<span class="st">&quot;0-19 anos&quot;</span>, <span class="st">&quot;20-39 anos&quot;</span>, <span class="st">&quot;40-59 anos&quot;</span>, <span class="st">&quot;60 anos ou mais&quot;</span>),</span>
+<span id="cb119-4"><a href="estruturas-de-controle-loop.html#cb119-4" tabindex="-1"></a>  <span class="at">obitos =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>),</span>
+<span id="cb119-5"><a href="estruturas-de-controle-loop.html#cb119-5" tabindex="-1"></a>  <span class="at">populacao =</span> <span class="fu">c</span>(<span class="dv">1000000</span>, <span class="dv">1000000</span>, <span class="dv">1000000</span>, <span class="dv">1000000</span>),</span>
+<span id="cb119-6"><a href="estruturas-de-controle-loop.html#cb119-6" tabindex="-1"></a>  <span class="at">taxa_mortalidade =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>)</span>
+<span id="cb119-7"><a href="estruturas-de-controle-loop.html#cb119-7" tabindex="-1"></a>)</span>
+<span id="cb119-8"><a href="estruturas-de-controle-loop.html#cb119-8" tabindex="-1"></a></span>
+<span id="cb119-9"><a href="estruturas-de-controle-loop.html#cb119-9" tabindex="-1"></a><span class="co"># Calcular a taxa de mortalidade por faixa etária</span></span>
+<span id="cb119-10"><a href="estruturas-de-controle-loop.html#cb119-10" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(df_sim)) {</span>
+<span id="cb119-11"><a href="estruturas-de-controle-loop.html#cb119-11" tabindex="-1"></a>  idade <span class="ot">&lt;-</span> df_sim<span class="sc">$</span>IDADE[i]</span>
+<span id="cb119-12"><a href="estruturas-de-controle-loop.html#cb119-12" tabindex="-1"></a></span>
+<span id="cb119-13"><a href="estruturas-de-controle-loop.html#cb119-13" tabindex="-1"></a>  <span class="cf">if</span> (idade <span class="sc">&gt;=</span> <span class="dv">0</span> <span class="sc">&amp;&amp;</span> idade <span class="sc">&lt;=</span> <span class="dv">19</span>) {</span>
+<span id="cb119-14"><a href="estruturas-de-controle-loop.html#cb119-14" tabindex="-1"></a>    taxas_mortalidade<span class="sc">$</span>obitos[<span class="dv">1</span>] <span class="ot">&lt;-</span> taxas_mortalidade<span class="sc">$</span>obitos[<span class="dv">1</span>] <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb119-15"><a href="estruturas-de-controle-loop.html#cb119-15" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (idade <span class="sc">&gt;=</span> <span class="dv">20</span> <span class="sc">&amp;&amp;</span> idade <span class="sc">&lt;=</span> <span class="dv">39</span>) {</span>
+<span id="cb119-16"><a href="estruturas-de-controle-loop.html#cb119-16" tabindex="-1"></a>    taxas_mortalidade<span class="sc">$</span>obitos[<span class="dv">2</span>] <span class="ot">&lt;-</span> taxas_mortalidade<span class="sc">$</span>obitos[<span class="dv">2</span>] <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb119-17"><a href="estruturas-de-controle-loop.html#cb119-17" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (idade <span class="sc">&gt;=</span> <span class="dv">40</span> <span class="sc">&amp;&amp;</span> idade <span class="sc">&lt;=</span> <span class="dv">59</span>) {</span>
+<span id="cb119-18"><a href="estruturas-de-controle-loop.html#cb119-18" tabindex="-1"></a>    taxas_mortalidade<span class="sc">$</span>obitos[<span class="dv">3</span>] <span class="ot">&lt;-</span> taxas_mortalidade<span class="sc">$</span>obitos[<span class="dv">3</span>] <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb119-19"><a href="estruturas-de-controle-loop.html#cb119-19" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb119-20"><a href="estruturas-de-controle-loop.html#cb119-20" tabindex="-1"></a>    taxas_mortalidade<span class="sc">$</span>obitos[<span class="dv">4</span>] <span class="ot">&lt;-</span> taxas_mortalidade<span class="sc">$</span>obitos[<span class="dv">4</span>] <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb119-21"><a href="estruturas-de-controle-loop.html#cb119-21" tabindex="-1"></a>  }</span>
+<span id="cb119-22"><a href="estruturas-de-controle-loop.html#cb119-22" tabindex="-1"></a>}</span>
+<span id="cb119-23"><a href="estruturas-de-controle-loop.html#cb119-23" tabindex="-1"></a></span>
+<span id="cb119-24"><a href="estruturas-de-controle-loop.html#cb119-24" tabindex="-1"></a><span class="co"># Calcular a taxa de mortalidade por 100.000 habitantes</span></span>
+<span id="cb119-25"><a href="estruturas-de-controle-loop.html#cb119-25" tabindex="-1"></a>taxas_mortalidade<span class="sc">$</span>taxa_mortalidade <span class="ot">&lt;-</span> (taxas_mortalidade<span class="sc">$</span>obitos <span class="sc">/</span> taxas_mortalidade<span class="sc">$</span>populacao) <span class="sc">*</span> <span class="dv">100000</span></span>
+<span id="cb119-26"><a href="estruturas-de-controle-loop.html#cb119-26" tabindex="-1"></a></span>
+<span id="cb119-27"><a href="estruturas-de-controle-loop.html#cb119-27" tabindex="-1"></a><span class="co"># Exibir os resultados</span></span>
+<span id="cb119-28"><a href="estruturas-de-controle-loop.html#cb119-28" tabindex="-1"></a><span class="fu">print</span>(taxas_mortalidade)</span></code></pre></div>
+<ul>
+<li>Criamos um dataframe taxas_mortalidade para armazenar as informações sobre a taxa de mortalidade por faixa etária.</li>
+<li>Utilizamos um loop for para percorrer cada linha do dataframe df_sim e classificar os óbitos em diferentes faixas etárias (0-19 anos, 20-39 anos, 40-59 anos, 60 anos ou mais) usando uma estrutura de decisão if-else.</li>
+<li>Após contabilizar os óbitos por faixa etária, calculamos a taxa de mortalidade por 100.000 habitantes, assumindo uma população de 1 milhão de pessoas em cada faixa.</li>
+<li>Finalmente, exibimos os resultados armazenados no dataframe taxas_mortalidade.</li>
+</ul>
+<p><em>OBS:</em></p>
+<p>Não incluímos no exemplo as atividades de baixar e préprocessar os dados, pois isso já foi abordado durante o curso.</p>
+<div id="exercícios-1" class="section level3 hasAnchor" number="22.0.1">
+<h3><span class="header-section-number">22.0.1</span> <strong>EXERCÍCIOS</strong><a href="estruturas-de-controle-loop.html#exercícios-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong><em>1.</em></strong></p>
+<p><em>Objetivo</em>:</p>
+<p>Este exercício visa lhe familiarizar com o uso do operador pipe.</p>
+<p><em>Cenário</em>:</p>
+<p>Suponha que você tenha um conjunto de dados que contém informações sobre a incidência de doenças respiratórias em uma determinada região, bem como dados meteorológicos como temperatura, umidade e precipitação. Você deve usar o operador pipe (%&gt;%) na construção do seu script.</p>
+<p>Exercício:</p>
+<pre><code>Carregue os pacotes tidyverse e microdatasus.
+Importe o conjunto de dados que contém as informações de nascimento.
+Utilize o operador pipe para:
+  a. Filtrar os dados do SINASC para uma determinada UF de um ano a sua escolha.
+  b. Calcular a média mensal de nascimentos nesta UF.</code></pre>
+<p>Regras:</p>
+<pre><code>- Você deve declarar uma única variável para realizar o exercício.</code></pre>
+<p><strong><em>2.</em></strong></p>
+<p>Neste exercício, você irá utilizar algumas das funções de manipulação de strings e arquivos do R.</p>
+<p>Cenário:</p>
+<p>Você trabalha em uma prefeitura e recebeu um arquivo CSV de uma UBS (pacientes.csv) contendo os nomes completos dos pacientes atendidos em um determinado dia. Sua tarefa é extrair os primeiros e últimos nomes de cada paciente e salvá-los em um novo arquivo CSV.</p>
+<p>Dados:</p>
+<p>O arquivo pacientes.csv tem a seguinte estrutura:</p>
+<p>nome_completo
+João da Silva
+Maria Souza Santos
+Pedro Henrique Alves
+Ana Clara Oliveira</p>
+<p>data_do_atendimento
+2024-07-12
+2024-07-12
+2024-07-12
+2024-07-11</p>
+<p>Tarefa:</p>
+<pre><code>Crie um arquivo csv com a estrutura de dados indicada. Seu arquivo deve ser separado por vírgulas e conter duas colunas.
+    Use a função file.create(pacientes.csv) para criar o arquivo de dados vazio no diretório de trabalho.
+    Crie duas variáveis e atribua os valores indicados acima utilizando uma das funções de estruturas de dados já estudadas no curso.
+    Inclua os dados no arquivo criado.
+
+    Use o exemplo de scritp abaixo como inspiração:
+
+    ```r
+    # Definir o diretório de trabalho
+    setwd(&quot;C:/dir_projeto&quot;)
+
+    # Criar o arquivo CSV vazio
+    file.create(&quot;dados.csv&quot;)
+
+    # Criar as variáveis
+    nome &lt;- &quot;João&quot;
+    idade &lt;- 35
+
+    # Criar o dataframe com os dados
+    dados &lt;- data.frame(nome, idade)
+
+    # Escrever os dados no arquivo CSV
+    write.csv(dados, &quot;dados.csv&quot;, row.names = FALSE)
+    ```
+
+
+Leitura dos Dados:
+    Use a função read.csv() para carregar os dados do arquivo pacientes.csv em um dataframe.
+
+Manipulação de Strings:
+    Crie duas novas colunas no dataframe: primeiro_nome e ultimo_nome.
+    Utilize a função strsplit() para separar os nomes completos em vetores de palavras.
+    Extraia a primeira palavra de cada vetor e armazene na coluna primeiro_nome.
+    Extraia a última palavra de cada vetor e armazene na coluna ultimo_nome.
+
+Escrita dos Dados:
+    Use a função write.csv() para salvar o dataframe modificado (contendo as colunas primeiro_nome e ultimo_nome) em um novo arquivo CSV chamado nomes_pacientes.csv.</code></pre>
+<div id="script-final-do-curso" class="section level4 hasAnchor" number="22.0.1.1">
+<h4><span class="header-section-number">22.0.1.1</span> 3. SCRIPT FINAL DO CURSO<a href="estruturas-de-controle-loop.html#script-final-do-curso" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>As estruturas condicionais nos permitem interar com os registros das bases de dados, realizar cálculo ou fazer transformações. Abaixo colocamos uma proposta de uso dessas estruturas que poderiam ser utilizadas no script final deste curso. Fique à vontade para copiar e fazer as alterações e testes que desejar.</p>
+<p>Os dados estão disponíveis neste link -&gt; <a href="https://github.com/bmclima/cursoRBasico/blob/main/docs/dados/stations.csv" class="uri">https://github.com/bmclima/cursoRBasico/blob/main/docs/dados/stations.csv</a></p>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="estruturas-de-controle-loop.html#cb123-1" tabindex="-1"></a><span class="co"># Criar um dataframe para armazenar as taxas de mortalidade</span></span>
+<span id="cb123-2"><a href="estruturas-de-controle-loop.html#cb123-2" tabindex="-1"></a>taxas_mortalidade <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb123-3"><a href="estruturas-de-controle-loop.html#cb123-3" tabindex="-1"></a>  <span class="at">faixa_etaria =</span> <span class="fu">c</span>(<span class="st">&quot;0-19 anos&quot;</span>, <span class="st">&quot;20-39 anos&quot;</span>, <span class="st">&quot;40-59 anos&quot;</span>, <span class="st">&quot;60 anos ou mais&quot;</span>),</span>
+<span id="cb123-4"><a href="estruturas-de-controle-loop.html#cb123-4" tabindex="-1"></a>  <span class="at">obitos =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>),</span>
+<span id="cb123-5"><a href="estruturas-de-controle-loop.html#cb123-5" tabindex="-1"></a>  <span class="at">populacao =</span> <span class="fu">c</span>(<span class="dv">1000000</span>, <span class="dv">1000000</span>, <span class="dv">1000000</span>, <span class="dv">1000000</span>),</span>
+<span id="cb123-6"><a href="estruturas-de-controle-loop.html#cb123-6" tabindex="-1"></a>  <span class="at">taxa_mortalidade =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>)</span>
+<span id="cb123-7"><a href="estruturas-de-controle-loop.html#cb123-7" tabindex="-1"></a>)</span>
+<span id="cb123-8"><a href="estruturas-de-controle-loop.html#cb123-8" tabindex="-1"></a></span>
+<span id="cb123-9"><a href="estruturas-de-controle-loop.html#cb123-9" tabindex="-1"></a><span class="co"># Calcular a taxa de mortalidade por faixa etária</span></span>
+<span id="cb123-10"><a href="estruturas-de-controle-loop.html#cb123-10" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(df_sim)) {</span>
+<span id="cb123-11"><a href="estruturas-de-controle-loop.html#cb123-11" tabindex="-1"></a>  idade <span class="ot">&lt;-</span> df_sim<span class="sc">$</span>IDADE[i]</span>
+<span id="cb123-12"><a href="estruturas-de-controle-loop.html#cb123-12" tabindex="-1"></a></span>
+<span id="cb123-13"><a href="estruturas-de-controle-loop.html#cb123-13" tabindex="-1"></a>  <span class="cf">if</span> (idade <span class="sc">&gt;=</span> <span class="dv">0</span> <span class="sc">&amp;&amp;</span> idade <span class="sc">&lt;=</span> <span class="dv">19</span>) {</span>
+<span id="cb123-14"><a href="estruturas-de-controle-loop.html#cb123-14" tabindex="-1"></a>    taxas_mortalidade<span class="sc">$</span>obitos[<span class="dv">1</span>] <span class="ot">&lt;-</span> taxas_mortalidade<span class="sc">$</span>obitos[<span class="dv">1</span>] <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb123-15"><a href="estruturas-de-controle-loop.html#cb123-15" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (idade <span class="sc">&gt;=</span> <span class="dv">20</span> <span class="sc">&amp;&amp;</span> idade <span class="sc">&lt;=</span> <span class="dv">39</span>) {</span>
+<span id="cb123-16"><a href="estruturas-de-controle-loop.html#cb123-16" tabindex="-1"></a>    taxas_mortalidade<span class="sc">$</span>obitos[<span class="dv">2</span>] <span class="ot">&lt;-</span> taxas_mortalidade<span class="sc">$</span>obitos[<span class="dv">2</span>] <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb123-17"><a href="estruturas-de-controle-loop.html#cb123-17" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (idade <span class="sc">&gt;=</span> <span class="dv">40</span> <span class="sc">&amp;&amp;</span> idade <span class="sc">&lt;=</span> <span class="dv">59</span>) {</span>
+<span id="cb123-18"><a href="estruturas-de-controle-loop.html#cb123-18" tabindex="-1"></a>    taxas_mortalidade<span class="sc">$</span>obitos[<span class="dv">3</span>] <span class="ot">&lt;-</span> taxas_mortalidade<span class="sc">$</span>obitos[<span class="dv">3</span>] <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb123-19"><a href="estruturas-de-controle-loop.html#cb123-19" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb123-20"><a href="estruturas-de-controle-loop.html#cb123-20" tabindex="-1"></a>    taxas_mortalidade<span class="sc">$</span>obitos[<span class="dv">4</span>] <span class="ot">&lt;-</span> taxas_mortalidade<span class="sc">$</span>obitos[<span class="dv">4</span>] <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb123-21"><a href="estruturas-de-controle-loop.html#cb123-21" tabindex="-1"></a>  }</span>
+<span id="cb123-22"><a href="estruturas-de-controle-loop.html#cb123-22" tabindex="-1"></a>}</span>
+<span id="cb123-23"><a href="estruturas-de-controle-loop.html#cb123-23" tabindex="-1"></a></span>
+<span id="cb123-24"><a href="estruturas-de-controle-loop.html#cb123-24" tabindex="-1"></a><span class="co"># Calcular a taxa de mortalidade por 100.000 habitantes</span></span>
+<span id="cb123-25"><a href="estruturas-de-controle-loop.html#cb123-25" tabindex="-1"></a>taxas_mortalidade<span class="sc">$</span>taxa_mortalidade <span class="ot">&lt;-</span> (taxas_mortalidade<span class="sc">$</span>obitos <span class="sc">/</span> taxas_mortalidade<span class="sc">$</span>populacao) <span class="sc">*</span> <span class="dv">100000</span></span>
+<span id="cb123-26"><a href="estruturas-de-controle-loop.html#cb123-26" tabindex="-1"></a></span>
+<span id="cb123-27"><a href="estruturas-de-controle-loop.html#cb123-27" tabindex="-1"></a><span class="co"># Exibir os resultados</span></span>
+<span id="cb123-28"><a href="estruturas-de-controle-loop.html#cb123-28" tabindex="-1"></a><span class="fu">print</span>(taxas_mortalidade)</span></code></pre></div>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="estruturas-de-decisão.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="materiais-e-referências-5.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": true,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": true,
+"all": ["github", "weibo", "instapaper", "vk"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/bmclima/cursoRBasico/edit/master/05-estruturasDecisao.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["ebookRbasico.pdf", "ebookRbasico.epub", "ebookRbasico.mobi"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
