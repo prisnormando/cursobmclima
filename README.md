@@ -21,7 +21,7 @@ Curso preparatório às atividades relacionadas ao projeto
 
 - [Introdução ao R](https://bmclima.github.io/cursoRBasico/)
 
-- [Vídeos explicativos](<https://www.youtube.com/embed/videoseries?si=CH65P8HQvyPqIdca&list=PLczEXt1zhB1Rn7BVa6SaV-KtCDL-Cecyc)
+- [Vídeos explicativos](https://www.youtube.com/embed/videoseries?si=CH65P8HQvyPqIdca&list=PLczEXt1zhB1Rn7BVa6SaV-KtCDL-Cecyc)
 
 
 ### Apostila e Slides
