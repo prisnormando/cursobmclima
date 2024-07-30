@@ -26,18 +26,16 @@ Curso preparatório às atividades relacionadas ao projeto
 
 ### Apostila e Slides
 
-- [Slide de revisão do
-  curso](https://)
+- [Slide de revisão do curso](https://github.com/prisnormando/cursoRBasico/blob/main/slides/cursoBasicoRBMClima.pdf)
   
-- [Apostila em PDF](https://)
+- [Apostila em PDF](https://github.com/prisnormando/cursoRBasico/blob/main/ebook/ebookRbasico.pdf)
 
 
 ### Scripts
 
 Abaixo estão os scripts usados no RStudio após a aula:
 
-- [R
-  Base](https://)
+- [R Base](https://github.com/prisnormando/cursoRBasico/tree/main/scripts)
 
 <!-- - [Importação](https://) -->
 <!-- - [Manipulação](https://) -->
@@ -47,17 +45,15 @@ Abaixo estão os scripts usados no RStudio após a aula:
 
 - Atenção: os arquivos dos exercícios contém as respostas.
 
-- [Exercícios](https://)
+- [Exercícios](https://github.com/prisnormando/cursoRBasico/tree/main/scripts/exercicios.R)
 
 ### Links citados em aula
 
 ## Materiais para estudo suplementar e consulta
 
-- [Livro online, gratuito e em inglês: R for Data
-  Science](https://r4ds.hadley.nz/)
+- [Livro online, gratuito e em inglês: R for Data Science](https://r4ds.hadley.nz/)
 
-- [Livro online e gratuito: Ciência de Dados em
-  R](https://livro.curso-r.com/7-2-dplyr.html)
+- [Livro online e gratuito: Ciência de Dados em R](https://livro.curso-r.com/7-2-dplyr.html)
   
 - [Livro o Zen do R](https://curso-r.github.io/zen-do-r/index.html)
 
