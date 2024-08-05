@@ -23,10 +23,12 @@ Curso preparatório às atividades relacionadas ao projeto
 
 - [Vídeos explicativos](https://www.youtube.com/embed/videoseries?si=CH65P8HQvyPqIdca&list=PLczEXt1zhB1Rn7BVa6SaV-KtCDL-Cecyc)
 
+- [Projeto na Posit Cloud](https://posit.cloud/content/8482360)
+
 
 ### Apostila e Slides
 
-- [Slide de revisão do curso](https://github.com/prisnormando/cursoRBasico/blob/main/slides/cursoBasicoRBMClima.pdf)
+- [Slide de revisão do curso](https://github.com/prisnormando/cursoRBasico/blob/main/slides/)
   
 - [Apostila em PDF](https://github.com/prisnormando/cursoRBasico/blob/main/ebook/ebookRbasico.pdf)
 
