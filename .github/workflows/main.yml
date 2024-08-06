@@ -1,0 +1,38 @@
+name: Fork Sync
+  #on: 
+    #schedule:
+    #  - cron: '*/30 * * * *' # every 30 minutes
+uses: tgymnich/fork-sync@v1.2.1
+with:
+  # Owner of the forked repository
+  owner: prisnormando
+  # Token for the github API
+  github_token: 
+  # Branch to track
+  head: main
+  # Branch to keep updated
+  base: main
+  # Merge method to use
+  merge_method: # optional, default is merge
+  # The title of the pull request
+  pr_title: # optional, default is Fork Sync
+  # The message in the pull request
+  pr_message: # optional
+  # ignore Exceptions
+  ignore_fail: # optional
+
+
+
+#  workflow_dispatch: # on button click
+
+#jobs:
+#  sync:
+
+#    runs-on: ubuntu-latest
+
+#    steps:
+#      - uses: tgymnich/fork-sync@v1.8
+#        with:
+#          owner: llvm
+#          base: master
+#          head: master
