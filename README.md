@@ -1,7 +1,7 @@
 
-# BMClima - Introdução ao R
+# BMClima - Análise de Dados de Saúde e Clima: Estatísticas para Políticas Públicas
 
-Curso preparatório às atividades relacionadas ao projeto 
+Curso ministrado no âmbito das atividades relacionadas ao projeto 
 [Relationship between climate variables and the incidence of acute bronchiolitis in children under five years old in Brazilian municipalities in the last 20 years](https://osf.io/edwbs/)
 
 [![DOI](https://zenodo.org/badge/823326120.svg)](https://zenodo.org/doi/10.5281/zenodo.12629276)
@@ -9,21 +9,21 @@ Curso preparatório às atividades relacionadas ao projeto
 
 ## Informações gerais do curso
 
-- **Ministrante:** [Priscilla Normando](https://prisnormando.com)
+- **Coordenadora:** [Noely Moura](https://campusvirtual.fiocruz.br/gestordecursos/hotsite/dados-saude-clima/corpo-docente/9746)
 
-- **Data/horário:** 21 de julho a 2 agosto de 2024;
+- **Ministrantes:** [Corpo Docente](https://campusvirtual.fiocruz.br/gestordecursos/hotsite/dados-saude-clima/corpo-docente/9746)
 
-- **O curso é pré-requisito para o curso [Análise de Dados de Saúde e Clima: Estatísticas para Políticas Públicas](https://campusvirtual.fiocruz.br/gestordecursos/hotsite/dados-saude-clima/oferecidas-25-vagas/9584)
+- **Data/horário:** 21 de julho (início módulo 0) a 9 agosto de 2024;
+
+- **Faça sua inscrição [Análise de Dados de Saúde e Clima: Estatísticas para Políticas Públicas](https://campusvirtual.fiocruz.br/gestordecursos/hotsite/dados-saude-clima/oferecidas-25-vagas/9584)
 
 ## Materiais
 
 ### Site do curso - onde está o seu material de estudos
 
-- [Introdução ao R](https://bmclima.github.io/cursoRBasico/)
+- [Introdução ao R](https://bmclima.github.io/cursoRBasico/) - pré-requisito às atividades do curso - vide Módulo O para materiais completos
 
-- [Vídeos explicativos](https://www.youtube.com/embed/videoseries?si=CH65P8HQvyPqIdca&list=PLczEXt1zhB1Rn7BVa6SaV-KtCDL-Cecyc)
-
-- [Projeto na Posit Cloud](https://posit.cloud/content/8482360)
+- [Material da etapa prensencial]()
 
 
 ### Apostila e Slides
@@ -38,6 +38,8 @@ Curso preparatório às atividades relacionadas ao projeto
 Abaixo estão os scripts usados no RStudio após a aula:
 
 - [R Base](https://github.com/prisnormando/cursoRBasico/tree/main/scripts)
+
+- [Projeto na Posit Cloud](https://posit.cloud/content/8482360)
 
 <!-- - [Importação](https://) -->
 <!-- - [Manipulação](https://) -->
