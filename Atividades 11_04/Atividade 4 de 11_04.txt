@@ -1,0 +1,71 @@
+#===========================================
+# PARA A ATIVIDADE 4 O MODELO DO RDM PARA COLAB
+#==========================================
+
+conteudo_boletim <- c(
+  "---",
+  "title: 'BOLETIM EPIDEMIOLÓGICO: SÍFILIS CONGÊNITA'",
+  "author: 'Lívia Cunha'",
+  "date: '2022-2024'",
+  "output: html_document",
+  "---",
+  "",
+  "# Introdução",
+  "A sífilis congênita permanece como um importante problema de saúde pública no Brasil, sendo um evento evitável por meio de diagnóstico oportuno e tratamento adequado durante o pré-natal. A ocorrência de casos está diretamente relacionada à qualidade da assistência prestada à gestante, incluindo acesso ao pré-natal, testagem e tratamento adequado.",
+  "",
+  "Este boletim tem como objetivo descrever o perfil epidemiológico dos casos de sífilis congênita notificados no Brasil no período de 2022 a 2024, com base em dados do Sistema de Informação de Agravos de Notificação (SINAN).",
+  "",
+  "# Metodologia",
+  "Foram utilizados dados secundários provenientes do SINAN, referentes aos casos de sífilis congênita notificados entre 2022 e 2024. Realizou-se análise descritiva das variáveis sociodemográficas, assistenciais e de desfecho. As análises foram conduzidas no software Google Colab utilizando linguagem R, utilizando frequências absolutas e relativas.",
+  "",
+  "A variável referente ao diagnóstico clínico da criança foi excluída da análise devido à ausência de dados válidos no banco.",
+  "",
+  "# Resultados",
+  "",
+  "## Distribuição temporal",
+  "No período analisado (2022-2024), foram notificados 64.584 casos de sífilis congênita no Brasil. Observou-se uma distribuição de 41,1% dos casos em 2022 e 39,2% em 2023.",
+  "",
+  "```{r echo=FALSE, message=FALSE}",
+  "library(knitr)",
+  "library(ggplot2)",
+  "knitr::kable(tab_ano, col.names = c('Ano', 'Nº Casos', '%'))",
+  "print(grafico_ano)",
+  "```",
+  "",
+  "## Perfil sociodemográfico materno",
+  "Quanto à raça/cor, observou-se predomínio de casos entre gestantes pardas (59,7%), seguidas por brancas (24,0%) e pretas (8,7%).",
+  "",
+  "```{r echo=FALSE, fig.width=9}",
+  "knitr::kable(tab_raca, col.names = c('Raça/Cor', 'Nº Casos', '%'))",
+  "print(grafico_raca)",
+  "```",
+  "",
+  "Observou-se elevada proporção de registros com escolaridade ignorada (29,2%). Entre os casos com informação válida, verificou-se predominância de mães com escolaridade de nível médio completo (23,6%).",
+  "",
+  "```{r echo=FALSE}",
+  "knitr::kable(tab_escolaridade, col.names = c('Escolaridade', 'Nº Casos', '%'))",
+  "```",
+  "",
+  "## Assistência pré-natal e tratamento",
+  "Observou-se que 82,6% das gestantes realizaram pré-natal. Em relação ao tratamento materno, apenas 5,4% receberam tratamento adequado.",
+  "",
+  "```{r echo=FALSE}",
+  "knitr::kable(tab_tratamento, col.names = c('Esquema de Tratamento', 'Nº Casos', '%'))",
+  "```",
+  "",
+  "## Desfecho dos casos",
+  "Observou-se predominância de nascidos vivos (87,3%). Entretanto, foram identificados desfechos adversos relevantes como abortos (4,4%) e natimortos (2,9%).",
+  "",
+  "```{r echo=FALSE}",
+  "knitr::kable(tab_desfecho, col.names = c('Evolução do Caso', 'Nº Casos', '%'))",
+  "```",
+  "",
+  "# Considerações Finais",
+  "A análise dos dados de sífilis congênita no triênio 2022-2024 revela a persistência desse agravo como um desafio crítico para a saúde pública no Brasil. A elevada proporção de tratamento materno inadequado e o diagnóstico tardio evidenciam a necessidade de fortalecer a assistência pré-natal para reduzir a transmissão vertical e evitar desfechos desfavoráveis."
+)
+
+# Grava o arquivo
+writeLines(conteudo_boletim, "boletim_Final1.Rmd")
+
+# Renderiza
+rmarkdown::render("boletim_Final1.Rmd")

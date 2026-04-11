@@ -1,0 +1,362 @@
+===========================================
+Para a atividade foram executados alguns script. Para o exercicio 2, foi executado o seguinte.
+===========================================
+#Primeiro passo no ambiente Colab#
+
+install.packages("foreign")
+install.packages("dplyr")
+
+library(foreign)
+library(dplyr)
+
+# Ler cada um dos arquivos em upload
+base_2022 <- read.dbf("SIFCBR22.dbf", as.is = TRUE)
+base_2023 <- read.dbf("SIFCBR23.dbf", as.is = TRUE)
+base_2024 <- read.dbf("SIFCBR24.dbf", as.is = TRUE)
+
+# Padronizar nomes das colunas das bases
+names(base_2022) <- toupper(names(base_2022))
+names(base_2023) <- toupper(names(base_2023))
+names(base_2024) <- toupper(names(base_2024))
+
+# Unir tudo em uma base só
+dados <- bind_rows(base_2022, base_2023, base_2024)
+
+# Tratar com base no dicionário do SINAN
+
+library(dplyr)
+
+dados <- dados %>%
+  mutate(
+
+    NU_ANO = as.factor(NU_ANO),
+
+    ANT_IDADE = as.numeric(ANT_IDADE),
+
+    ANT_RACA = case_when(
+      ANT_RACA == 1 ~ "Branca",
+      ANT_RACA == 2 ~ "Preta",
+      ANT_RACA == 3 ~ "Amarela",
+      ANT_RACA == 4 ~ "Parda",
+      ANT_RACA == 5 ~ "Indígena",
+      TRUE ~ "Ignorado"
+    ),
+
+    ESCOLMAE = as.character(ESCOLMAE),
+
+    ESCOLMAE = case_when(
+      ESCOLMAE %in% c("0") ~ "Analfabeto",
+      ESCOLMAE %in% c("1", "01") ~ "1ª a 4ª série incompleta do EF",
+      ESCOLMAE %in% c("2", "02") ~ "até 4ª série completa do EF",
+      ESCOLMAE %in% c("3", "03") ~ "5ª a 8ª série incompleta do EF",
+      ESCOLMAE %in% c("4", "04") ~ "Ensino fundamental completo",
+      ESCOLMAE %in% c("5", "05") ~ "Ensino médio incompleto",
+      ESCOLMAE %in% c("6", "06") ~ "Ensino médio completo",
+      ESCOLMAE %in% c("7", "07") ~ "Educação superior incompleta",
+      ESCOLMAE %in% c("8", "08") ~ "Educação superior completa",
+      ESCOLMAE %in% c("10") ~ "Não se aplica",
+      TRUE ~ "Ignorado"
+    ),
+
+    ANT_PRE_NA = case_when(
+      ANT_PRE_NA == 1 ~ "Sim",
+      ANT_PRE_NA == 2 ~ "Não",
+      TRUE ~ "Ignorado"
+    ),
+
+    ANTSIFIL_N = case_when(
+      ANTSIFIL_N == 1 ~ "Durante o pré-natal",
+      ANTSIFIL_N == 2 ~ "No momento do parto/curetagem",
+      ANTSIFIL_N == 3 ~ "Após o parto",
+      ANTSIFIL_N == 4 ~ "Não realizado",
+      TRUE ~ "Ignorado"
+    ),
+
+    ANT_TRATAD = case_when(
+      ANT_TRATAD == 1 ~ "Sim",
+      ANT_TRATAD == 2 ~ "Não",
+      TRUE ~ "Ignorado"
+    ),
+
+    TRA_ESQUEM = case_when(
+      TRA_ESQUEM == 1 ~ "Adequado",
+      TRA_ESQUEM == 2 ~ "Inadequado",
+      TRA_ESQUEM == 3 ~ "Não realizado",
+      TRUE ~ "Ignorado"
+    ),
+
+    EVOLUCAO = case_when(
+      EVOLUCAO == 1 ~ "Vivo",
+      EVOLUCAO == 2 ~ "Óbito por sífilis congênita",
+      EVOLUCAO == 3 ~ "Óbito por outras causas",
+      EVOLUCAO == 4 ~ "Aborto",
+      EVOLUCAO == 5 ~ "Natimorto",
+      EVOLUCAO == 9 ~ "Ignorado",
+      TRUE ~ "Ignorado"
+    )
+  )
+
+#Segundo passo no ambiente Colab#
+summary(dados)
+str(dados)
+## Resultado##
+
+    TP_NOT            SEM_NOT           ID_AGRAVO           DT_NOTIFIC        
+ Length:64584       Length:64584       Length:64584       Min.   :2022-01-01  
+ Class :character   Class :character   Class :character   1st Qu.:2022-08-06  
+ Mode  :character   Mode  :character   Mode  :character   Median :2023-03-17  
+                                                          Mean   :2023-03-24  
+                                                          3rd Qu.:2023-11-07  
+                                                          Max.   :2024-08-07  
+                                                                              
+  NU_ANO       SG_UF_NOT          ID_MUNICIP         ID_REGIONA       
+ 2022:26512   Length:64584       Length:64584       Length:64584      
+ 2023:25310   Class :character   Class :character   Class :character  
+ 2024:12762   Mode  :character   Mode  :character   Mode  :character  
+                                                                      
+                                                                      
+                                                                      
+                                                                      
+    DT_DIAG             SEM_DIAG           NU_IDADE_N     CS_SEXO         
+ Min.   :2012-11-12   Length:64584       Min.   :1000   Length:64584      
+ 1st Qu.:2022-07-22   Class :character   1st Qu.:2000   Class :character  
+ Median :2023-03-06   Mode  :character   Median :2000   Mode  :character  
+ Mean   :2023-03-10                      Mean   :2060                     
+ 3rd Qu.:2023-10-28                      3rd Qu.:2001                     
+ Max.   :2024-06-30                      Max.   :4012                     
+                                                                          
+  CS_GESTANT          CS_RACA           CS_ESCOL_N           SG_UF          
+ Length:64584       Length:64584       Length:64584       Length:64584      
+ Class :character   Class :character   Class :character   Class :character  
+ Mode  :character   Mode  :character   Mode  :character   Mode  :character  
+                                                                            
+                                                                            
+                                                                            
+                                                                            
+  ID_MN_RESI         ID_RG_RESI          ID_PAIS            ANT_IDADE     
+ Length:64584       Length:64584       Length:64584       Min.   :  0.00  
+ Class :character   Class :character   Class :character   1st Qu.: 20.00  
+ Mode  :character   Mode  :character   Mode  :character   Median : 24.00  
+                                                          Mean   : 24.84  
+                                                          3rd Qu.: 28.00  
+                                                          Max.   :999.00  
+                                                          NA's   :1489    
+   ANT_RACA          ID_OCUPA_N          ESCOLMAE          ANT_PRE_NA       
+ Length:64584       Length:64584       Length:64584       Length:64584      
+ Class :character   Class :character   Class :character   Class :character  
+ Mode  :character   Mode  :character   Mode  :character   Mode  :character  
+                                                                            
+                                                                            
+                                                                            
+                                                                            
+  UF_PRE_NAT         MUN_PRE_NA         ANTSIFIL_N         LAB_PARTO        
+ Length:64584       Length:64584       Length:64584       Length:64584      
+ Class :character   Class :character   Class :character   Class :character  
+ Mode  :character   Mode  :character   Mode  :character   Mode  :character  
+                                                                            
+                                                                            
+                                                                            
+                                                                            
+   LAB_TITU_2         LAB_DT3             LAB_CONF          TRA_ESQUEM       
+ Min.   :   0.00   Min.   :2012-01-04   Length:64584       Length:64584      
+ 1st Qu.:   2.00   1st Qu.:2022-07-22   Class :character   Class :character  
+ Median :   8.00   Median :2023-03-06   Mode  :character   Mode  :character  
+ Mean   :  27.88   Mean   :2023-03-12                                        
+ 3rd Qu.:  16.00   3rd Qu.:2023-10-28                                        
+ Max.   :6564.00   Max.   :2202-07-26                                        
+ NA's   :6262      NA's   :3091                                              
+     TRA_DT            ANT_TRATAD         ANT_UF_CRI         ANT_MUNI_C       
+ Min.   :1-01-01      Length:64584       Length:64584       Length:64584      
+ 1st Qu.:2022-05-15   Class :character   Class :character   Class :character  
+ Median :2023-01-05   Mode  :character   Mode  :character   Mode  :character  
+ Mean   :2022-12-05                                                           
+ 3rd Qu.:2023-08-23                                                           
+ Max.   :2024-12-14                                                           
+ NA's   :28048                                                                
+  LABC_SANGU          LABC_TIT_1        LABC_DT_1            LABC_IGG        
+ Length:64584       Min.   :   0.00   Min.   :21-12-31     Length:64584      
+ Class :character   1st Qu.:   2.00   1st Qu.:2022-07-18   Class :character  
+ Mode  :character   Median :   4.00   Median :2023-03-03   Mode  :character  
+                    Mean   :  17.57   Mean   :2017-10-31                     
+                    3rd Qu.:   8.00   3rd Qu.:2023-10-26                     
+                    Max.   :8122.00   Max.   :2221-10-06                     
+                    NA's   :13923     NA's   :9181                           
+    LABC_DT            LABC_LIQUO          LABC_TIT_2        LABC_DT_2         
+ Min.   :2020-02-13   Length:64584       Min.   :   0.00   Min.   :22-01-30    
+ 1st Qu.:2022-12-12   Class :character   1st Qu.:   1.00   1st Qu.:2022-07-14  
+ Median :2023-08-25   Mode  :character   Median :   2.00   Median :2023-03-01  
+ Mean   :2023-05-22                      Mean   :  15.08   Mean   :2016-09-11  
+ 3rd Qu.:2023-11-01                      3rd Qu.:   4.00   3rd Qu.:2023-10-27  
+ Max.   :2024-06-28                      Max.   :2710.00   Max.   :2024-09-03  
+ NA's   :64396                           NA's   :62495     NA's   :39165       
+  LABC_TITUL         LABC_EVIDE         LABC_LIQ_1         TRA_DIAG_T       
+ Length:64584       Length:64584       Length:64584       Length:64584      
+ Class :character   Class :character   Class :character   Class :character  
+ Mode  :character   Mode  :character   Mode  :character   Mode  :character  
+                                                                            
+                                                                            
+                                                                            
+                                                                            
+  TRA_ESQU_1         DS_ESQUEMA          EVOLUCAO            DT_OBITO         
+ Length:64584       Length:64584       Length:64584       Min.   :2012-11-12  
+ Class :character   Class :character   Class :character   1st Qu.:2022-07-21  
+ Mode  :character   Mode  :character   Mode  :character   Median :2023-03-15  
+                                                          Mean   :2023-02-24  
+                                                          3rd Qu.:2023-10-26  
+                                                          Max.   :2024-06-30  
+                                                          NA's   :63735       
+  EVO_DIAG_N         TRA_DIAG_C         CLI_ICTERI         CLI_RINITE       
+ Length:64584       Length:64584       Length:64584       Length:64584      
+ Class :character   Class :character   Class :character   Class :character  
+ Mode  :character   Mode  :character   Mode  :character   Mode  :character  
+                                                                            
+                                                                            
+                                                                            
+                                                                            
+  CLI_ANEMIA         CLI_ESPLEN           HEPATO           CLI_OSTEO        
+ Length:64584       Length:64584       Length:64584       Length:64584      
+ Class :character   Class :character   Class :character   Class :character  
+ Mode  :character   Mode  :character   Mode  :character   Mode  :character  
+                                                                            
+                                                                            
+                                                                            
+                                                                            
+    LESOES           CLI_OUTRO          SIN_OUTR_E         CLI_PSEUDO       
+ Length:64584       Length:64584       Length:64584       Length:64584      
+ Class :character   Class :character   Class :character   Class :character  
+ Mode  :character   Mode  :character   Mode  :character   Mode  :character  
+                                                                            
+                                                                            
+                                                                            
+                                                                            
+'data.frame':	64584 obs. of  64 variables:
+ $ TP_NOT    : chr  "2" "2" "2" "2" ...
+ $ SEM_NOT   : chr  "202206" "202244" "202244" "202203" ...
+ $ ID_AGRAVO : chr  "A509" "A509" "A509" "A509" ...
+ $ DT_NOTIFIC: Date, format: "2022-02-07" "2022-11-04" ...
+ $ NU_ANO    : Factor w/ 3 levels "2022","2023",..: 1 1 1 1 1 1 1 1 1 1 ...
+ $ SG_UF_NOT : chr  "26" "33" "33" "33" ...
+ $ ID_MUNICIP: chr  "261160" "330100" "330100" "330227" ...
+ $ ID_REGIONA: chr  "1497" NA NA NA ...
+ $ DT_DIAG   : Date, format: "2017-02-18" "2018-01-22" ...
+ $ SEM_DIAG  : chr  NA NA NA NA ...
+ $ NU_IDADE_N: int  2000 2008 2000 2000 3002 2009 2027 3002 3003 2009 ...
+ $ CS_SEXO   : chr  "M" "F" "F" "M" ...
+ $ CS_GESTANT: chr  "6" "6" "6" "6" ...
+ $ CS_RACA   : chr  "9" "4" "4" "1" ...
+ $ CS_ESCOL_N: chr  "10" "10" "10" "10" ...
+ $ SG_UF     : chr  "26" "33" "33" "33" ...
+ $ ID_MN_RESI: chr  "261160" "330100" "330100" "330227" ...
+ $ ID_RG_RESI: chr  "1497" NA NA NA ...
+ $ ID_PAIS   : chr  "1" "1" "1" "1" ...
+ $ ANT_IDADE : num  NA 22 29 22 38 46 26 28 18 39 ...
+ $ ANT_RACA  : chr  "Parda" "Parda" "Parda" "Parda" ...
+ $ ID_OCUPA_N: chr  NA NA NA NA ...
+ $ ESCOLMAE  : chr  "Ignorado" "Ignorado" "Ignorado" "Ignorado" ...
+ $ ANT_PRE_NA: chr  "Ignorado" "Sim" "Sim" "Ignorado" ...
+ $ UF_PRE_NAT: chr  NA "RJ" NA NA ...
+ $ MUN_PRE_NA: chr  NA "330100" NA NA ...
+ $ ANTSIFIL_N: chr  "No momento do parto/curetagem" "No momento do parto/curetagem" "Durante o pré-natal" "Durante o pré-natal" ...
+ $ LAB_PARTO : chr  "1" "1" "1" "9" ...
+ $ LAB_TITU_2: int  256 2 4 NA 8 NA 2 4 4 NA ...
+ $ LAB_DT3   : Date, format: "2017-02-18" "2018-02-21" ...
+ $ LAB_CONF  : chr  "1" "9" "9" "1" ...
+ $ TRA_ESQUEM: chr  "Inadequado" "Ignorado" "Inadequado" "Ignorado" ...
+ $ TRA_DT    : Date, format: "2017-02-18" NA ...
+ $ ANT_TRATAD: chr  "Ignorado" "Ignorado" "Sim" "Ignorado" ...
+ $ ANT_UF_CRI: chr  "PE" "RJ" "RJ" "RJ" ...
+ $ ANT_MUNI_C: chr  "261160" NA "330100" "330555" ...
+ $ LABC_SANGU: chr  "3" "9" "1" "9" ...
+ $ LABC_TIT_1: int  NA NA 8 NA NA NA 2 4 NA NA ...
+ $ LABC_DT_1 : Date, format: NA NA ...
+ $ LABC_IGG  : chr  "3" "9" "9" "9" ...
+ $ LABC_DT   : Date, format: NA NA ...
+ $ LABC_LIQUO: chr  "3" "9" "9" "9" ...
+ $ LABC_TIT_2: int  NA NA NA NA NA NA NA NA NA NA ...
+ $ LABC_DT_2 : Date, format: NA NA ...
+ $ LABC_TITUL: chr  "3" "9" "9" "9" ...
+ $ LABC_EVIDE: chr  "3" "9" "9" "9" ...
+ $ LABC_LIQ_1: chr  "3" "9" "9" "9" ...
+ $ TRA_DIAG_T: chr  "3" "9" "9" "9" ...
+ $ TRA_ESQU_1: chr  "5" "3" "3" "9" ...
+ $ DS_ESQUEMA: chr  NA NA NA NA ...
+ $ EVOLUCAO  : chr  "Óbito por sífilis congênita" "Vivo" "Vivo" "Vivo" ...
+ $ DT_OBITO  : Date, format: "2017-02-18" NA ...
+ $ EVO_DIAG_N: chr  "1" "1" "1" "1" ...
+ $ TRA_DIAG_C: chr  NA NA NA NA ...
+ $ CLI_ICTERI: chr  "3" "9" "9" "9" ...
+ $ CLI_RINITE: chr  "3" "9" "9" "9" ...
+ $ CLI_ANEMIA: chr  "3" "9" "9" "9" ...
+ $ CLI_ESPLEN: chr  "3" "9" "9" "9" ...
+ $ HEPATO    : chr  "3" "9" "9" "9" ...
+ $ CLI_OSTEO : chr  "3" "9" "9" "9" ...
+ $ LESOES    : chr  "3" "9" "9" "9" ...
+ $ CLI_OUTRO : chr  "3" "9" "9" "9" ...
+ $ SIN_OUTR_E: chr  NA NA NA NA ...
+ $ CLI_PSEUDO: chr  "3" "9" "9" "9" ...
+ - attr(*, "data_types")= chr [1:64] "C" "C" "C" "D" ...
+### Foi realizada a leitura e unificação dos bancos de dados de sífilis congênita referentes aos anos de 2022, 2023 e 2024, provenientes do DATASUS (formato DBF). Em seguida, uma análise exploratória inicial por meio da função summary() e str(), permitindo identificar a estrutura das variáveis, tipos de dados e possíveis inconsistências.
+
+# Agora fui identificar as variaveis do banco para fazer minha seleção
+names(dados)
+## Resultado##
+'TP_NOT''SEM_NOT''ID_AGRAVO''DT_NOTIFIC''NU_ANO''SG_UF_NOT''ID_MUNICIP''ID_REGIONA''DT_DIAG''SEM_DIAG''NU_IDADE_N''CS_SEXO''CS_GESTANT''CS_RACA''CS_ESCOL_N''SG_UF''ID_MN_RESI''ID_RG_RESI''ID_PAIS''ANT_IDADE''ANT_RACA''ID_OCUPA_N''ESCOLMAE''ANT_PRE_NA''UF_PRE_NAT''MUN_PRE_NA''ANTSIFIL_N''LAB_PARTO''LAB_TITU_2''LAB_DT3''LAB_CONF''TRA_ESQUEM''TRA_DT''ANT_TRATAD''ANT_UF_CRI''ANT_MUNI_C''LABC_SANGU''LABC_TIT_1''LABC_DT_1''LABC_IGG''LABC_DT''LABC_LIQUO''LABC_TIT_2''LABC_DT_2''LABC_TITUL''LABC_EVIDE''LABC_LIQ_1''TRA_DIAG_T''TRA_ESQU_1''DS_ESQUEMA''EVOLUCAO''DT_OBITO''EVO_DIAG_N''TRA_DIAG_C''CLI_ICTERI''CLI_RINITE''CLI_ANEMIA''CLI_ESPLEN''HEPATO''CLI_OSTEO''LESOES''CLI_OUTRO''SIN_OUTR_E''CLI_PSEUDO'
+
+#Selecionei as variaveis, apesar de nao usar todas no modelo final
+variaveis_boletim <- dados %>%
+  select(
+    NU_ANO,
+    DT_DIAG,
+    ID_MN_RESI,
+    ANT_IDADE,
+    ANT_RACA,
+    ESCOLMAE,
+    ANT_PRE_NA,
+    ANTSIFIL_N,
+    TRA_ESQUEM,
+    ANT_TRATAD,
+    EVOLUCAO,
+    EVO_DIAG_N,
+    TRA_DIAG_C
+  )
+
+# e novamente o uso do summary para nova visualização
+summary(variaveis_boletim)
+
+##Resultado##
+  NU_ANO         DT_DIAG            ID_MN_RESI          ANT_IDADE     
+ 2022:26512   Min.   :2012-11-12   Length:64584       Min.   :  0.00  
+ 2023:25310   1st Qu.:2022-07-22   Class :character   1st Qu.: 20.00  
+ 2024:12762   Median :2023-03-06   Mode  :character   Median : 24.00  
+              Mean   :2023-03-10                      Mean   : 24.84  
+              3rd Qu.:2023-10-28                      3rd Qu.: 28.00  
+              Max.   :2024-06-30                      Max.   :999.00  
+                                                      NA's   :1489    
+   ANT_RACA           ESCOLMAE          ANT_PRE_NA         ANTSIFIL_N       
+ Length:64584       Length:64584       Length:64584       Length:64584      
+ Class :character   Class :character   Class :character   Class :character  
+ Mode  :character   Mode  :character   Mode  :character   Mode  :character  
+                                                                            
+                                                                            
+                                                                            
+                                                                            
+  TRA_ESQUEM         ANT_TRATAD          EVOLUCAO          EVO_DIAG_N       
+ Length:64584       Length:64584       Length:64584       Length:64584      
+ Class :character   Class :character   Class :character   Class :character  
+ Mode  :character   Mode  :character   Mode  :character   Mode  :character  
+                                                                            
+                                                                            
+                                                                            
+                                                                            
+  TRA_DIAG_C       
+ Length:64584      
+ Class :character  
+ Mode  :character  
+                   
+                   
+                   
+                   
+
+
+
+

@@ -1,21 +1,13 @@
 
-# BMClima - Análise de Dados de Saúde e Clima: Estatísticas para Políticas Públicas
+# VigiSaúde com R - Construindo Boletim
 
-Curso ministrado no âmbito das atividades relacionadas ao projeto 
-[Relationship between climate variables and the incidence of acute bronchiolitis in children under five years old in Brazilian municipalities in the last 20 years](https://osf.io/edwbs/)
-
-[![DOI](https://zenodo.org/badge/823326120.svg)](https://zenodo.org/doi/10.5281/zenodo.12629276)
-
+Curso ministrado por Priscila Normando por meio da disciplina "Comunicação em Saúde" 
 
 ## Informações gerais do curso
 
-- **Coordenadora:** [Noely Moura](https://campusvirtual.fiocruz.br/gestordecursos/hotsite/dados-saude-clima/corpo-docente/9746)
+- **Ministrante:** Priscila Normando
 
-- **Ministrantes:** [Corpo Docente](https://campusvirtual.fiocruz.br/gestordecursos/hotsite/dados-saude-clima/corpo-docente/9746)
-
-- **Data/horário:** 21 de julho (início módulo 0) a 9 agosto de 2024;
-
-- **Faça sua inscrição [Análise de Dados de Saúde e Clima: Estatísticas para Políticas Públicas](https://campusvirtual.fiocruz.br/gestordecursos/hotsite/dados-saude-clima/oferecidas-25-vagas/9584)
+- **Data/horário:** 19 de Março (início módulo ) a 18 de abril de 2026;
 
 ## Materiais
 

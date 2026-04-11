@@ -1,0 +1,26 @@
+# ==========================================================
+# SCRIPT DE INSTALAÇÃO E EXPORTAÇÃO PARA PDF NO COLAB (ATIVIDADE 3)
+# ==========================================================
+
+# Instalar o pacote e força pq deu erro antes
+if (!require("tinytex")) install.packages("tinytex")
+tinytex::install_tinytex(force = TRUE)
+tinytex::tlmgr_path("add")
+
+# biblioteca necessária para o Boletim
+library(rmarkdown)
+
+# para Gerar o PDF
+render(
+  input = "boletim_Final1.Rmd", 
+  output_format = pdf_document(latex_engine = "xelatex"),
+  output_file = "boletim_epidemiologico_final.pdf"
+)
+
+# Mensagem de confirmação
+cat("\n--- VERIFICAÇÃO ---\n")
+if (file.exists("boletim_epidemiologico_final.pdf")) {
+  print("SUCESSO! Seu PDF foi gerado e está na pasta lateral (ícone da pasta).")
+} else {
+  print("O PDF ainda não foi encontrado. Verifique se o arquivo .Rmd está na pasta principal.")
+}
